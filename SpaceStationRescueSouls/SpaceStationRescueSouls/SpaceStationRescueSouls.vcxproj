@@ -19,6 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\component\Dimensions.h" />
+    <ClInclude Include="src\component\Location.h" />
+    <ClInclude Include="src\component\Motion.h" />
+    <ClInclude Include="src\component\RenderRect.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\graphics\Window.h" />
     <ClInclude Include="src\input\Keyhandler.h" />
@@ -27,10 +31,16 @@
     <ClInclude Include="src\Registry.h" />
     <ClInclude Include="src\stdafx.h" />
     <ClInclude Include="src\system\BaseSystem.h" />
+    <ClInclude Include="src\system\RenderSystem.h" />
     <ClInclude Include="src\utilities\Console.h" />
     <ClInclude Include="src\utilities\Time.h" />
+    <ClInclude Include="src\visitor\RenderRectVisitor.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\component\Dimensions.cpp" />
+    <ClCompile Include="src\component\Location.cpp" />
+    <ClCompile Include="src\component\Motion.cpp" />
+    <ClCompile Include="src\component\RenderRect.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\graphics\Window.cpp" />
     <ClCompile Include="src\input\Keyhandler.cpp" />
@@ -45,8 +55,10 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\system\BaseSystem.cpp" />
+    <ClCompile Include="src\system\RenderSystem.cpp" />
     <ClCompile Include="src\utilities\Console.cpp" />
     <ClCompile Include="src\utilities\Time.cpp" />
+    <ClCompile Include="src\visitor\RenderRectVisitor.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

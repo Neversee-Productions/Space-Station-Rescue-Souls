@@ -127,6 +127,8 @@ namespace app::inp
 	using MouseHandler = Mousehandler<sf::Mouse::Button>;
 }
 
+#include "math/Vector2.h"
+
 #include "utilities/Time.h"
 #include "utilities/Console.h"
 

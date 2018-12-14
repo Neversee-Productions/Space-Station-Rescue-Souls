@@ -43,6 +43,18 @@
     <Filter Include="Header Files\system">
       <UniqueIdentifier>{21f28631-a6dc-40f3-b4c6-6aa1222b6f00}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\component">
+      <UniqueIdentifier>{9654515c-34c1-4d16-9c49-d39ddded73d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\component">
+      <UniqueIdentifier>{cfcb1869-1c46-4dd1-9906-913ca6735bc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\visitor">
+      <UniqueIdentifier>{b374d28e-4cf3-47f3-9d95-48c9d3711cdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\visitor">
+      <UniqueIdentifier>{690c305a-87d5-4d9c-9589-d0eccb12ed27}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\stdafx.h">
@@ -74,6 +86,24 @@
     </ClInclude>
     <ClInclude Include="src\system\BaseSystem.h">
       <Filter>Header Files\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\component\Location.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\component\Dimensions.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\component\Motion.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\system\RenderSystem.h">
+      <Filter>Header Files\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\component\RenderRect.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\visitor\RenderRectVisitor.h">
+      <Filter>Header Files\visitor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +139,24 @@
     </ClCompile>
     <ClCompile Include="src\system\BaseSystem.cpp">
       <Filter>Source Files\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\Location.cpp">
+      <Filter>Source Files\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\Dimensions.cpp">
+      <Filter>Source Files\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\Motion.cpp">
+      <Filter>Source Files\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\system\RenderSystem.cpp">
+      <Filter>Source Files\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\RenderRect.cpp">
+      <Filter>Source Files\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\visitor\RenderRectVisitor.cpp">
+      <Filter>Source Files\visitor</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

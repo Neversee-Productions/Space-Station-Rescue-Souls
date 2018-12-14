@@ -1,6 +1,15 @@
 ﻿#include "stdafx.h"
 #include "Game.h"
 
+// Systems
+#include "system/RenderSystem.h"
+
+// Components
+#include "component/Location.h"
+#include "component/Dimensions.h"
+#include "component/Motion.h"
+#include "component/RenderRect.h"
+
 app::Game::Game()
 	: m_running(true)
 	, m_registry(app::Reg::get())
@@ -51,7 +60,7 @@ bool app::Game::initSystems()
 		};
 
 		m_renderSystems = {
-			nullptr
+			std::make_unique<sys::RenderSystem>(m_window)
 		};
 		return true;
 	}
@@ -66,6 +75,8 @@ bool app::Game::initEntities()
 {
 	try
 	{
+		this->createExampleRectangle();
+
 		return true;
 	}
 	catch (std::exception const & e)
@@ -73,4 +84,28 @@ bool app::Game::initEntities()
 		Console::writeLine({ "Error: [", e.what(), "]" });
 		return false;
 	}
+}
+
+app::Entity const app::Game::createExampleRectangle()
+{
+	app::Entity const entity = m_registry.create();
+
+	auto location = comp::Location();
+	location.position = { 200.0f, 200.0f };
+	location.orientation = 0.0f;
+	m_registry.assign<decltype(location)>(entity, std::move(location));
+
+	auto dimensions = comp::Dimensions();
+	dimensions.size = { 300.0f, 300.0f };
+	dimensions.origin = {
+		dimensions.size.x / 2.0f,
+		dimensions.size.y / 2.0f
+	};
+	m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
+
+	auto renderRect = comp::RenderRect();
+	renderRect.fill = sf::Color(0u, 255u, 0u, 255u);
+	m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
+
+	return entity;
 }
