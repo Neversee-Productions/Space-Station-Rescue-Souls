@@ -101,10 +101,6 @@
 #include <future>
 #include <condition_variable>
 
-/*********************************/
-/**         Includes here       **/
-/*********************************/
-
 // SFML Library
 #include <SFML/System.hpp>
 #include <SFML/Main.hpp>
@@ -115,3 +111,23 @@
 // Entt Library
 #include <Entt/entt.hpp>
 
+// Cute C2 Library
+#define CUTE_C2_IMPLEMENTATION
+#include <Cute/cute_c2.h>
+
+/*********************************/
+/**         Includes here       **/
+/*********************************/
+
+#include "input/Keyhandler.h"
+#include "input/MouseHandler.h"
+namespace app::inp
+{
+	using KeyHandler = Keyhandler<sf::Keyboard::Key>;
+	using MouseHandler = Mousehandler<sf::Mouse::Button>;
+}
+
+#include "utilities/Time.h"
+#include "utilities/Console.h"
+
+#include "Registry.h"
