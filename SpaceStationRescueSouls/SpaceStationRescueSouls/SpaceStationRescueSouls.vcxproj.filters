@@ -105,6 +105,12 @@
     <ClInclude Include="src\visitor\RenderRectVisitor.h">
       <Filter>Header Files\visitor</Filter>
     </ClInclude>
+    <ClInclude Include="src\component\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\system\CameraSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -157,6 +163,12 @@
     </ClCompile>
     <ClCompile Include="src\visitor\RenderRectVisitor.cpp">
       <Filter>Source Files\visitor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\system\CameraSystem.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
