@@ -65,39 +65,108 @@ namespace app::math
 
 	// Plus operators
 
-	template<typename T> Vector2<T> operator+(Vector2<T> const & leftV, Vector2<T> const & rightV);
-	template<typename T> Vector2<T> operator+(Vector2<T> const & v, T const & t);
-	template<typename T> Vector2<T> operator+(T const & t, Vector2<T> const & v);
+	template<typename T> Vector2<T> operator+(Vector2<T> leftV, Vector2<T> const & rightV)
+	{
+		leftV.x += rightV.x; leftV.y += rightV.y;
+		return leftV;
+	}
+	template<typename T> Vector2<T> operator+(Vector2<T> v, T const & t)
+	{
+		v.x += t; v.y += t;
+		return v;
+	}
+	template<typename T> Vector2<T> operator+(T const & t, Vector2<T> v)
+	{
+		v.x += t; v.y += t;
+		return v;
+	}
 
 	// Minus operators
 
-	template<typename T> Vector2<T> operator-(Vector2<T> const & leftV, Vector2<T> const & rightV);
-	template<typename T> Vector2<T> operator-(Vector2<T> const & v, T const & t);
-	template<typename T> Vector2<T> operator-(T const & t, Vector2<T> const & v);
+	template<typename T> Vector2<T> operator-(Vector2<T> leftV, Vector2<T> const & rightV)
+	{
+		leftV.x -= rightV.x; leftV.y -= rightV.y;
+		return leftV;
+	}
+	template<typename T> Vector2<T> operator-(Vector2<T> v, T const & t)
+	{
+		v.x -= t; v.y -= t;
+		return v;
+	}
+	template<typename T> Vector2<T> operator-(T const & t, Vector2<T> v)
+	{
+		v.x -= t; v.y -= t;
+		return v;
+	}
 
 	// Multiplication operators
 
-	template<typename T> Vector2<T> operator*(Vector2<T> const & leftV, Vector2<T> const & rightV);
-	template<typename T> Vector2<T> operator*(Vector2<T> const & v, T const & t);
-	template<typename T> Vector2<T> operator*(T const & t, Vector2<T> const & v);
+	template<typename T> Vector2<T> operator*(Vector2<T> leftV, Vector2<T> const & rightV)
+	{
+		leftV.x *= rightV.x; leftV.y *= rightV.y;
+		return leftV;
+	}
+	template<typename T> Vector2<T> operator*(Vector2<T> v, T const & t)
+	{
+		v.x *= t; v.y *= t;
+		return v;
+	}
+	template<typename T> Vector2<T> operator*(T const & t, Vector2<T> v)
+	{
+		v.x *= t; v.y *= t;
+		return v;
+	}
 
 	// Division operators
 
-	template<typename T> Vector2<T> operator/(Vector2<T> const & leftV, Vector2<T> const & rightV);
-	template<typename T> Vector2<T> operator/(Vector2<T> const & v, T const & t);
-	template<typename T> Vector2<T> operator/(T const & t, Vector2<T> const & v);
+	template<typename T> Vector2<T> operator/(Vector2<T> leftV, Vector2<T> const & rightV)
+	{
+		assert(rightV.x != app::math::Vector2<T>::zero && rightV.y != app::math::Vector2<T>::zero);
+		leftV.x /= rightV.x; leftV.y /= rightV.y;
+		return leftV;
+	}
+	template<typename T> Vector2<T> operator/(Vector2<T> v, T const & t)
+	{
+		assert(t != app::math::Vector2<T>::zero);
+		v.x /= t; v.y /= t;
+		return v;
+	}
+	template<typename T> Vector2<T> operator/(T const & t, Vector2<T> v)
+	{
+		assert(v.x != app::math::Vector2<T>::zero && v.y != app::math::Vector2<T>::zero);
+		v.x = t / v.x; v.y = t / v.y;
+		return v;
+	}
 
 	// Equality operators
 
-	template<typename T> constexpr bool operator==(Vector2<T> const & leftV, Vector2<T> const & rightV);
-	template<typename T> constexpr bool operator==(Vector2<T> const & v, T const & t);
-	template<typename T> constexpr bool operator==(T const & t, Vector2<T> const & v);
+	template<typename T> constexpr bool operator==(Vector2<T> const & leftV, Vector2<T> const & rightV)
+	{
+		return leftV.x == rightV.x && leftV.y == rightV.y;
+	}
+	template<typename T> constexpr bool operator==(Vector2<T> const & v, T const & t)
+	{
+		return v.x == t && v.y == t;
+	}
+	template<typename T> constexpr bool operator==(T const & t, Vector2<T> const & v)
+	{
+		return t == v.x && t == v.y;
+	}
 
 	// Inequality operators
 
-	template<typename T> constexpr bool operator!=(Vector2<T> const & leftV, Vector2<T> const rightV);
-	template<typename T> constexpr bool operator!=(Vector2<T> const & v, T const & t);
-	template<typename T> constexpr bool operator!=(T const & t, Vector2<T> const & v);
+	template<typename T> constexpr bool operator!=(Vector2<T> const & leftV, Vector2<T> const & rightV)
+	{
+		return leftV.x != rightV.x && leftV.y == rightV.y;
+	}
+	template<typename T> constexpr bool operator!=(Vector2<T> const & v, T const & t)
+	{
+		return v.x != t && v.y != t;
+	}
+	template<typename T> constexpr bool operator!=(T const & t, Vector2<T> const & v)
+	{
+		return t != v.x && t != v.y;
+	}
 
 	typedef Vector2<double> Vector2d;
 	typedef Vector2<float> Vector2f;
