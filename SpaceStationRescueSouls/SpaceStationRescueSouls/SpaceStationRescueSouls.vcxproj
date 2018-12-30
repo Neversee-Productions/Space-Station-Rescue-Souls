@@ -32,7 +32,7 @@
     <ClInclude Include="src\Registry.h" />
     <ClInclude Include="src\stdafx.h" />
     <ClInclude Include="src\system\BaseSystem.h" />
-    <ClInclude Include="src\system\CameraSystem.h" />
+    <ClInclude Include="src\system\CameraFollowSystem.h" />
     <ClInclude Include="src\system\RenderSystem.h" />
     <ClInclude Include="src\utilities\Console.h" />
     <ClInclude Include="src\utilities\Time.h" />
@@ -58,7 +58,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\system\BaseSystem.cpp" />
-    <ClCompile Include="src\system\CameraSystem.cpp" />
+    <ClCompile Include="src\system\CameraFollowSystem.cpp" />
     <ClCompile Include="src\system\RenderSystem.cpp" />
     <ClCompile Include="src\utilities\Console.cpp" />
     <ClCompile Include="src\utilities\Time.cpp" />

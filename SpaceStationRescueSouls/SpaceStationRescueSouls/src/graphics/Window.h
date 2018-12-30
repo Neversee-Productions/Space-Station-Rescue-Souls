@@ -34,6 +34,8 @@ namespace app::gra
 		void close();
 		sf::Uint32 const & getStyle() const;
 		void setStyle(sf::Uint32 const & newStyle);
+		void setView(sf::View const & view);
+		void resetView() { this->setView(m_sfWindow.getDefaultView()); }
 
 	public: // Public Static Variables
 	public: // Public Member Variables

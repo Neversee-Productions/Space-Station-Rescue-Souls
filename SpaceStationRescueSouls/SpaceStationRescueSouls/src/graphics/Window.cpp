@@ -337,3 +337,25 @@ void app::gra::Window::setStyle(sf::Uint32 const & newStyle)
 	m_style = newStyle;
 	this->changeStyle(m_style);
 }
+
+/// <summary>
+/// @brief Change the current active view.
+/// 
+/// 
+/// The view is like a 2D camera, it controls which part of
+/// the 2D scene is visible, and how it is viewed in the
+/// window.
+/// The new view will affect everything that is drawn, until
+/// another view is set.
+/// The window keeps its own copy of the view object,
+/// so it is not necessary to keep the original one alive
+/// after calling this function.
+/// To restore the original view of the target, you can call
+/// the resetView() function.
+/// </summary>
+/// <param name="view">New view to use</param>
+/// <see cref="resetView"/>
+void app::gra::Window::setView(sf::View const & view)
+{
+	m_sfWindow.setView(view);
+}

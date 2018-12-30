@@ -2,6 +2,7 @@
 #include "Game.h"
 
 // Systems
+#include "system/CameraFollowSystem.h"
 #include "system/RenderSystem.h"
 
 // Components
@@ -57,7 +58,7 @@ bool app::Game::initSystems()
 	try
 	{
 		m_updateSystems = {
-			nullptr
+			std::make_unique<sys::CameraFollowSystem>()
 		};
 
 		m_renderSystems = {
@@ -108,25 +109,10 @@ app::Entity const app::Game::createExampleRectangle()
 	renderRect.fill = sf::Color(0u, 255u, 0u, 255u);
 	m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
 
-	return entity;
-}
-
-app::Entity const app::Game::createCamera(app::Entity const & followEntity)
-{
-	app::Entity const entity = m_registry.create();
-
-	auto location = comp::Location();
-	location.position = { 0.0f, 0.0f };
-	location.orientation = 0.0f;
-	m_registry.assign<decltype(location)>(entity, std::move(location));
-
-	auto dimensions = comp::Dimensions();
-	dimensions.size = { 1600.0f, 900.0f };
-	dimensions.origin = dimensions.size / 2.0f;
-	m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
-
 	auto camera = comp::Camera();
-	camera.follow = followEntity;
+	camera.position = { 0.0f, 0.0f };
+	camera.offset = { 0.0f, 0.0f };
+	camera.size = { 500.0f, 500.0f };
 	camera.speed = 100.0f;
 	m_registry.assign<decltype(camera)>(entity, std::move(camera));
 

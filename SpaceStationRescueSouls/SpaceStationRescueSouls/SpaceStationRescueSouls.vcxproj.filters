@@ -106,10 +106,10 @@
       <Filter>Header Files\visitor</Filter>
     </ClInclude>
     <ClInclude Include="src\component\Camera.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\component</Filter>
     </ClInclude>
-    <ClInclude Include="src\system\CameraSystem.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\system\CameraFollowSystem.h">
+      <Filter>Header Files\system</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -165,10 +165,10 @@
       <Filter>Source Files\visitor</Filter>
     </ClCompile>
     <ClCompile Include="src\component\Camera.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\component</Filter>
     </ClCompile>
-    <ClCompile Include="src\system\CameraSystem.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\system\CameraFollowSystem.cpp">
+      <Filter>Source Files\system</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

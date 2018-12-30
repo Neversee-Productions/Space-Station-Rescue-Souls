@@ -1,22 +1,22 @@
-﻿#ifndef _CAMERA_SYSTEM_H
-#define _CAMERA_SYSTEM_H
+﻿#ifndef _CAMERA_FOLLOW_SYSTEM_H
+#define _CAMERA_FOLLOW_SYSTEM_H
 
 #include "BaseSystem.h"
 #include "graphics/Window.h"
 
 namespace app::sys
 {
-	class CameraSystem : public BaseSystem
+	class CameraFollowSystem : public BaseSystem
 	{
 	public: // Constructors/Destructor/Assignments
-		CameraSystem(app::gra::Window & window);
-		virtual ~CameraSystem() = default;
+		CameraFollowSystem() = default;
+		virtual ~CameraFollowSystem() = default;
 
-		CameraSystem(CameraSystem const &) = default;
-		CameraSystem & operator=(CameraSystem const &) = default;
+		CameraFollowSystem(CameraFollowSystem const &) = default;
+		CameraFollowSystem & operator=(CameraFollowSystem const &) = default;
 
-		CameraSystem(CameraSystem &&) = default;
-		CameraSystem & operator=(CameraSystem &&) = default;
+		CameraFollowSystem(CameraFollowSystem &&) = default;
+		CameraFollowSystem & operator=(CameraFollowSystem &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
@@ -31,9 +31,7 @@ namespace app::sys
 	private: // Private Member Functions
 	private: // Private Static Variables
 	private: // Private Member Variables
-		app::gra::Window & m_window;
-		sf::View m_view;
 	};
 }
 
-#endif // !_CAMERA_SYSTEM_H
+#endif // !_CAMERA_FOLLOW_SYSTEM_H

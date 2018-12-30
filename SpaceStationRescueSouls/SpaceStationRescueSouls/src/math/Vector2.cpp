@@ -123,6 +123,14 @@ app::math::Vector2<T> & app::math::Vector2<T>::unit()
 }
 
 template<typename T>
+app::math::Vector2<T> app::math::Vector2<T>::unit() const
+{
+	auto const length = this->magnitude();
+	assert(length != app::math::Vector2<T>::zero);
+	return Vector2<T>(this->x, this->y) / length;
+}
+
+template<typename T>
 app::math::Vector2<T>::operator std::string() const
 {
 	return std::to_string(this->x) + ", " + std::to_string(this->y);
