@@ -36,6 +36,7 @@ namespace app
 		bool initEntities();
 
 		app::Entity const createExampleRectangle();
+		app::Entity const createWorld();
 	private: // Private Static Variables
 	private: // Private Member Variables
 		bool m_running;
@@ -46,7 +47,7 @@ namespace app
 
 		app::gra::Window m_window;
 
-		std::array<std::unique_ptr<app::sys::BaseSystem>, 0> m_updateSystems;
+		std::array<std::unique_ptr<app::sys::BaseSystem>, 1> m_updateSystems;
 		std::array<std::unique_ptr<app::sys::BaseSystem>, 1> m_renderSystems;
 	};
 }

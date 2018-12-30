@@ -43,6 +43,7 @@ namespace app::math
 		T magnitudeSqr() const;
 		T magnitude() const;
 		Vector2<T> & unit();
+		Vector2<T> unit() const;
 
 		operator std::string() const;
 		operator sf::Vector2<T>() const;

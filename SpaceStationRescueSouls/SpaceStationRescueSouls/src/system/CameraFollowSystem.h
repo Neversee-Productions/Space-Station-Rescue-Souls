@@ -1,22 +1,22 @@
-﻿#ifndef _APP_SYSTEM_RENDER_SYSTEM_H
-#define _APP_SYSTEM_RENDER_SYSTEM_H
+﻿#ifndef _CAMERA_FOLLOW_SYSTEM_H
+#define _CAMERA_FOLLOW_SYSTEM_H
 
 #include "BaseSystem.h"
 #include "graphics/Window.h"
 
 namespace app::sys
 {
-	class RenderSystem : public BaseSystem
+	class CameraFollowSystem : public BaseSystem
 	{
 	public: // Constructors/Destructor/Assignments
-		RenderSystem(app::gra::Window & window);
-		virtual ~RenderSystem() = default;
+		CameraFollowSystem() = default;
+		virtual ~CameraFollowSystem() = default;
 
-		RenderSystem(RenderSystem const &) = default;
-		RenderSystem(RenderSystem &&) = default;
+		CameraFollowSystem(CameraFollowSystem const &) = default;
+		CameraFollowSystem & operator=(CameraFollowSystem const &) = default;
 
-		RenderSystem & operator=(RenderSystem const &) = default;
-		RenderSystem & operator=(RenderSystem &&) = default;
+		CameraFollowSystem(CameraFollowSystem &&) = default;
+		CameraFollowSystem & operator=(CameraFollowSystem &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
@@ -31,11 +31,7 @@ namespace app::sys
 	private: // Private Member Functions
 	private: // Private Static Variables
 	private: // Private Member Variables
-		app::gra::Window & m_window;
-
-		sf::RectangleShape m_renderShape;
-		sf::View m_view;
 	};
 }
 
-#endif // !_APP_SYSTEM_RENDER_SYSTEM_H
+#endif // !_CAMERA_FOLLOW_SYSTEM_H

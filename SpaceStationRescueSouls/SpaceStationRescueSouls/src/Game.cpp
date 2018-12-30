@@ -2,9 +2,11 @@
 #include "Game.h"
 
 // Systems
+#include "system/CameraFollowSystem.h"
 #include "system/RenderSystem.h"
 
 // Components
+#include "component/Camera.h"
 #include "component/Location.h"
 #include "component/Dimensions.h"
 #include "component/Motion.h"
@@ -56,7 +58,7 @@ bool app::Game::initSystems()
 	try
 	{
 		m_updateSystems = {
-			nullptr
+			std::make_unique<sys::CameraFollowSystem>()
 		};
 
 		m_renderSystems = {
@@ -76,6 +78,9 @@ bool app::Game::initEntities()
 	try
 	{
 		this->createExampleRectangle();
+
+		// create the world last so that it is rendered last.
+		this->createWorld();
 
 		return true;
 	}
@@ -97,14 +102,39 @@ app::Entity const app::Game::createExampleRectangle()
 
 	auto dimensions = comp::Dimensions();
 	dimensions.size = { 300.0f, 300.0f };
-	dimensions.origin = {
-		dimensions.size.x / 2.0f,
-		dimensions.size.y / 2.0f
-	};
+	dimensions.origin = dimensions.size / 2.0f;
 	m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
 
 	auto renderRect = comp::RenderRect();
 	renderRect.fill = sf::Color(0u, 255u, 0u, 255u);
+	m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
+
+	auto camera = comp::Camera();
+	camera.position = { 0.0f, 0.0f };
+	camera.offset = { 0.0f, 0.0f };
+	camera.size = { 500.0f, 500.0f };
+	camera.speed = 100.0f;
+	m_registry.assign<decltype(camera)>(entity, std::move(camera));
+
+	return entity;
+}
+
+app::Entity const app::Game::createWorld()
+{
+	app::Entity const entity = m_registry.create();
+
+	auto location = comp::Location();
+	location.position = { -1000.0f, -1000.0f };
+	location.orientation = 0.0f;
+	m_registry.assign<decltype(location)>(entity, std::move(location));
+
+	auto dimensions = comp::Dimensions();
+	dimensions.size = { 4000.0f, 4000.0f };
+	dimensions.origin = {};
+	m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
+
+	auto renderRect = comp::RenderRect();
+	renderRect.fill = sf::Color(125u, 125u, 125u, 255u);
 	m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
 
 	return entity;
