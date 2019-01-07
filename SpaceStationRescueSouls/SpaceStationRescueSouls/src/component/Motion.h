@@ -19,10 +19,33 @@ namespace app::comp
 	public: // Public Member Functions
 	public: // Public Static Variables
 	public: // Public Member Variables
+		/// <summary>
+		/// @brief defines the velocity of the entity.
+		/// 
+		/// 
+		/// </summary>
 		math::Vector2f velocity = { 0.0f, 0.0f };
+
+		/// <summary>
+		/// @brief angle at which to apply velocity.
+		/// 
+		/// 
+		/// </summary>
 		float angle = 0.0f;
+
+		/// <summary>
+		/// @brief speed of motion.
+		/// 
+		/// 
+		/// </summary>
 		float speed = 0.0f;
-		float drag = 0.001f;
+
+		/// <summary>
+		/// @brief drag force acting on the entity.
+		/// 
+		/// 
+		/// </summary>
+		float drag = 0.99f;
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables

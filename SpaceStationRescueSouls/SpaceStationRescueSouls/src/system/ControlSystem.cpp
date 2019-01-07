@@ -35,17 +35,24 @@ void app::sys::ControlSystem::update(app::time::seconds const & dt)
 		}
 		if (m_keyHandler.isKeyDown({ sf::Keyboard::Up, sf::Keyboard::W }))
 		{
+			//we only change the motion angle when thrusters are on otherwise it stays the same.
 			motion.angle = location.orientation;
 			motion.speed += 0.01f * dt.count();
 		}
 		else
 		{
+			//when thrusters are off speed of travel is 0.
 			motion.speed = 0;
 		}
 
 	});
 }
 
+/// <summary>
+/// @brief Destructor
+/// 
+/// 
+/// </summary>
 app::sys::ControlSystem::~ControlSystem()
 {
 }

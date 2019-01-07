@@ -5,11 +5,20 @@
 
 const float app::sys::MotionSystem::s_MAX_SPEED = 1.0f;
 
+/// <summary>
+/// @brief Default constructor.
+/// 
+/// 
+/// </summary>
 app::sys::MotionSystem::MotionSystem()
 {
 }
 
-
+/// <summary>
+/// @brief the destructor function.
+/// 
+/// 
+/// </summary>
 app::sys::MotionSystem::~MotionSystem()
 {
 }
@@ -47,14 +56,14 @@ void app::sys::MotionSystem::update(app::time::seconds const & dt)
 		{
 			motion.speed = s_MAX_SPEED;
 		}
-
+		//calculate the velocity from speed.
 		motion.velocity.x += std::cos(motion.angle * (PI / 180)) * motion.speed;
 		motion.velocity.y += std::sin(motion.angle * (PI / 180)) * motion.speed;
 		location.position += motion.velocity;
-
+		//apply drag when nessecery otherwise velocity is 0.
 		if (motion.velocity.magnitude() > 0.002f)
 		{
-			motion.velocity *= 0.99;
+			motion.velocity *= motion.drag;
 		}
 		else
 		{
