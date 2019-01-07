@@ -77,7 +77,9 @@ bool app::Game::initEntities()
 {
 	try
 	{
-		this->createExampleRectangle();
+
+		auto const cameraFollowEntity = this->createExampleRectangle();
+		this->createCamera(cameraFollowEntity);
 
 		// create the world last so that it is rendered last.
 		this->createWorld();
@@ -89,6 +91,19 @@ bool app::Game::initEntities()
 		Console::writeLine({ "Error: [", e.what(), "]" });
 		return false;
 	}
+}
+
+void app::Game::createCamera(app::Entity const followEntity)
+{
+	app::Entity const entity = m_registry.create();
+
+	auto camera = comp::Camera();
+	camera.entity = followEntity;
+	camera.position = { 1000.0f, 1000.0f };
+	camera.offset = { 0.0f, 0.0f };
+	camera.size = { 1000.0f, 1000.0f };
+	camera.speed = 100.0f;
+	m_registry.assign<decltype(camera)>(entt::tag_t(), entity, std::move(camera));
 }
 
 app::Entity const app::Game::createExampleRectangle()
@@ -110,32 +125,40 @@ app::Entity const app::Game::createExampleRectangle()
 	m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
 
 	auto camera = comp::Camera();
-	camera.position = { 0.0f, 0.0f };
-	camera.offset = { 0.0f, 0.0f };
-	camera.size = { 500.0f, 500.0f };
-	camera.speed = 100.0f;
 	m_registry.assign<decltype(camera)>(entity, std::move(camera));
 
 	return entity;
 }
 
-app::Entity const app::Game::createWorld()
+void app::Game::createWorld()
 {
-	app::Entity const entity = m_registry.create();
-
-	auto location = comp::Location();
-	location.position = { -1000.0f, -1000.0f };
-	location.orientation = 0.0f;
-	m_registry.assign<decltype(location)>(entity, std::move(location));
+	const auto size = math::Vector2<size_t>{ 4, 4 };
+	const auto startLocation = math::Vector2f{ -1000.0f, -1000.0f };
+	const auto blockDistance = math::Vector2f{ 500.0f, 500.0f };
 
 	auto dimensions = comp::Dimensions();
-	dimensions.size = { 4000.0f, 4000.0f };
+	dimensions.size = { 400.0f, 400.0f };
 	dimensions.origin = {};
-	m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
 
 	auto renderRect = comp::RenderRect();
 	renderRect.fill = sf::Color(125u, 125u, 125u, 255u);
-	m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
 
-	return entity;
+	for (size_t x = 0; x < size.x; x++)
+	{
+		const auto floatXIndex = static_cast<float>(x);
+
+		for (size_t y = 0; y < size.y; y++)
+		{
+			const auto floatYIndex = static_cast<float>(y);
+			const auto step = math::Vector2f{ floatXIndex, floatYIndex };
+			app::Entity const entity = m_registry.create();
+
+			auto location = comp::Location();
+			location.position = startLocation + (blockDistance * step);
+			location.orientation = 0.0f;
+			m_registry.assign<decltype(location)>(entity, std::move(location));
+			m_registry.assign<decltype(dimensions)>(entity, dimensions);
+			m_registry.assign<decltype(renderRect)>(entity, renderRect);
+		}
+	}
 }

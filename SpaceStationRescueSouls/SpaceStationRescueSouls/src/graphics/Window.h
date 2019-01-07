@@ -87,24 +87,6 @@ namespace app::gra
 		std::list<sf::VideoMode> m_supportedResolutions;
 
 		/// <summary>
-		/// @brief Representation of our current frame.
-		/// 
-		/// This is our render target for render calls,
-		/// all drawables are drawn on this texture and than
-		/// our frame is drawn on to the window.
-		/// </summary>
-		sf::RenderTexture m_renderTexture;
-
-		/// <summary>
-		/// @brief Renders our frame using this sprite.
-		/// 
-		/// Needed for sfml to do proper transforms internally,
-		/// we will attach our frame as a texture to this sprite and
-		/// draw it at (0, 0).
-		/// </summary>
-		sf::Sprite m_textureRenderer;
-
-		/// <summary>
 		/// @brief Reference to KeyHandler.
 		/// 
 		/// Will be used to update its map of keys

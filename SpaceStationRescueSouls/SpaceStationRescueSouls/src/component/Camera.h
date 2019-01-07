@@ -19,6 +19,7 @@ namespace app::comp
 	public: // Public Member Functions
 	public: // Public Static Variables
 	public: // Public Member Variables
+		std::optional<app::Entity> entity;
 		math::Vector2f position = { 0.0f, 0.0f };
 		math::Vector2f size = { 0.0f, 0.0f };
 		math::Vector2f offset = { 0.0f, 0.0f };

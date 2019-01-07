@@ -23,8 +23,6 @@ app::gra::Window::Window(app::inp::KeyHandler & keyHandler, app::inp::MouseHandl
 	, m_sfWindow()
 	, m_resolution()
 	, m_supportedResolutions()
-	, m_renderTexture()
-	, m_textureRenderer()
 	, m_keyHandler(keyHandler)
 	, m_mouseHandler(mouseHandler)
 {
@@ -63,33 +61,6 @@ app::gra::Window::Window(app::inp::KeyHandler & keyHandler, app::inp::MouseHandl
 	
 	m_sfWindow.create(m_resolution, m_title, m_style, settings);
 
-	///////////////////////////////////////////////////////
-	// create and initialize our render texture
-	///////////////////////////////////////////////////////
-	const sf::Vector2u textureOriginalSize = sf::Vector2u(1366u, 768u);
-	m_renderTexture.create(textureOriginalSize.x, textureOriginalSize.y, settings);
-
-	///////////////////////////////////////////////////////
-	// initialize our texture renderer
-	///////////////////////////////////////////////////////
-	
-	const auto & textureSize = static_cast<sf::Vector2f>(m_renderTexture.getSize());
-	const auto & windowSize = static_cast<sf::Vector2f>(m_sfWindow.getSize());
-	const sf::Vector2f textureScalar(windowSize.x / textureSize.x, windowSize.y / textureSize.y);
-	
-	m_textureRenderer.setColor(sf::Color::White);
-	m_textureRenderer.setPosition(0.0f, 0.0f);
-	m_textureRenderer.setOrigin(0.0f, 0.0f);
-	m_textureRenderer.setRotation(0.0f);
-	m_textureRenderer.setScale(textureScalar);
-	m_textureRenderer.setTexture(m_renderTexture.getTexture(), true);
-
-	///////////////////////////////////////////////////////
-	// initialize Views Size
-	///////////////////////////////////////////////////////
-	const auto & viewSize = m_renderTexture.getSize();
-	//app::setViewSize(viewSize.x, viewSize.y);
-	//app::setViewC2Rect(sf::Vector2f(0.0f, 0.0f), static_cast<sf::Vector2f>(App::getViewSize()));
 	//unhide cursor
 	m_sfWindow.setMouseCursorVisible(true);
 
@@ -241,7 +212,7 @@ void app::gra::Window::changeStyle(const sf::Uint32 & newStyle)
 /// <param name="drawable">target that will be rendered on next produced frame.</param>
 void app::gra::Window::draw(const sf::Drawable & drawable)
 {
-	m_renderTexture.draw(drawable, sf::RenderStates::Default);
+	m_sfWindow.draw(drawable, sf::RenderStates::Default);
 }
 
 /// <summary>
@@ -253,7 +224,7 @@ void app::gra::Window::draw(const sf::Drawable & drawable)
 /// <param name="renderState">the render state we want to apply to our target.</param>
 void app::gra::Window::draw(const sf::Drawable & drawable, const sf::RenderStates & renderState)
 {
-	m_renderTexture.draw(drawable, renderState);
+	m_sfWindow.draw(drawable, renderState);
 }
 
 /// <summary>
@@ -266,7 +237,7 @@ void app::gra::Window::draw(const sf::Drawable & drawable, const sf::RenderState
 /// <param name="primitiveTypes">type of primitive to be drawn</param>
 void app::gra::Window::draw(sf::Vertex const * vertices, int const & size, sf::PrimitiveType const & primitiveTypes)
 {
-	m_renderTexture.draw(vertices, size, primitiveTypes, sf::RenderStates::Default);
+	m_sfWindow.draw(vertices, size, primitiveTypes, sf::RenderStates::Default);
 }
 
 /// <summary>
@@ -276,8 +247,6 @@ void app::gra::Window::draw(sf::Vertex const * vertices, int const & size, sf::P
 /// </summary>
 void app::gra::Window::display()
 {
-	m_renderTexture.display();
-	m_sfWindow.draw(m_textureRenderer);
 	m_sfWindow.display();
 }
 
@@ -299,7 +268,6 @@ bool app::gra::Window::isOpen() const
 /// </summary>
 void app::gra::Window::clear()
 {
-	m_renderTexture.clear();
 	m_sfWindow.clear();
 }
 
@@ -310,7 +278,6 @@ void app::gra::Window::clear()
 /// </summary>
 void app::gra::Window::close()
 {
-	m_renderTexture.clear();
 	m_sfWindow.clear();
 	m_sfWindow.close();
 }
