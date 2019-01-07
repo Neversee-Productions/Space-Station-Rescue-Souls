@@ -5,6 +5,7 @@
 #include "system/CameraFollowSystem.h"
 #include "system/RenderSystem.h"
 #include "system/MotionSystem.h"
+#include "system/ControlSystem.h"
 
 // Components
 #include "component/Camera.h"
@@ -12,6 +13,7 @@
 #include "component/Dimensions.h"
 #include "component/Motion.h"
 #include "component/RenderRect.h"
+#include "component/Input.h"
 
 app::Game::Game()
 	: m_running(true)
@@ -60,7 +62,8 @@ bool app::Game::initSystems()
 	{
 		m_updateSystems = {
 			std::make_unique<sys::CameraFollowSystem>(),
-			std::make_unique<app::sys::MotionSystem>()
+			std::make_unique<app::sys::MotionSystem>(),
+			std::make_unique<app::sys::ControlSystem>(m_keyHandler)
 
 		};
 
@@ -152,6 +155,9 @@ app::Entity const app::Game::createPlayer()
 	auto motion = comp::Motion();
 	motion.velocity = math::Vector2f(0.0f, 0.0f);
 	m_registry.assign<decltype(motion)>(entity, std::move(motion));
+
+	auto input = comp::Input();
+	m_registry.assign<decltype(input)>(entity, std::move(input));
 
 	return entity;
 }

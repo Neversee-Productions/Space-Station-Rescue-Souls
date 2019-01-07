@@ -21,6 +21,8 @@ namespace app::comp
 	public: // Public Member Variables
 		math::Vector2f velocity = { 0.0f, 0.0f };
 		float angle = 0.0f;
+		float speed = 0.0f;
+		float drag = 0.001f;
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables

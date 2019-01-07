@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="src\component\Camera.h" />
     <ClInclude Include="src\component\Dimensions.h" />
+    <ClInclude Include="src\component\Input.h" />
     <ClInclude Include="src\component\Location.h" />
     <ClInclude Include="src\component\Motion.h" />
     <ClInclude Include="src\component\RenderRect.h" />
@@ -33,6 +34,7 @@
     <ClInclude Include="src\stdafx.h" />
     <ClInclude Include="src\system\BaseSystem.h" />
     <ClInclude Include="src\system\CameraFollowSystem.h" />
+    <ClInclude Include="src\system\ControlSystem.h" />
     <ClInclude Include="src\system\MotionSystem.h" />
     <ClInclude Include="src\system\RenderSystem.h" />
     <ClInclude Include="src\utilities\Console.h" />
@@ -42,6 +44,7 @@
   <ItemGroup>
     <ClCompile Include="src\component\Camera.cpp" />
     <ClCompile Include="src\component\Dimensions.cpp" />
+    <ClCompile Include="src\component\Input.cpp" />
     <ClCompile Include="src\component\Location.cpp" />
     <ClCompile Include="src\component\Motion.cpp" />
     <ClCompile Include="src\component\RenderRect.cpp" />
@@ -60,6 +63,7 @@
     </ClCompile>
     <ClCompile Include="src\system\BaseSystem.cpp" />
     <ClCompile Include="src\system\CameraFollowSystem.cpp" />
+    <ClCompile Include="src\system\ControlSystem.cpp" />
     <ClCompile Include="src\system\MotionSystem.cpp" />
     <ClCompile Include="src\system\RenderSystem.cpp" />
     <ClCompile Include="src\utilities\Console.cpp" />

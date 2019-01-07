@@ -39,7 +39,6 @@ namespace app
 		app::Entity const createPlayer();
 		app::Entity const createWorld();
 	private: // Private Static Variables
-	private: // Private Member Variables
 		bool m_running;
 		app::Registry & m_registry;
 
@@ -48,7 +47,7 @@ namespace app
 
 		app::gra::Window m_window;
 
-		std::array<std::unique_ptr<app::sys::BaseSystem>, 2> m_updateSystems;
+		std::array<std::unique_ptr<app::sys::BaseSystem>, 3> m_updateSystems;
 		std::array<std::unique_ptr<app::sys::BaseSystem>, 1> m_renderSystems;
 	};
 }
