@@ -15,13 +15,20 @@ app::sys::RenderSystem::RenderSystem(app::gra::Window & window)
 	, m_view({ 0.0f, 0.0f }, { 1.0f, 1.0f })
 {
 	m_view.setViewport(sf::FloatRect(0.0f, 0.0f, 1.0f, 1.0f));
-	m_registry.prepare<comp::Location, comp::Dimensions, comp::RenderRect, comp::Camera>();
 	m_registry.prepare<comp::Location, comp::Dimensions, comp::RenderRect>();
 }
 
 void app::sys::RenderSystem::update(app::time::seconds const & dt)
 {
-	auto cameraView = m_registry.view<comp::Location, comp::Dimensions, comp::RenderRect, comp::Camera>(entt::persistent_t());
+	auto & camera = m_registry.get<comp::Camera>();
+	if (camera.entity.has_value())
+	{
+		auto[location, dimensions, renderRect] = m_registry.get<comp::Location, comp::Dimensions, comp::RenderRect>(camera.entity.value());
+		m_view.setCenter(camera.position + camera.offset);
+		m_view.setSize(camera.size);
+		m_window.setView(m_view);
+	}
+
 	m_registry.view<comp::Location, comp::Dimensions, comp::RenderRect>(entt::persistent_t())
 		.each([&, this](app::Entity const entity, comp::Location & location, comp::Dimensions & dimensions, comp::RenderRect & renderRect)
 	{
@@ -31,17 +38,6 @@ void app::sys::RenderSystem::update(app::time::seconds const & dt)
 		m_renderShape.setOrigin(dimensions.origin);
 		std::visit(vis::RenderRectVisitor(m_renderShape), renderRect.fill);
 
-		if (cameraView.contains(entity))
-		{
-			auto & camera = cameraView.get<comp::Camera>(entity);
-			m_view.setCenter(camera.position + camera.offset);
-			m_view.setSize(camera.size);
-			m_window.setView(m_view);
-		}
-		else
-		{
-			m_window.resetView();
-		}
 		m_window.draw(m_renderShape);
 	});
 }

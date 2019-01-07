@@ -35,8 +35,9 @@ namespace app
 		bool initSystems();
 		bool initEntities();
 
+		void createCamera(app::Entity const entity);
 		app::Entity const createExampleRectangle();
-		app::Entity const createWorld();
+		void createWorld();
 	private: // Private Static Variables
 	private: // Private Member Variables
 		bool m_running;
