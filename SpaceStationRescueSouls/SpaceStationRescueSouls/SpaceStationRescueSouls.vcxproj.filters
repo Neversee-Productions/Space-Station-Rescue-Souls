@@ -111,6 +111,9 @@
     <ClInclude Include="src\system\CameraFollowSystem.h">
       <Filter>Header Files\system</Filter>
     </ClInclude>
+    <ClInclude Include="src\system\MotionSystem.h">
+      <Filter>Header Files\system</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -168,6 +171,9 @@
       <Filter>Source Files\component</Filter>
     </ClCompile>
     <ClCompile Include="src\system\CameraFollowSystem.cpp">
+      <Filter>Source Files\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\system\MotionSystem.cpp">
       <Filter>Source Files\system</Filter>
     </ClCompile>
   </ItemGroup>

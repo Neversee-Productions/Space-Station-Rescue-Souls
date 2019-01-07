@@ -4,6 +4,7 @@
 // Systems
 #include "system/CameraFollowSystem.h"
 #include "system/RenderSystem.h"
+#include "system/MotionSystem.h"
 
 // Components
 #include "component/Camera.h"
@@ -58,12 +59,15 @@ bool app::Game::initSystems()
 	try
 	{
 		m_updateSystems = {
-			std::make_unique<sys::CameraFollowSystem>()
+			std::make_unique<sys::CameraFollowSystem>(),
+			std::make_unique<app::sys::MotionSystem>()
+
 		};
 
 		m_renderSystems = {
 			std::make_unique<sys::RenderSystem>(m_window)
 		};
+
 		return true;
 	}
 	catch (std::exception const & e)
@@ -77,7 +81,8 @@ bool app::Game::initEntities()
 {
 	try
 	{
-		this->createExampleRectangle();
+		//this->createExampleRectangle();
+		this->createPlayer();
 
 		// create the world last so that it is rendered last.
 		this->createWorld();
@@ -115,6 +120,38 @@ app::Entity const app::Game::createExampleRectangle()
 	camera.size = { 500.0f, 500.0f };
 	camera.speed = 100.0f;
 	m_registry.assign<decltype(camera)>(entity, std::move(camera));
+
+	return entity;
+}
+
+app::Entity const app::Game::createPlayer()
+{
+	app::Entity const entity = m_registry.create();
+
+	auto location = comp::Location();
+	location.position = { 200.0f, 200.0f };
+	location.orientation = 0.0f;
+	m_registry.assign<decltype(location)>(entity, std::move(location));
+
+	auto dimensions = comp::Dimensions();
+	dimensions.size = { 50.0f, 50.0f };
+	dimensions.origin = dimensions.size / 2.0f;
+	m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
+
+	auto renderRect = comp::RenderRect();
+	renderRect.fill = sf::Color(255u, 0u, 0u, 255u);
+	m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
+
+	auto camera = comp::Camera();
+	camera.position = { 0.0f, 0.0f };
+	camera.offset = { 0.0f, 0.0f };
+	camera.size = { 500.0f, 500.0f };
+	camera.speed = 100.0f;
+	m_registry.assign<decltype(camera)>(entity, std::move(camera));
+
+	auto motion = comp::Motion();
+	motion.velocity = math::Vector2f(0.0f, 0.0f);
+	m_registry.assign<decltype(motion)>(entity, std::move(motion));
 
 	return entity;
 }
