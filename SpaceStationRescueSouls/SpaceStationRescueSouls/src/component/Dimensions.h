@@ -5,6 +5,11 @@
 
 namespace app::comp
 {
+	/// <summary>
+	/// @brief Component that defines dimensional data on the entity.
+	/// 
+	/// 
+	/// </summary>
 	struct Dimensions
 	{
 	public: // Constructors/Destructor/Assignments
@@ -21,7 +26,18 @@ namespace app::comp
 	public: // Public Member Functions
 	public: // Public Static Variables
 	public: // Public Member Variables
+		/// <summary>
+		/// @brief Size of the entity on the screen.
+		/// 
+		/// 
+		/// </summary>
 		math::Vector2f size = { 0.0f, 0.0f };
+
+		/// <summary>
+		/// @brief origin of the entity.
+		/// 
+		/// 
+		/// </summary>
 		math::Vector2f origin = { 0.0f, 0.0f };
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions

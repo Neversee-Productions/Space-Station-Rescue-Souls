@@ -15,6 +15,11 @@
 #include "component/RenderRect.h"
 #include "component/Input.h"
 
+/// <summary>
+/// @brief default constructor.
+/// 
+/// 
+/// </summary>
 app::Game::Game()
 	: m_running(true)
 	, m_registry(app::Reg::get())
@@ -28,11 +33,22 @@ app::Game::Game()
 		&& this->initEntities();
 }
 
+/// <summary>
+/// @brief Method that polls window events.
+/// 
+/// 
+/// </summary>
 void app::Game::pollEvents()
 {
 	m_window.processEvents();
 }
 
+/// <summary>
+/// @brief This is the main update call.
+/// 
+/// 
+/// </summary>
+/// <param name="dt">time since last update in seconds</param>
 void app::Game::update(app::time::seconds const & dt)
 {
 	for (std::unique_ptr<sys::BaseSystem> & uptrSystem : m_updateSystems)
@@ -44,6 +60,12 @@ void app::Game::update(app::time::seconds const & dt)
 	m_mouseHandler.update();
 }
 
+/// <summary>
+/// @brief This is the main draw call.
+/// 
+/// 
+/// </summary>
+/// <param name="dt">time since last update in seconds</param>
 void app::Game::render(app::time::seconds const & dt)
 {
 	m_window.clear();
@@ -56,6 +78,12 @@ void app::Game::render(app::time::seconds const & dt)
 	m_window.display();
 }
 
+/// <summary>
+/// @brief This method initialises the systems for the game.
+/// 
+/// 
+/// </summary>
+/// <returns>true if all systems created successfully, false if some system fails to initialise</returns>
 bool app::Game::initSystems()
 {
 	try
@@ -80,6 +108,12 @@ bool app::Game::initSystems()
 	}
 }
 
+/// <summary>
+/// @brief Initialise the entities for the game.
+/// 
+/// 
+/// </summary>
+/// <returns>true if successful, false if failed</returns>
 bool app::Game::initEntities()
 {
 	try
@@ -99,6 +133,12 @@ bool app::Game::initEntities()
 	}
 }
 
+/// <summary>
+/// @brief mothod for creating a debug rectangle.
+/// 
+/// 
+/// </summary>
+/// <returns>The debug rectangle entity</returns>
 app::Entity const app::Game::createExampleRectangle()
 {
 	app::Entity const entity = m_registry.create();
@@ -127,6 +167,12 @@ app::Entity const app::Game::createExampleRectangle()
 	return entity;
 }
 
+/// <summary>
+/// @brief Creates the player entity.
+/// 
+/// 
+/// </summary>
+/// <returns>The player entity</returns>
 app::Entity const app::Game::createPlayer()
 {
 	app::Entity const entity = m_registry.create();
@@ -162,6 +208,12 @@ app::Entity const app::Game::createPlayer()
 	return entity;
 }
 
+/// <summary>
+/// @brief create the world entity.
+/// 
+/// 
+/// </summary>
+/// <returns>The world entity</returns>
 app::Entity const app::Game::createWorld()
 {
 	app::Entity const entity = m_registry.create();

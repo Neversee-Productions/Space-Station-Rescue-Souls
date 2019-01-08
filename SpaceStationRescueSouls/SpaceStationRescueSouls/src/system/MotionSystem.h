@@ -5,7 +5,9 @@
 namespace app::sys
 {
 	/// <summary>
-	/// @class this class will perform the movement of the player.
+	/// @class This system deals with motion physics.
+	/// 
+	/// 
 	/// </summary>
 	class MotionSystem : public BaseSystem
 	{
