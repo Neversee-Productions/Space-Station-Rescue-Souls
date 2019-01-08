@@ -1,8 +1,13 @@
 #include "stdafx.h"
 #include "ControlSystem.h"
+
+//components
 #include "component/Input.h"
 #include "component/Location.h"
 #include "component/Motion.h"
+#include "component/Dimensions.h"
+#include "component/RenderRect.h"
+#include "component/Projectile.h"
 
 /// <summary>
 /// @brief default constructor.
@@ -23,7 +28,7 @@ app::sys::ControlSystem::ControlSystem(const app::inp::KeyHandler & keyhandler)
 void app::sys::ControlSystem::update(app::time::seconds const & dt)
 {
 	m_registry.view<comp::Input, comp::Location, comp::Motion>()
-		.each([&, this](app::Entity const entity, app::comp::Input input, app::comp::Location & location, app::comp::Motion & motion)
+		.each([&, this](app::Entity const entity, app::comp::Input & input, app::comp::Location & location, app::comp::Motion & motion)
 	{
 		if (m_keyHandler.isKeyDown({ sf::Keyboard::Right, sf::Keyboard::D }))
 		{
@@ -44,7 +49,17 @@ void app::sys::ControlSystem::update(app::time::seconds const & dt)
 			//when thrusters are off speed of travel is 0.
 			motion.speed = 0;
 		}
-
+		if (m_keyHandler.isKeyDown(sf::Keyboard::Space) && input.fired == false)
+		{
+			input.fired = true;
+			input.timeToFire = input.fireRate;
+			spawnBullet(location.position, location.orientation, true);
+		}
+		input.timeToFire -= dt.count();
+		if (input.timeToFire < 0.0f)
+		{
+			input.fired = false;
+		}
 	});
 }
 
@@ -56,3 +71,34 @@ void app::sys::ControlSystem::update(app::time::seconds const & dt)
 app::sys::ControlSystem::~ControlSystem()
 {
 }
+
+void app::sys::ControlSystem::spawnBullet(math::Vector2f position, float angle, bool firedByPlayer)
+{
+	app::Entity const entity = m_registry.create();
+
+	auto location = comp::Location();
+	location.position = position;
+	location.orientation = 0.0f;
+	m_registry.assign<decltype(location)>(entity, std::move(location));
+
+	auto dimensions = comp::Dimensions();
+	dimensions.size = { 50.0f, 50.0f };
+	dimensions.origin = dimensions.size / 2.0f;
+	m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
+
+	auto renderRect = comp::RenderRect();
+	renderRect.fill = sf::Color(255u, 0u, 0u, 255u);
+	m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
+
+	auto motion = comp::Motion();
+	motion.velocity = math::Vector2f(0.0f, 0.0f);
+	motion.speed = 3.0f;
+	motion.angle = angle;
+	m_registry.assign<decltype(motion)>(entity, std::move(motion));
+
+	auto projectile = comp::Projectile();
+	projectile.m_firedByPlayer = firedByPlayer;
+	projectile.m_timeToLive = 4.0f;
+	m_registry.assign<decltype(projectile)>(entity, std::move(projectile));
+}
+

@@ -80,7 +80,7 @@ namespace app
 		/// 
 		/// 
 		/// </summary>
-		std::array<std::unique_ptr<app::sys::BaseSystem>, 3> m_updateSystems;
+		std::array<std::unique_ptr<app::sys::BaseSystem>, 4> m_updateSystems;
 
 		/// <summary>
 		/// @brief container that holds pointers to the systems to run in the draw method.
