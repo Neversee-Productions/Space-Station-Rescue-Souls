@@ -82,17 +82,17 @@ void app::sys::ControlSystem::spawnBullet(math::Vector2f position, float angle, 
 	m_registry.assign<decltype(location)>(entity, std::move(location));
 
 	auto dimensions = comp::Dimensions();
-	dimensions.size = { 50.0f, 50.0f };
+	dimensions.size = { 10.0f, 10.0f };
 	dimensions.origin = dimensions.size / 2.0f;
 	m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
 
 	auto renderRect = comp::RenderRect();
-	renderRect.fill = sf::Color(255u, 0u, 0u, 255u);
+	renderRect.fill = sf::Color(255u, 255u, 255u, 255u);
 	m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
 
 	auto motion = comp::Motion();
 	motion.velocity = math::Vector2f(0.0f, 0.0f);
-	motion.speed = 3.0f;
+	motion.speed = 8.0f;
 	motion.angle = angle;
 	m_registry.assign<decltype(motion)>(entity, std::move(motion));
 
