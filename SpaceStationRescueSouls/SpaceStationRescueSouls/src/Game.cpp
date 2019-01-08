@@ -143,7 +143,7 @@ void app::Game::createCamera(app::Entity const followEntity)
 	camera.entity = followEntity;
 	camera.position = { 1000.0f, 1000.0f };
 	camera.offset = { 0.0f, 0.0f };
-	camera.size = { 1000.0f, 1000.0f };
+	camera.size = { 1900.0f, 1080.0f };
 	camera.speed = 100.0f;
 	m_registry.assign<decltype(camera)>(entt::tag_t(), entity, std::move(camera));
 }
