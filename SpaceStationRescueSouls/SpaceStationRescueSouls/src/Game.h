@@ -38,17 +38,55 @@ namespace app
 		void createCamera(app::Entity const entity);
 		app::Entity const createExampleRectangle();
 		void createWorld();
+		app::Entity const createPlayer();
 	private: // Private Static Variables
-	private: // Private Member Variables
+		/// <summary>
+		/// @brief defines whether the app is currently running.
+		/// 
+		/// 
+		/// </summary>
 		bool m_running;
+
+		/// <summary>
+		/// @brief the registry for the entities.
+		/// 
+		/// 
+		/// </summary>
 		app::Registry & m_registry;
 
+		/// <summary>
+		/// @brief instance of the keyhandler that checks key presses/releases.
+		/// 
+		/// 
+		/// </summary>
 		app::inp::KeyHandler m_keyHandler;
+
+		/// <summary>
+		/// @brief instance of the mouse handler that checks mouse presses/releases.
+		/// 
+		/// 
+		/// </summary>
 		app::inp::MouseHandler m_mouseHandler;
 
+		/// <summary>
+		/// @brief instance of the Window object which is the main window of the game.
+		/// 
+		/// 
+		/// </summary>
 		app::gra::Window m_window;
 
-		std::array<std::unique_ptr<app::sys::BaseSystem>, 1> m_updateSystems;
+		/// <summary>
+		/// @brief container that holds pointers to the systems to run in update method.
+		/// 
+		/// 
+		/// </summary>
+		std::array<std::unique_ptr<app::sys::BaseSystem>, 3> m_updateSystems;
+
+		/// <summary>
+		/// @brief container that holds pointers to the systems to run in the draw method.
+		/// 
+		/// 
+		/// </summary>
 		std::array<std::unique_ptr<app::sys::BaseSystem>, 1> m_renderSystems;
 	};
 }
