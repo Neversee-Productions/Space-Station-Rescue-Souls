@@ -1,19 +1,19 @@
-﻿#ifndef _APP_VISITOR_RENDER_RECTANGLE_H
-#define _APP_VISITOR_RENDER_RECTANGLE_H
+﻿#ifndef _APP_VISITOR_RENDER_FILL_H
+#define _APP_VISITOR_RENDER_FILL_H
 
 namespace app::vis
 {
-	class RenderRectVisitor
+	class RenderFillVisitor
 	{
 	public: // Constructors/Destructor/Assignments
-		RenderRectVisitor(sf::RectangleShape & rectangleShape);
-		RenderRectVisitor(RenderRectVisitor const &) = default;
-		RenderRectVisitor(RenderRectVisitor &&) = default;
+		RenderFillVisitor(sf::RectangleShape & rectangleShape);
+		RenderFillVisitor(RenderFillVisitor const &) = default;
+		RenderFillVisitor(RenderFillVisitor &&) = default;
 
-		~RenderRectVisitor() = default;
+		~RenderFillVisitor() = default;
 
-		RenderRectVisitor & operator=(RenderRectVisitor const &) = default;
-		RenderRectVisitor & operator=(RenderRectVisitor &&) = default;
+		RenderFillVisitor & operator=(RenderFillVisitor const &) = default;
+		RenderFillVisitor & operator=(RenderFillVisitor &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
@@ -33,4 +33,4 @@ namespace app::vis
 	};
 }
 
-#endif // !_APP_VISITOR_RENDER_RECTANGLE_H
+#endif // !_APP_VISITOR_RENDER_FILL_H

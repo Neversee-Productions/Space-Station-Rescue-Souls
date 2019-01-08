@@ -37,7 +37,7 @@ namespace app
 
 		void createCamera(app::Entity const entity);
 		app::Entity const createExampleRectangle();
-		void createWorld();
+		app::Entity const createWorld();
 		app::Entity const createPlayer();
 	private: // Private Static Variables
 		/// <summary>
@@ -87,7 +87,7 @@ namespace app
 		/// 
 		/// 
 		/// </summary>
-		std::array<std::unique_ptr<app::sys::BaseSystem>, 1> m_renderSystems;
+		std::array<std::unique_ptr<app::sys::BaseSystem>, 2> m_renderSystems;
 	};
 }
 

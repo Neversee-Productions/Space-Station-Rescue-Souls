@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "MotionSystem.h"
+#include "math/Math.h"
 #include "component/Motion.h"
 #include "component/Location.h"
 
@@ -57,8 +58,8 @@ void app::sys::MotionSystem::update(app::time::seconds const & dt)
 			motion.speed = s_MAX_SPEED;
 		}
 		//calculate the velocity from speed.
-		motion.velocity.x += std::cos(motion.angle * (PI / 180)) * motion.speed;
-		motion.velocity.y += std::sin(motion.angle * (PI / 180)) * motion.speed;
+		motion.velocity.x += std::cos(math::toRadians(motion.angle)) * motion.speed;
+		motion.velocity.y += std::sin(math::toRadians(motion.angle)) * motion.speed;
 		location.position += motion.velocity;
 		//apply drag when nessecery otherwise velocity is 0.
 		if (motion.velocity.magnitude() > 0.002f)
