@@ -120,6 +120,12 @@
     <ClInclude Include="src\component\Input.h">
       <Filter>Header Files\component</Filter>
     </ClInclude>
+    <ClInclude Include="src\component\Projectile.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\system\BulletSystem.h">
+      <Filter>Header Files\system</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -187,6 +193,12 @@
     </ClCompile>
     <ClCompile Include="src\component\Input.cpp">
       <Filter>Source Files\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\Projectile.cpp">
+      <Filter>Source Files\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\system\BulletSystem.cpp">
+      <Filter>Source Files\system</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

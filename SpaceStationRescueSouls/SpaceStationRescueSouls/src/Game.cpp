@@ -6,6 +6,7 @@
 #include "system/RenderSystem.h"
 #include "system/MotionSystem.h"
 #include "system/ControlSystem.h"
+#include "system/BulletSystem.h"
 
 // Components
 #include "component/Camera.h"
@@ -91,7 +92,8 @@ bool app::Game::initSystems()
 		m_updateSystems = {
 			std::make_unique<sys::CameraFollowSystem>(),
 			std::make_unique<app::sys::MotionSystem>(),
-			std::make_unique<app::sys::ControlSystem>(m_keyHandler)
+			std::make_unique<app::sys::ControlSystem>(m_keyHandler),
+			std::make_unique<app::sys::BulletSystem>()
 
 		};
 

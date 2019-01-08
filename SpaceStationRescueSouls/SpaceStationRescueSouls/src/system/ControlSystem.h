@@ -12,6 +12,8 @@ namespace app::sys
 	public:
 		ControlSystem(const app::inp::KeyHandler & keyhandler);
 		virtual void update(app::time::seconds const & dt) override;
+		void spawnBullet(math::Vector2f position, float angle, bool firedByPlayer);
+
 		~ControlSystem();
 
 		/// <summary>
@@ -27,6 +29,7 @@ namespace app::sys
 		/// 
 		/// </summary>
 		const float m_rotate;
+
 	};
 }
 
