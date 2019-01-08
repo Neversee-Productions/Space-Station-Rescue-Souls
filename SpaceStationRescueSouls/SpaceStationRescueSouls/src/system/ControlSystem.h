@@ -12,10 +12,10 @@ namespace app::sys
 	public:
 		ControlSystem(const app::inp::KeyHandler & keyhandler);
 		virtual void update(app::time::seconds const & dt) override;
-		void spawnBullet(math::Vector2f position, float angle, bool firedByPlayer);
+		void spawnBullet(math::Vector2f position, float angle, bool firedByPlayer = false);
 
 		~ControlSystem();
-
+	private:
 		/// <summary>
 		/// @brief constant reference to a keyhandler of the game.
 		/// 

@@ -39,6 +39,7 @@
     <ClInclude Include="src\system\ControlSystem.h" />
     <ClInclude Include="src\system\MotionSystem.h" />
     <ClInclude Include="src\system\RenderSystem.h" />
+    <ClInclude Include="src\system\WorkerSystem.h" />
     <ClInclude Include="src\utilities\Console.h" />
     <ClInclude Include="src\utilities\Time.h" />
     <ClInclude Include="src\visitor\RenderRectVisitor.h" />
@@ -70,6 +71,7 @@
     <ClCompile Include="src\system\ControlSystem.cpp" />
     <ClCompile Include="src\system\MotionSystem.cpp" />
     <ClCompile Include="src\system\RenderSystem.cpp" />
+    <ClCompile Include="src\system\WorkerSystem.cpp" />
     <ClCompile Include="src\utilities\Console.cpp" />
     <ClCompile Include="src\utilities\Time.cpp" />
     <ClCompile Include="src\visitor\RenderRectVisitor.cpp" />
