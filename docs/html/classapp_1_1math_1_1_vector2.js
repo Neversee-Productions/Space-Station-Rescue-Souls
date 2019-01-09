@@ -1,0 +1,28 @@
+var classapp_1_1math_1_1_vector2 =
+[
+    [ "Vector2", "classapp_1_1math_1_1_vector2.html#acb27857ef9d03c742716d521eb641495", null ],
+    [ "Vector2", "classapp_1_1math_1_1_vector2.html#aa807599df67602cd04983153040e3571", null ],
+    [ "Vector2", "classapp_1_1math_1_1_vector2.html#a4d25c3926a4615371286dc36b3858d83", null ],
+    [ "~Vector2", "classapp_1_1math_1_1_vector2.html#adea2a95d71c80eb4fa8de6b1895351d8", null ],
+    [ "Vector2", "classapp_1_1math_1_1_vector2.html#a696a01fc289372028cb18d7f80695160", null ],
+    [ "Vector2", "classapp_1_1math_1_1_vector2.html#a28fb8771a971009cbdc8a6de367ac055", null ],
+    [ "magnitude", "classapp_1_1math_1_1_vector2.html#a420c23ef21382a36b0b6bdc4154785fa", null ],
+    [ "magnitudeSqr", "classapp_1_1math_1_1_vector2.html#abab01fabfd06fd7e0e9f73ae6746a8af", null ],
+    [ "operator sf::Vector2< T >", "classapp_1_1math_1_1_vector2.html#a02c4af07c9ecba900cc16c71e1eb77c4", null ],
+    [ "operator std::string", "classapp_1_1math_1_1_vector2.html#a0b4dc4e2abb73e0e2646380cc3cf884c", null ],
+    [ "operator Vector2< O >", "classapp_1_1math_1_1_vector2.html#a44f84cea5c90df8673b6808199a4731b", null ],
+    [ "operator*=", "classapp_1_1math_1_1_vector2.html#a4e468ba22a06010ff9c54e3aad6b9bb1", null ],
+    [ "operator*=", "classapp_1_1math_1_1_vector2.html#a645ee8e9977539db81dfd0c22c34c2a3", null ],
+    [ "operator+=", "classapp_1_1math_1_1_vector2.html#ac30a6466cf67954a39f6b3ca46be4978", null ],
+    [ "operator+=", "classapp_1_1math_1_1_vector2.html#a324c9682ad666dfa638cb881caa7b79d", null ],
+    [ "operator-=", "classapp_1_1math_1_1_vector2.html#af708153a35a214c2e5a1d818d7117b3b", null ],
+    [ "operator-=", "classapp_1_1math_1_1_vector2.html#a2a3e174a11e40db7d93c8b0ac7932997", null ],
+    [ "operator/=", "classapp_1_1math_1_1_vector2.html#aa1662990871ef6a5579546306d2a2b5f", null ],
+    [ "operator/=", "classapp_1_1math_1_1_vector2.html#abb87afca7869521b4c244f1382e3731d", null ],
+    [ "operator=", "classapp_1_1math_1_1_vector2.html#a4a29b5472829c60a676529332435421c", null ],
+    [ "operator=", "classapp_1_1math_1_1_vector2.html#a8aa3d95791b242b5353b3d68bdd530f0", null ],
+    [ "unit", "classapp_1_1math_1_1_vector2.html#a5bdcd7ea8fd964876096428161d08ad4", null ],
+    [ "unit", "classapp_1_1math_1_1_vector2.html#af1b17d32e20d1a8b9124e31f57b3420e", null ],
+    [ "x", "classapp_1_1math_1_1_vector2.html#aa7004cdf247ff289b15cdfbc53115974", null ],
+    [ "y", "classapp_1_1math_1_1_vector2.html#a936aa21c7cc58ae5cc98948b5e42cd66", null ]
+];
