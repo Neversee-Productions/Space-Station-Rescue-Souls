@@ -39,6 +39,7 @@ namespace app
 		app::Entity const createExampleRectangle();
 		void createWorld();
 		app::Entity const createPlayer();
+		void createWorkers();
 	private: // Private Static Variables
 		/// <summary>
 		/// @brief defines whether the app is currently running.
@@ -80,7 +81,7 @@ namespace app
 		/// 
 		/// 
 		/// </summary>
-		std::array<std::unique_ptr<app::sys::BaseSystem>, 4> m_updateSystems;
+		std::array<std::unique_ptr<app::sys::BaseSystem>, 5> m_updateSystems;
 
 		/// <summary>
 		/// @brief container that holds pointers to the systems to run in the draw method.
@@ -88,6 +89,8 @@ namespace app
 		/// 
 		/// </summary>
 		std::array<std::unique_ptr<app::sys::BaseSystem>, 1> m_renderSystems;
+
+
 	};
 }
 

@@ -46,6 +46,13 @@ namespace app::comp
 		/// 
 		/// </summary>
 		float drag = 0.99f;
+
+		/// <summary>
+		/// @brief max speed of the entity.
+		/// 
+		/// 
+		/// </summary>
+		float maxSpeed = 1.0f;
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables

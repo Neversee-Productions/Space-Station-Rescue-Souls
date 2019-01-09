@@ -3,8 +3,6 @@
 #include "component/Motion.h"
 #include "component/Location.h"
 
-const float app::sys::MotionSystem::s_MAX_SPEED = 0.08f;
-
 /// <summary>
 /// @brief Default constructor.
 /// 
@@ -52,9 +50,9 @@ void app::sys::MotionSystem::update(app::time::seconds const & dt)
 			motion.angle = 360;
 		}
 		//cap the speed
-		if (motion.speed > s_MAX_SPEED)
+		if (motion.speed > motion.maxSpeed)
 		{
-			motion.speed = s_MAX_SPEED;
+			motion.speed = motion.maxSpeed;
 		}
 		//calculate the velocity from speed.
 		motion.velocity.x += std::cos(motion.angle * (PI / 180)) * motion.speed;

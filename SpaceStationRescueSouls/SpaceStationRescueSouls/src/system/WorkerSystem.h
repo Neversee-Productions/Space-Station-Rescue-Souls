@@ -16,7 +16,8 @@ namespace app::sys
 
 		WorkerSystem & operator=(WorkerSystem const &) = default;
 		WorkerSystem & operator=(WorkerSystem &&) = default;
-
+		//DEBUG
+		float timer = 0.0f;
 	public: // Public Static Functions
 	public: // Public Member Functions
 		virtual void update(app::time::seconds const & dt) override;
@@ -28,6 +29,7 @@ namespace app::sys
 	protected: // Protected Member Variables
 	private: // Private Static Functions
 	private: // Private Member Functions
+		void setAngle(math::Vector2f vector, float angle);
 	private: // Private Static Variables
 	private: // Private Member Variables
 

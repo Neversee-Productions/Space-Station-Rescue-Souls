@@ -22,11 +22,5 @@ namespace app::sys
 		/// </summary>
 		const float PI = 3.1416;
 		
-		/// <summary>
-		/// @brief Max speed for the ship to travel.
-		/// 
-		/// 
-		/// </summary>
-		static const float s_MAX_SPEED;
 	};
 }
