@@ -129,6 +129,9 @@
     <ClInclude Include="src\system\WorkerSystem.h">
       <Filter>Header Files\system</Filter>
     </ClInclude>
+    <ClInclude Include="src\component\Worker.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -205,6 +208,9 @@
     </ClCompile>
     <ClCompile Include="src\system\WorkerSystem.cpp">
       <Filter>Source Files\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\Worker.cpp">
+      <Filter>Source Files\component</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

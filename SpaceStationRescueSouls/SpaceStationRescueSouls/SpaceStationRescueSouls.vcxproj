@@ -26,6 +26,7 @@
     <ClInclude Include="src\component\Motion.h" />
     <ClInclude Include="src\component\Projectile.h" />
     <ClInclude Include="src\component\RenderRect.h" />
+    <ClInclude Include="src\component\Worker.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\graphics\Window.h" />
     <ClInclude Include="src\input\Keyhandler.h" />
@@ -52,6 +53,7 @@
     <ClCompile Include="src\component\Motion.cpp" />
     <ClCompile Include="src\component\Projectile.cpp" />
     <ClCompile Include="src\component\RenderRect.cpp" />
+    <ClCompile Include="src\component\Worker.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\graphics\Window.cpp" />
     <ClCompile Include="src\input\Keyhandler.cpp" />
