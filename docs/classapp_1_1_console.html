@@ -101,14 +101,19 @@ $(document).ready(function(){initNavTree('classapp_1_1_console.html','');});
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aaf585106c8fea3b155eb257e4b379844"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapp_1_1_console.html#aaf585106c8fea3b155eb257e4b379844">write</a> (std::string const &amp;text)</td></tr>
+<tr class="memdesc:aaf585106c8fea3b155eb257e4b379844"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output to the console the passed text.  <a href="#aaf585106c8fea3b155eb257e4b379844">More...</a><br /></td></tr>
 <tr class="separator:aaf585106c8fea3b155eb257e4b379844"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15c2f68bfe50cb136a62a743b5cfcb3e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapp_1_1_console.html#a15c2f68bfe50cb136a62a743b5cfcb3e">write</a> (std::initializer_list&lt; std::string &gt; const &amp;texts)</td></tr>
+<tr class="memdesc:a15c2f68bfe50cb136a62a743b5cfcb3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output to the console the collection of text passed.  <a href="#a15c2f68bfe50cb136a62a743b5cfcb3e">More...</a><br /></td></tr>
 <tr class="separator:a15c2f68bfe50cb136a62a743b5cfcb3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3eaf58449344272ca0b7b0c1314ba6dd"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapp_1_1_console.html#a3eaf58449344272ca0b7b0c1314ba6dd">writeLine</a> ()</td></tr>
+<tr class="memdesc:a3eaf58449344272ca0b7b0c1314ba6dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output to the console a empty new line.  <a href="#a3eaf58449344272ca0b7b0c1314ba6dd">More...</a><br /></td></tr>
 <tr class="separator:a3eaf58449344272ca0b7b0c1314ba6dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8873e7e0585be21f4563122c40de40e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapp_1_1_console.html#ad8873e7e0585be21f4563122c40de40e">writeLine</a> (std::string const &amp;text)</td></tr>
+<tr class="memdesc:ad8873e7e0585be21f4563122c40de40e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output to the console the passed text, ending with a new line.  <a href="#ad8873e7e0585be21f4563122c40de40e">More...</a><br /></td></tr>
 <tr class="separator:ad8873e7e0585be21f4563122c40de40e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a232d0f28e8c4075c9e081c4181777cea"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapp_1_1_console.html#a232d0f28e8c4075c9e081c4181777cea">writeLine</a> (std::initializer_list&lt; std::string &gt; const &amp;texts)</td></tr>
+<tr class="memdesc:a232d0f28e8c4075c9e081c4181777cea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output to the console the collection of text, after which adds a new line.  <a href="#a232d0f28e8c4075c9e081c4181777cea">More...</a><br /></td></tr>
 <tr class="separator:a232d0f28e8c4075c9e081c4181777cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -142,7 +147,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_console_8h_source.html#l00060">60</a> of file <a class="el" href="_console_8h_source.html">Console.h</a>.</p>
+<p>Output to the console the passed text. </p>
+<p><a class="el" href="class_this.html" title="with motion physics. ">This</a> function does nothing when _DEBUG is not defined. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>read-only reference to the text that will be output'd to console.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_console_8h_source.html#l00066">66</a> of file <a class="el" href="_console_8h_source.html">Console.h</a>.</p>
 
 </div>
 </div>
@@ -170,7 +184,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_console_8h_source.html#l00061">61</a> of file <a class="el" href="_console_8h_source.html">Console.h</a>.</p>
+<p>Output to the console the collection of text passed. </p>
+<p><a class="el" href="class_this.html" title="with motion physics. ">This</a> function does nothing when _DEBUG is not defined. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">texts</td><td>read-only reference to the collection of text that will be output'd to console.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_console_8h_source.html#l00074">74</a> of file <a class="el" href="_console_8h_source.html">Console.h</a>.</p>
 
 </div>
 </div>
@@ -197,7 +220,10 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_console_8h_source.html#l00062">62</a> of file <a class="el" href="_console_8h_source.html">Console.h</a>.</p>
+<p>Output to the console a empty new line. </p>
+<p><a class="el" href="class_this.html" title="with motion physics. ">This</a> function does nothing when _DEBUG is not defined. </p>
+
+<p class="definition">Definition at line <a class="el" href="_console_8h_source.html#l00081">81</a> of file <a class="el" href="_console_8h_source.html">Console.h</a>.</p>
 
 </div>
 </div>
@@ -225,7 +251,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_console_8h_source.html#l00063">63</a> of file <a class="el" href="_console_8h_source.html">Console.h</a>.</p>
+<p>Output to the console the passed text, ending with a new line. </p>
+<p><a class="el" href="class_this.html" title="with motion physics. ">This</a> function does nothing when _DEBUG is not defined. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>read-only refernece to the text that will be output'd to console.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_console_8h_source.html#l00089">89</a> of file <a class="el" href="_console_8h_source.html">Console.h</a>.</p>
 
 </div>
 </div>
@@ -253,7 +288,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_console_8h_source.html#l00064">64</a> of file <a class="el" href="_console_8h_source.html">Console.h</a>.</p>
+<p>Output to the console the collection of text, after which adds a new line. </p>
+<p><a class="el" href="class_this.html" title="with motion physics. ">This</a> function does nothing when _DEBUG is not defined. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">texts</td><td>read-only reference to the collection of text that will be output'd to console.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_console_8h_source.html#l00097">97</a> of file <a class="el" href="_console_8h_source.html">Console.h</a>.</p>
 
 </div>
 </div>

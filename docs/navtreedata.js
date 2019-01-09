@@ -24,6 +24,23 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "Space Station Rescue Souls", "index.html", [
+    [ "Summary", "index.html#sum_sec", [
+      [ "Controls", "index.html#controls_sub_sec", null ]
+    ] ],
+    [ "Assignment", "index.html#assignment_sec", [
+      [ "The Game World", "index.html#assignment_sec_gameworld_sub_sec", null ],
+      [ "Workers", "index.html#assignment_sec_workers_sub_sec", null ],
+      [ "Alien Nests", "index.html#aliennests_sub_sec", null ],
+      [ "Predator Ships", "index.html#predatorships_sub_sec", null ],
+      [ "Sweeper Bots", "index.html#sweeperbots_sub_sec", null ],
+      [ "Power-ups", "index.html#powerups_sub_sec", null ],
+      [ "Collision Detection", "index.html#collision_detection_sub_sec", null ],
+      [ "Project Details", "index.html#projectdetails_sub_sec", null ]
+    ] ],
+    [ "Credits", "index.html#credits_sec", [
+      [ "Authors", "index.html#author_sub_sec", null ],
+      [ "Lecturer", "index.html#lecturer_sub_sec", null ]
+    ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -56,7 +73,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_base_system_8cpp.html",
-"classapp_1_1sys_1_1_camera_follow_system.html#ad1e056b1419af2ebeaba21d98e8c3a81"
+"classapp_1_1math_1_1_vector2.html#a645ee8e9977539db81dfd0c22c34c2a3"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

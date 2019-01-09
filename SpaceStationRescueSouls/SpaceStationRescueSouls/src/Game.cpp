@@ -18,10 +18,11 @@
 #include "component/RenderWorld.h"
 #include "component/Input.h"
 
-/// <summary>
+/// 
 /// @brief default constructor.
-/// 
-/// 
+/// <summary>
+/// Default creates our game instances and runs initialization processes
+/// namely app::Game::initSystems and app::Game::initEntities
 /// </summary>
 app::Game::Game()
 	: m_running(true)
@@ -36,22 +37,24 @@ app::Game::Game()
 		&& this->initEntities();
 }
 
-/// <summary>
+/// 
 /// @brief Method that polls window events.
 /// 
-/// 
+/// <summary>
+/// Passes the processing of window events to the app::Game::m_window object via app::gra::Window::processEvents.
 /// </summary>
 void app::Game::pollEvents()
 {
 	m_window.processEvents();
 }
 
+/// 
+/// @brief Update all game logic per dt
+/// 
 /// <summary>
-/// @brief This is the main update call.
-/// 
-/// 
+/// Updates all in game logic systems and the input handlers at a steady rate of sixty times per second, expressed by <paramref name="dt"/>
 /// </summary>
-/// <param name="dt">time since last update in seconds</param>
+/// <param name="dt">read-only reference to delta time since the last time the update is called, set to be 1 / 60 seconds.</param>
 void app::Game::update(app::time::seconds const & dt)
 {
 	for (std::unique_ptr<sys::BaseSystem> & uptrSystem : m_updateSystems)
@@ -63,12 +66,14 @@ void app::Game::update(app::time::seconds const & dt)
 	m_mouseHandler.update();
 }
 
+/// 
+/// @brief Update all game rendering logic.
+/// 
 /// <summary>
-/// @brief This is the main draw call.
-/// 
-/// 
+/// Clears the window's back buffer and updates all game systems responsible for rendering, passing in the time since last call, expressed by <paramref name="dt"/>,
+/// than the window's back buffer is swapped around displaying the completed frame.
 /// </summary>
-/// <param name="dt">time since last update in seconds</param>
+/// <param name="dt">read-only reference to delta time since the lsat time the function was called, unlike app::Game::update it isn't at a set rate but instead a variable rendering rate.</param>
 void app::Game::render(app::time::seconds const & dt)
 {
 	m_window.clear();
@@ -81,12 +86,14 @@ void app::Game::render(app::time::seconds const & dt)
 	m_window.display();
 }
 
+/// 
+/// @brief Initialize all game systems.
+/// 
 /// <summary>
-/// @brief This method initialises the systems for the game.
-/// 
-/// 
+/// Create all the update and rendering systems, storing them as unique pointers in the arrays app::Game::m_updateSystems and app::Game::m_renderSystems,
+/// should any exception be thrown, it is handled in this function.
 /// </summary>
-/// <returns>true if all systems created successfully, false if some system fails to initialise</returns>
+/// <returns>true if all systems created successfully, false if any system throws an exception.</returns>
 bool app::Game::initSystems()
 {
 	try
@@ -113,12 +120,13 @@ bool app::Game::initSystems()
 	}
 }
 
+/// 
+/// @brief Initialise all game entities.
+/// 
 /// <summary>
-/// @brief Initialise the entities for the game.
-/// 
-/// 
+/// Create all the games entities, every different type of entity is created through its own function.
 /// </summary>
-/// <returns>true if successful, false if failed</returns>
+/// <returns>true if all entities are successfully created, false if any exception is thrown in the creation process.</returns>
 bool app::Game::initEntities()
 {
 	try
@@ -126,9 +134,6 @@ bool app::Game::initEntities()
 		auto const cameraFollowEntity = this->createPlayer();
 
 		this->createCamera(cameraFollowEntity);
-		//this->createExampleRectangle();
-
-		// create the world last so that it is rendered last.
 		this->createWorld();
 
 		return true;
@@ -140,8 +145,19 @@ bool app::Game::initEntities()
 	}
 }
 
+/// 
+/// @brief Creates the camera entity.
+/// 
+/// <summary>
+/// Creates a camera that follows <paramref name="followEntity"/>.
+/// Uses the following components:
+/// - app::comp::Camera
+/// </summary>
+/// <param name="followEntity">the id of entity we which the camera to follow.</param>
+/// <remarks>Only ever create one camera entity.</remarks>
 void app::Game::createCamera(app::Entity const followEntity)
 {
+	assert(m_registry.valid(followEntity));
 	app::Entity const entity = m_registry.create();
 
 	auto camera = comp::Camera();
@@ -152,39 +168,18 @@ void app::Game::createCamera(app::Entity const followEntity)
 	m_registry.assign<decltype(camera)>(entt::tag_t(), entity, std::move(camera));
 }
 
-/// <summary>
-/// @brief mothod for creating a debug rectangle.
 /// 
-/// 
-/// </summary>
-/// <returns>The debug rectangle entity</returns>
-app::Entity const app::Game::createExampleRectangle()
-{
-	app::Entity const entity = m_registry.create();
-
-	auto location = comp::Location();
-	location.position = { 200.0f, 200.0f };
-	location.orientation = 0.0f;
-	m_registry.assign<decltype(location)>(entity, std::move(location));
-
-	auto dimensions = comp::Dimensions();
-	dimensions.size = { 300.0f, 300.0f };
-	dimensions.origin = dimensions.size / 2.0f;
-	m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
-
-	auto renderRect = comp::RenderRect();
-	renderRect.fill = sf::Color(0u, 255u, 0u, 255u);
-	m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
-
-	return entity;
-}
-
-/// <summary>
 /// @brief Creates the player entity.
 /// 
-/// 
+/// <summary>
+/// The player entity contains the following components:
+/// - app::comp::Location
+/// - app::comp::Dimensions
+/// - app::comp::RenderRect
+/// - app::comp::Motion
+/// - app::comp::Input
 /// </summary>
-/// <returns>The player entity</returns>
+/// <returns>The id of other player entity.</returns>
 app::Entity const app::Game::createPlayer()
 {
 	app::Entity const entity = m_registry.create();
@@ -213,11 +208,17 @@ app::Entity const app::Game::createPlayer()
 	return entity;
 }
 
-/// <summary>
+/// 
 /// @brief create the world entity.
 /// 
-/// 
+/// <summary>
+/// Create our large world as a single entity with multiple rendering locations.
+/// Uses the following components:
+/// - app::comp::Location
+/// - app::comp::RenderWorld
 /// </summary>
+/// @warn Only one world can ever be created.
+/// 
 app::Entity const app::Game::createWorld()
 {
 	app::Entity const entity = m_registry.create();

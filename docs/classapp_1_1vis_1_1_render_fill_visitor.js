@@ -7,5 +7,6 @@ var classapp_1_1vis_1_1_render_fill_visitor =
     [ "operator()", "classapp_1_1vis_1_1_render_fill_visitor.html#ad97fe49d3db513db7b182007192cc322", null ],
     [ "operator()", "classapp_1_1vis_1_1_render_fill_visitor.html#a5aa3aaba549778aa56766f620ac77535", null ],
     [ "operator=", "classapp_1_1vis_1_1_render_fill_visitor.html#a26a75b3bbc53874c7209db50db6b31f7", null ],
-    [ "operator=", "classapp_1_1vis_1_1_render_fill_visitor.html#a31fe3292cfd8545e1a19fb97543bf7eb", null ]
+    [ "operator=", "classapp_1_1vis_1_1_render_fill_visitor.html#a31fe3292cfd8545e1a19fb97543bf7eb", null ],
+    [ "m_rectangleShape", "classapp_1_1vis_1_1_render_fill_visitor.html#a672a286e79cd02b2f4930f79f7fd62f1", null ]
 ];

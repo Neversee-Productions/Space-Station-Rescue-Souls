@@ -21,8 +21,10 @@ var classapp_1_1math_1_1_vector2 =
     [ "operator/=", "classapp_1_1math_1_1_vector2.html#abb87afca7869521b4c244f1382e3731d", null ],
     [ "operator=", "classapp_1_1math_1_1_vector2.html#a4a29b5472829c60a676529332435421c", null ],
     [ "operator=", "classapp_1_1math_1_1_vector2.html#a8aa3d95791b242b5353b3d68bdd530f0", null ],
+    [ "unit", "classapp_1_1math_1_1_vector2.html#a621bac50b7a3a9e67629c1936834337a", null ],
     [ "unit", "classapp_1_1math_1_1_vector2.html#a5bdcd7ea8fd964876096428161d08ad4", null ],
     [ "unit", "classapp_1_1math_1_1_vector2.html#af1b17d32e20d1a8b9124e31f57b3420e", null ],
     [ "x", "classapp_1_1math_1_1_vector2.html#aa7004cdf247ff289b15cdfbc53115974", null ],
-    [ "y", "classapp_1_1math_1_1_vector2.html#a936aa21c7cc58ae5cc98948b5e42cd66", null ]
+    [ "y", "classapp_1_1math_1_1_vector2.html#a936aa21c7cc58ae5cc98948b5e42cd66", null ],
+    [ "zero", "classapp_1_1math_1_1_vector2.html#ae650c090da5864a18119e62145cfe5de", null ]
 ];

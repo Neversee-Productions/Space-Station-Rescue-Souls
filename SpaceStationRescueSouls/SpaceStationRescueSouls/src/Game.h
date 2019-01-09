@@ -6,6 +6,15 @@
 
 namespace app
 {
+	/// 
+	/// @brief Game framework.
+	/// @author Rafael Plugge
+	/// @author Sebastian Kruzel
+	/// 
+	/// <summary>
+	/// Will create all our entities and systems and run them through app::Game::update and app::Game::render functions,
+	/// also creates our game window, the rendering target.
+	/// </summary>
 	class Game
 	{
 	public: // Constructors/Destructor/Assignments
@@ -36,7 +45,6 @@ namespace app
 		bool initEntities();
 
 		void createCamera(app::Entity const entity);
-		app::Entity const createExampleRectangle();
 		app::Entity const createWorld();
 		app::Entity const createPlayer();
 	private: // Private Static Variables
