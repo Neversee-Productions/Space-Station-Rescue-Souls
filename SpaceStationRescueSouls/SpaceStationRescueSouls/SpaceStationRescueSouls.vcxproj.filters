@@ -223,5 +223,11 @@
     <Image Include="res\space-floor.jpg">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="res\space-corridor-down.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\space-corridor-right.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

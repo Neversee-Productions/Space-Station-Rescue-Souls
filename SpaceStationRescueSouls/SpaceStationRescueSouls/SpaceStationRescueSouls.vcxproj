@@ -81,6 +81,8 @@
     <ClCompile Include="src\visitor\RenderFillVisitor.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\space-corridor-down.png" />
+    <Image Include="res\space-corridor-right.png" />
     <Image Include="res\space-floor.jpg" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
