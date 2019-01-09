@@ -1,0 +1,4 @@
+var searchData=
+[
+  ['location',['Location',['../structapp_1_1comp_1_1_location.html#ac8f9f6be19b38160947e2071da6a9be9',1,'app::comp::Location::Location()=default'],['../structapp_1_1comp_1_1_location.html#a4e246ceafa375806e7b87e241a5cdb8e',1,'app::comp::Location::Location(Location const &amp;)=default'],['../structapp_1_1comp_1_1_location.html#a95fc4ce454f5749256632daec7944e66',1,'app::comp::Location::Location(Location &amp;&amp;)=default']]]
+];
