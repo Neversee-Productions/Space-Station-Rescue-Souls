@@ -23,7 +23,6 @@ namespace app::comp
 		math::Vector2f position = { 0.0f, 0.0f };
 		math::Vector2f size = { 0.0f, 0.0f };
 		math::Vector2f offset = { 0.0f, 0.0f };
-		float speed = 0.0f;
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables

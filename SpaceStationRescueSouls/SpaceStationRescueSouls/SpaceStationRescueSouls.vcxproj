@@ -80,6 +80,9 @@
     <ClCompile Include="src\utilities\Time.cpp" />
     <ClCompile Include="src\visitor\RenderFillVisitor.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\space-floor.jpg" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{85143994-7BC3-400C-8CEB-9B8C844E8270}</ProjectGuid>

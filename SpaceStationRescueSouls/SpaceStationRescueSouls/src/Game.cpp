@@ -149,7 +149,6 @@ void app::Game::createCamera(app::Entity const followEntity)
 	camera.position = { 0.0f, -200.0f };
 	camera.offset = { 0.0f, 0.0f };
 	camera.size = { 1900.0f, 1080.0f };
-	camera.speed = 400.0f;
 	m_registry.assign<decltype(camera)>(entt::tag_t(), entity, std::move(camera));
 }
 
@@ -229,37 +228,52 @@ app::Entity const app::Game::createWorld()
 	m_registry.assign<decltype(location)>(entity, std::move(location));
 
 	const auto color = sf::Color(125u, 125u, 125u, 255u);
+	auto texture = app::gra::loadTexture("./res/space-floor.jpg");
 	auto renderWorld = comp::RenderWorld();
 	renderWorld.sections =
 		decltype(renderWorld.sections) {
 			// top left room
-			comp::RenderWorld::Section{ { -4000.0f, -4000.0f },	{ 2000.0f, 2000.0f },		color },
+			comp::RenderWorld::Section{ { -4000.0f, -4000.0f },	{ 2000.0f, 2000.0f },	texture },
 			// top center room
-			comp::RenderWorld::Section{ { -1000.0f, -4000.0f },	{ 2000.0f, 2000.0f },		color },
+			comp::RenderWorld::Section{ { -1000.0f, -4000.0f },	{ 2000.0f, 2000.0f },	texture },
 			// top right room
-			comp::RenderWorld::Section{ { 2000.0f, -4000.0f },	{ 2000.0f, 2000.0f },		color },
+			comp::RenderWorld::Section{ { 2000.0f, -4000.0f },	{ 2000.0f, 2000.0f },	texture },
 			// mid left room
-			comp::RenderWorld::Section{ { -4000.0f, -1000.0f },	{ 2000.0f, 2000.0f },		color },
-			// center room
-			comp::RenderWorld::Section{ { -1000.0f, -1000.0f },	{ 2000.0f, 2000.0f },		color },
+			comp::RenderWorld::Section{ { -4000.0f, -1000.0f },	{ 2000.0f, 2000.0f },	texture },
+			// mid center room
+			comp::RenderWorld::Section{ { -1000.0f, -1000.0f },	{ 2000.0f, 2000.0f },	texture },
 			// mid right room
-			comp::RenderWorld::Section{ { 2000.0f, -1000.0f },	{ 2000.0f, 2000.0f },		color },
+			comp::RenderWorld::Section{ { 2000.0f, -1000.0f },	{ 2000.0f, 2000.0f },	texture },
 			// bot left room
-			comp::RenderWorld::Section{ { -4000.0f, 2000.0f },	{ 2000.0f, 2000.0f },		color },
-			comp::RenderWorld::Section{ { 2000.0f, 0.0f },		{ 500.0f, 500.0f },		color },
-			comp::RenderWorld::Section{ { 2000.0f, 0.0f },		{ 500.0f, 500.0f },		color },
-			comp::RenderWorld::Section{ { 2000.0f, 0.0f },		{ 500.0f, 500.0f },		color },
-			comp::RenderWorld::Section{ { 2000.0f, 0.0f },		{ 500.0f, 500.0f },		color },
-			comp::RenderWorld::Section{ { 2000.0f, 0.0f },		{ 500.0f, 500.0f },		color },
-			comp::RenderWorld::Section{ { 2000.0f, 0.0f },		{ 500.0f, 500.0f },		color },
-			comp::RenderWorld::Section{ { 2000.0f, 0.0f },		{ 500.0f, 500.0f },		color },
-			comp::RenderWorld::Section{ { 2000.0f, 0.0f },		{ 500.0f, 500.0f },		color },
-			comp::RenderWorld::Section{ { 2000.0f, 0.0f },		{ 500.0f, 500.0f },		color },
-			comp::RenderWorld::Section{ { 2000.0f, 0.0f },		{ 500.0f, 500.0f },		color },
-			comp::RenderWorld::Section{ { 2000.0f, 0.0f },		{ 500.0f, 500.0f },		color },
-			comp::RenderWorld::Section{ { 2000.0f, 0.0f },		{ 500.0f, 500.0f },		color },
-			comp::RenderWorld::Section{ { 2000.0f, 0.0f },		{ 500.0f, 500.0f },		color },
-			comp::RenderWorld::Section{ { 2000.0f, 0.0f },		{ 500.0f, 500.0f },		color }
+			comp::RenderWorld::Section{ { -4000.0f, 2000.0f },	{ 2000.0f, 2000.0f },	texture },
+			// bot center room
+			comp::RenderWorld::Section{ { -1000.0f, 2000.0f },	{ 2000.0f, 2000.0f },	texture },
+			// bot right room
+			comp::RenderWorld::Section{ { 2000.0f, 2000.0f },	{ 2000.0f, 2000.0f },	texture },
+			// corridor top-left to top-center
+			comp::RenderWorld::Section{ { -2000.0f, -3250.0f },	{ 1000.0f, 500.0f },	color },
+			// corridor top-left to mid-left
+			comp::RenderWorld::Section{ { -3250.0f, -2000.0f },	{ 500.0f, 1000.0f },	color },
+			// corridor top-center to top-right
+			comp::RenderWorld::Section{ { 1000.0f, -3250.0f },	{ 1000.0f, 500.0f },	color },
+			// corridor top-center to mid-center
+			comp::RenderWorld::Section{ { -250.0f, -2000.0f },	{ 500.0f, 1000.0f },	color },
+			// corridor top-right to mid-right
+			comp::RenderWorld::Section{ { 2750.0f, -2000.0f },	{ 500.0f, 1000.0f },	color },
+			// corridor mid-left to mid-center
+			comp::RenderWorld::Section{ { -2000.0f, -250.0f },	{ 1000.0f, 500.0f },	color },
+			// corridor mid-left to bot-left
+			comp::RenderWorld::Section{ { -3250.0f, 1000.0f },	{ 500.0f, 1000.0f },	color },
+			// corridor mid-center to mid-right
+			comp::RenderWorld::Section{ { 1000.0f, -250.0f },	{ 1000.0f, 500.0f },	color },
+			// corridor mid-center to bot-center
+			comp::RenderWorld::Section{ { -250.0f, 1000.0f },	{ 500.0f, 1000.0f },	color },
+			// corridor mid-right to bot-right
+			comp::RenderWorld::Section{ { 2750.0f, 1000.0f },	{ 500.0f, 1000.0f },	color },
+			// corridor bot-left to bot-center
+			comp::RenderWorld::Section{ { -2000.0f, 2750.0f },	{ 1000.0f, 500.0f },	color },
+			// corridor bot-center to bot-right
+			comp::RenderWorld::Section{ { 1000.0f, 2750.0f },	{ 1000.0f, 500.0f },	color }
 	};
 	m_registry.assign<decltype(renderWorld)>(entt::tag_t(), entity, std::move(renderWorld));
 
