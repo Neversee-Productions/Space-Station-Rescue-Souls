@@ -19,29 +19,38 @@ void app::sys::WorkerSystem::update(app::time::seconds const & dt)
 		.each([&, this](app::Entity const entity, app::comp::Worker & worker, app::comp::Location & location, app::comp::Motion & motion)
 	{
 		//get the displacement circle
-		worker.circleCenter = motion.velocity.unit() * worker.circleDistance;
-		//get displacement force
-		math::Vector2f displacement = { 0 ,-1 };
-		displacement = displacement.unit() * worker.circleRadius;
-		//chenge vector direction by an angle
-		
-		
-		
-		
-		worker.desiredVel = worker.targetPos - location.position;
-		worker.desiredVel = worker.desiredVel.unit() * motion.maxSpeed;
+		if (motion.velocity.magnitude() > 0)
+		{
+			worker.circleCenter = motion.velocity.unit() * worker.circleDistance;
+		}
+		else
+		{
+			worker.circleCenter = { cos(location.orientation), sin(location.orientation ) }; //use deg to rad here
+			worker.circleCenter *= worker.circleDistance;
+		}
+		math::Vector2f displacement = { 0.0f, -1.0f };
+		displacement *= worker.circleRadius;
+
+		setAngle(displacement, worker.angleChange);
+		//worker.angleChange += ((rand() % 10 + 1) * 1.0f);
+		math::Vector2f wanderForce = worker.circleCenter + displacement;
 
 
-		worker.steering = worker.desiredVel - motion.velocity;
+		//std::cout << worker.steering.x << ", " << worker.steering.y << std::endl;
+		
+		//worker.desiredVel = worker.targetPos - location.position;
+		//worker.desiredVel = worker.desiredVel.unit() * motion.maxSpeed;
+
+		//worker.steering = worker.desiredVel - motion.velocity;
+		worker.steering = wanderForce;
 		worker.steering = worker.steering.truncate(worker.maxForce);
 
 		motion.velocity = motion.velocity + worker.steering;
 		motion.velocity = motion.velocity.unit() * worker.maxVelocity;
 		//motion.velocity = motion.velocity.truncate(worker.maxVelocity);
 		
-		location.orientation = atan2(motion.velocity.y, motion.velocity.x) * (180 / 3.14159);
+		location.orientation = atan2(motion.velocity.y, motion.velocity.x) * (180 / 3.14159); //use rad to deg here
 
-		std::cout << location.orientation << std::endl;
 		
 		if (timer > 5)
 		{
@@ -60,6 +69,6 @@ void app::sys::WorkerSystem::update(app::time::seconds const & dt)
 void app::sys::WorkerSystem::setAngle(math::Vector2f vector, float angle)
 {
 	auto len = vector.magnitude();
-	vector.x = cos(angle) * len;
-	vector.y = sin(angle) * len;
+	vector.x = cos(angle * (180 / 3.14159f)) * len;
+	vector.y = sin(angle * (180 / 3.14159f)) * len;
 }

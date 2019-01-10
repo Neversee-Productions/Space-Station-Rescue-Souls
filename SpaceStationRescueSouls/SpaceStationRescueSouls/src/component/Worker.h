@@ -39,20 +39,13 @@ namespace app::comp
 		/// 
 		/// defualts to 10
 		/// </summary>
-		float circleRadius = 25;
+		float circleRadius = 40.0f;
 
 		/// <summary>
 		/// @brief target position to seek.
 		/// 
 		/// </summary>
 		math::Vector2f targetPos;
-
-		/// <summary>
-		/// @brief reference to the target entity.
-		/// 
-		/// 
-		/// </summary>
-		app::Entity targetEntity;
 
 		/// <summary>
 		/// @brief maximum velocity.
@@ -88,6 +81,21 @@ namespace app::comp
 		/// defaults to 1
 		/// </summary>
 		float mass = 1.0f;
+
+		/// <summary>
+		/// @brief amount by whih AI is to wander
+		/// 
+		/// 
+		/// </summary>
+		float wanderAngle = 1.0f;
+
+		/// <summary>
+		/// @brief angle to change the wandering force by each frame
+		/// 
+		/// 
+		/// </summary>
+		float angleChange = 2.0f;
+
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables
