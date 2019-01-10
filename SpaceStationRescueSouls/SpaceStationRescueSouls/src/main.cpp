@@ -1,6 +1,101 @@
 #include "stdafx.h"
 #include "Game.h"
 
+
+/// 
+/// @namespace app
+/// @author Rafael Plugge
+/// @author Sebastian Kruzel
+/// @brief Contains global classes and major application startup.
+/// 
+/// <summary>
+/// Conatins our global classes that will have the overhaul responsibility for
+/// running the application and starting it up.
+/// </summary>
+/// 
+
+/// 
+/// @namespace app::time
+/// @author Rafael Plugge
+/// @brief Type definitions for representations of time and their conversions.
+/// 
+/// <summary>
+/// Includes type definitions for representations of time used through app
+/// as well as specific type conversions between all the different times.
+/// </summary>
+/// 
+
+/// 
+/// @namespace app::inp
+/// @author Rafael Plugge
+/// @brief Contains any classes used to wrap any interfaces that the app supports.
+/// 
+/// <summary>
+/// Currently contains the input wrapper classes for Keyboard and Mouse input devices,
+/// they are templated to provide flexibility and compatibility with several different rendering libraries
+/// that process window events differently.
+/// </summary>
+/// 
+
+/// 
+/// @namespace app::gra
+/// @author Rafael Plugge
+/// @brief Contains any classes used to wrap our external graphics library.
+/// 
+/// <summary>
+/// 
+/// </summary>
+/// 
+
+/// 
+/// @namespace app::math
+/// @author Rafael Plugge
+/// @brief Contains mathematical helper functions and classes.
+/// 
+/// <summary>
+/// Contains mathematical constants, helper functions and classes to assist and be responsible
+/// for app's largely mathematical processes.
+/// </summary>
+/// 
+
+/// 
+/// @namespace app::comp
+/// @author Rafael Plugge
+/// @author Sebastian Kruzel
+/// @brief Contains POD structs for our entity's data.
+/// 
+/// <summary>
+/// These POD structs (Plain-Old-Data) structs are used to store any information regarding what we want the entity,
+/// to be, which the apps systems use to filter whether a entity has the necessary requirements to be processed by the system.
+/// </summary>
+/// 
+
+/// 
+/// @namespace app::sys
+/// @author Rafael Plugge
+/// @author Sebastian Kruzel
+/// @brief Contains all systems that act on our entities.
+/// 
+/// <summary>
+/// Each system is self-contained to run in isolation of each other which explicitly act on
+/// a set of entities that contain specific components each defined within the system.
+/// </summary>
+/// 
+
+/// 
+/// @namespace app::vis
+/// @author Rafael Plugge
+/// @brief Contains all visitor classes used to access variants.
+/// 
+/// <summary>
+/// The standard library provides access to typesafe union usage via the template class std::variant
+/// that stores any passed in type in a union like struct, access to the variant is done via a separate function object class,
+/// which is this app we define it as a visitor class which are all contained within this namespace, these visitor classes
+/// contain overloaded operator() member functions to provide type safe access to the std::variant.
+/// </summary>
+/// 
+
+
 /// 
 /// @mainpage Space Station Rescue Souls
 /// 
@@ -27,7 +122,7 @@
 /// 
 /// @subsection aliennests_sub_sec Alien Nests
 /// 
-/// These are alien manufacturing objects which produce predators (up to a maximum). They should be randomly positioned in the game space. Don't make too many of them (2 or 3 perhaps?). They can survive four its from the player. When the player’s ship is within range they will fire interceptor guided missiles at the player. Interceptor missiles have the same maximum speed as the player and will explode if they do not reach the player within 5 seconds. A nest can only have 1 interceptor missile “live” at a time. Think about how the missile will follow the player, especially if the player flees down corridors and around corners.
+/// These are alien manufacturing objects which produce predators (up to a maximum). They should be randomly positioned in the game space. Don't make too many of them (2 or 3 perhaps?). They can survive four its from the player. When the player's ship is within range they will fire interceptor guided missiles at the player. Interceptor missiles have the same maximum speed as the player and will explode if they do not reach the player within 5 seconds. A nest can only have 1 interceptor missile "live" at a time. Think about how the missile will follow the player, especially if the player flees down corridors and around corners.
 /// 
 /// @subsection predatorships_sub_sec Predator Ships
 /// 

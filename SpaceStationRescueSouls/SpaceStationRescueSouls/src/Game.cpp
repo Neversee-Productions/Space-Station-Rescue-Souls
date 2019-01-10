@@ -1,6 +1,8 @@
 ﻿#include "stdafx.h"
 #include "Game.h"
 
+#include "graphics/Graphics.h"
+
 // Systems
 #include "system/CameraFollowSystem.h"
 #include "system/RenderSystem.h"
@@ -154,7 +156,7 @@ bool app::Game::initEntities()
 /// - app::comp::Camera
 /// </summary>
 /// <param name="followEntity">the id of entity we which the camera to follow.</param>
-/// <remarks>Only ever create one camera entity.</remarks>
+/// @warning Only ever create one camera entity.
 void app::Game::createCamera(app::Entity const followEntity)
 {
 	assert(m_registry.valid(followEntity));
@@ -217,7 +219,7 @@ app::Entity const app::Game::createPlayer()
 /// - app::comp::Location
 /// - app::comp::RenderWorld
 /// </summary>
-/// @warn Only one world can ever be created.
+/// @warning Only one world can ever be created.
 /// 
 app::Entity const app::Game::createWorld()
 {

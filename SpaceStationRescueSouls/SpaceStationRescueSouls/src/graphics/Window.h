@@ -7,8 +7,9 @@ namespace app::gra
 	/// @brief Wrapper window class.
 	/// @author Rafael Plugge
 	/// 
+	/// <summary>
 	/// This class will wrap over the sfml RenderWindow.
-	/// 
+	/// </summary>
 	class Window
 	{
 	public: // Constructors/Destructor/Assignments

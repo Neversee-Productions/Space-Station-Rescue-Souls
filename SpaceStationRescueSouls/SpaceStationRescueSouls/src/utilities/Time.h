@@ -1,14 +1,6 @@
 ﻿#ifndef _UTIL_TIME_H
 #define _UTIL_TIME_H
 
-/// 
-/// @namespace app::time
-/// 
-/// Includes type definitions for representations of time used through app
-/// as well as specific type conversions between all the different times.
-/// 
-/// @author Rafael Plugge
-/// 
 namespace app::time
 {
 	/// 

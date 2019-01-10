@@ -7,7 +7,6 @@ var searchData=
   ['camerafollowsystem_2ecpp',['CameraFollowSystem.cpp',['../_camera_follow_system_8cpp.html',1,'']]],
   ['camerafollowsystem_2eh',['CameraFollowSystem.h',['../_camera_follow_system_8h.html',1,'']]],
   ['changestyle',['changeStyle',['../classapp_1_1gra_1_1_window.html#a9be5d6be2867cdc2c60fb6272981dfb9',1,'app::gra::Window']]],
-  ['class',['Class',['../class_class.html',1,'']]],
   ['clear',['clear',['../classapp_1_1gra_1_1_window.html#a1005524b85521381ff85a7adc51615ad',1,'app::gra::Window']]],
   ['close',['close',['../classapp_1_1gra_1_1_window.html#a42c0171da3030e1c433acfb63c142189',1,'app::gra::Window']]],
   ['console',['Console',['../classapp_1_1_console.html',1,'app']]],
