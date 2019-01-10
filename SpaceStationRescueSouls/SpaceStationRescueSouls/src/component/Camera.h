@@ -3,6 +3,11 @@
 
 namespace app::comp
 {
+	/// 
+	/// @brief Component Tag meant to represent a cameras data.
+	/// 
+	/// <summary>
+	/// </summary>
 	struct Camera
 	{
 	public: // Constructors/Destructor/Assignments
@@ -19,7 +24,18 @@ namespace app::comp
 	public: // Public Member Functions
 	public: // Public Static Variables
 	public: // Public Member Variables
+		/// 
+		/// @brief Represents the entity that we will follow.
+		/// 
+		/// <summary>
+		/// Defined optionally since our camera will support not having a entity.
+		/// </summary>
 		std::optional<app::Entity> entity;
+
+		/// 
+		/// @brief 
+		/// <summary>
+		/// </summary>
 		math::Vector2f position = { 0.0f, 0.0f };
 		math::Vector2f size = { 0.0f, 0.0f };
 		math::Vector2f offset = { 0.0f, 0.0f };

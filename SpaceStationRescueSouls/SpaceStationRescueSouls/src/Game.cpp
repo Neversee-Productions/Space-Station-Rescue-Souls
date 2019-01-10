@@ -22,6 +22,7 @@
 
 /// 
 /// @brief default constructor.
+/// 
 /// <summary>
 /// Default creates our game instances and runs initialization processes
 /// namely app::Game::initSystems and app::Game::initEntities

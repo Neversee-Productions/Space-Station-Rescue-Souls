@@ -48,52 +48,52 @@ namespace app
 		app::Entity const createWorld();
 		app::Entity const createPlayer();
 	private: // Private Static Variables
-		/// <summary>
+		/// 
 		/// @brief defines whether the app is currently running.
 		/// 
-		/// 
+		/// <summary>
 		/// </summary>
 		bool m_running;
 
-		/// <summary>
+		/// 
 		/// @brief the registry for the entities.
 		/// 
-		/// 
+		/// <summary>
 		/// </summary>
 		app::Registry & m_registry;
 
-		/// <summary>
+		/// 
 		/// @brief instance of the keyhandler that checks key presses/releases.
 		/// 
-		/// 
+		/// <summary>
 		/// </summary>
 		app::inp::KeyHandler m_keyHandler;
 
-		/// <summary>
+		/// 
 		/// @brief instance of the mouse handler that checks mouse presses/releases.
 		/// 
-		/// 
+		/// <summary>
 		/// </summary>
 		app::inp::MouseHandler m_mouseHandler;
 
-		/// <summary>
+		/// 
 		/// @brief instance of the Window object which is the main window of the game.
 		/// 
-		/// 
+		/// <summary>
 		/// </summary>
 		app::gra::Window m_window;
 
-		/// <summary>
+		/// 
 		/// @brief container that holds pointers to the systems to run in update method.
 		/// 
-		/// 
+		/// <summary>
 		/// </summary>
 		std::array<std::unique_ptr<app::sys::BaseSystem>, 4> m_updateSystems;
 
-		/// <summary>
+		/// 
 		/// @brief container that holds pointers to the systems to run in the draw method.
 		/// 
-		/// 
+		/// <summary>
 		/// </summary>
 		std::array<std::unique_ptr<app::sys::BaseSystem>, 2> m_renderSystems;
 	};
