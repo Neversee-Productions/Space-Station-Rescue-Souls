@@ -1,7 +1,7 @@
 ﻿#include "stdafx.h"
 #include "RenderSystem.h"
 
-#include "visitor/RenderRectVisitor.h"
+#include "visitor/RenderFillVisitor.h"
 
 // Component
 #include "component/Camera.h"
@@ -36,7 +36,7 @@ void app::sys::RenderSystem::update(app::time::seconds const & dt)
 		m_renderShape.setRotation(location.orientation);
 		m_renderShape.setSize(dimensions.size);
 		m_renderShape.setOrigin(dimensions.origin);
-		std::visit(vis::RenderRectVisitor(m_renderShape), renderRect.fill);
+		std::visit(vis::RenderFillVisitor(m_renderShape), renderRect.fill);
 
 		m_window.draw(m_renderShape);
 	});

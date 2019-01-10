@@ -27,10 +27,12 @@
     <ClInclude Include="src\component\Projectile.h" />
     <ClInclude Include="src\component\RenderRect.h" />
     <ClInclude Include="src\component\Worker.h" />
+    <ClInclude Include="src\component\RenderWorld.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\graphics\Window.h" />
     <ClInclude Include="src\input\Keyhandler.h" />
     <ClInclude Include="src\input\Mousehandler.h" />
+    <ClInclude Include="src\math\Math.h" />
     <ClInclude Include="src\math\Vector2.h" />
     <ClInclude Include="src\Registry.h" />
     <ClInclude Include="src\stdafx.h" />
@@ -41,9 +43,10 @@
     <ClInclude Include="src\system\MotionSystem.h" />
     <ClInclude Include="src\system\RenderSystem.h" />
     <ClInclude Include="src\system\WorkerSystem.h" />
+    <ClInclude Include="src\system\RenderWorldSystem.h" />
     <ClInclude Include="src\utilities\Console.h" />
     <ClInclude Include="src\utilities\Time.h" />
-    <ClInclude Include="src\visitor\RenderRectVisitor.h" />
+    <ClInclude Include="src\visitor\RenderFillVisitor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\component\Camera.cpp" />
@@ -54,11 +57,13 @@
     <ClCompile Include="src\component\Projectile.cpp" />
     <ClCompile Include="src\component\RenderRect.cpp" />
     <ClCompile Include="src\component\Worker.cpp" />
+    <ClCompile Include="src\component\RenderWorld.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\graphics\Window.cpp" />
     <ClCompile Include="src\input\Keyhandler.cpp" />
     <ClCompile Include="src\input\Mousehandler.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\math\Math.cpp" />
     <ClCompile Include="src\math\Vector2.cpp" />
     <ClCompile Include="src\Registry.cpp" />
     <ClCompile Include="src\stdafx.cpp">
@@ -74,9 +79,15 @@
     <ClCompile Include="src\system\MotionSystem.cpp" />
     <ClCompile Include="src\system\RenderSystem.cpp" />
     <ClCompile Include="src\system\WorkerSystem.cpp" />
+    <ClCompile Include="src\system\RenderWorldSystem.cpp" />
     <ClCompile Include="src\utilities\Console.cpp" />
     <ClCompile Include="src\utilities\Time.cpp" />
-    <ClCompile Include="src\visitor\RenderRectVisitor.cpp" />
+    <ClCompile Include="src\visitor\RenderFillVisitor.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\space-corridor-down.png" />
+    <Image Include="res\space-corridor-right.png" />
+    <Image Include="res\space-floor.jpg" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

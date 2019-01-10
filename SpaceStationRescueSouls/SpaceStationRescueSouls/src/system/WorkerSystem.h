@@ -29,7 +29,7 @@ namespace app::sys
 	protected: // Protected Member Variables
 	private: // Private Static Functions
 	private: // Private Member Functions
-		void setAngle(math::Vector2f vector, float angle);
+		void setAngle(math::Vector2f & vector, float angle);
 	private: // Private Static Variables
 	private: // Private Member Variables
 

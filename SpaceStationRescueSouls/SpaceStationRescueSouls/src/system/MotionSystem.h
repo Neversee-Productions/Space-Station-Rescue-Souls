@@ -17,10 +17,10 @@ namespace app::sys
 		virtual void update(app::time::seconds const & dt) override;
 		
 		/// <summary>
-		/// @brief value of PI.
+		/// @brief Max speed for the ship to travel.
+		/// 
 		/// 
 		/// </summary>
-		const float PI = 3.1416;
-		
+		static const float s_MAX_SPEED;
 	};
 }

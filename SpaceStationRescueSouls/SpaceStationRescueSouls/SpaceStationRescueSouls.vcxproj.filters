@@ -102,9 +102,6 @@
     <ClInclude Include="src\component\RenderRect.h">
       <Filter>Header Files\component</Filter>
     </ClInclude>
-    <ClInclude Include="src\visitor\RenderRectVisitor.h">
-      <Filter>Header Files\visitor</Filter>
-    </ClInclude>
     <ClInclude Include="src\component\Camera.h">
       <Filter>Header Files\component</Filter>
     </ClInclude>
@@ -119,6 +116,18 @@
     </ClInclude>
     <ClInclude Include="src\component\Input.h">
       <Filter>Header Files\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\component\RenderWorld.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\system\RenderWorldSystem.h">
+      <Filter>Header Files\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\Math.h">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\visitor\RenderFillVisitor.h">
+      <Filter>Header Files\visitor</Filter>
     </ClInclude>
     <ClInclude Include="src\component\Projectile.h">
       <Filter>Header Files\component</Filter>
@@ -179,9 +188,6 @@
     <ClCompile Include="src\component\RenderRect.cpp">
       <Filter>Source Files\component</Filter>
     </ClCompile>
-    <ClCompile Include="src\visitor\RenderRectVisitor.cpp">
-      <Filter>Source Files\visitor</Filter>
-    </ClCompile>
     <ClCompile Include="src\component\Camera.cpp">
       <Filter>Source Files\component</Filter>
     </ClCompile>
@@ -200,6 +206,18 @@
     <ClCompile Include="src\component\Input.cpp">
       <Filter>Source Files\component</Filter>
     </ClCompile>
+    <ClCompile Include="src\system\RenderWorldSystem.cpp">
+      <Filter>Source Files\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\RenderWorld.cpp">
+      <Filter>Source Files\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\math\Math.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\visitor\RenderFillVisitor.cpp">
+      <Filter>Source Files\visitor</Filter>
+    </ClCompile>
     <ClCompile Include="src\component\Projectile.cpp">
       <Filter>Source Files\component</Filter>
     </ClCompile>
@@ -212,5 +230,16 @@
     <ClCompile Include="src\component\Worker.cpp">
       <Filter>Source Files\component</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\space-floor.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\space-corridor-down.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\space-corridor-right.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
