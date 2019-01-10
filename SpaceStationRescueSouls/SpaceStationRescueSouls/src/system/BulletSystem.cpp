@@ -33,6 +33,14 @@ void app::sys::BulletSystem::update(app::time::seconds const & dt)
 	});
 }
 
+/// <summary>
+/// @brief this function spawns a bullet entity.
+/// 
+/// 
+/// </summary>
+/// <param name="position"></param>
+/// <param name="angle"></param>
+/// <param name="firedByPlayer"></param>
 void app::sys::BulletSystem::spawnBullet(math::Vector2f position, float angle, bool firedByPlayer)
 {
 	app::Entity const entity = m_registry.create();

@@ -4,6 +4,10 @@
 
 namespace app::comp
 {
+	/// <summary>
+	/// @brief struct to define a worker component.
+	/// 
+	/// </summary>
 	struct Worker
 	{
 	public: // Constructors/Destructor/Assignments

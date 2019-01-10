@@ -3,6 +3,11 @@
 
 namespace app::comp
 {
+	/// <summary>
+	/// @brief struct to define a motion component.
+	/// 
+	/// 
+	/// </summary>
 	struct Motion
 	{
 	public: // Constructors/Destructor/Assignments

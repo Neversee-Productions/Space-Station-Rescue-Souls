@@ -5,6 +5,11 @@
 
 namespace app::sys
 {
+	/// <summary>
+	/// @brief Worker system class, handles AI updates with wandering component.
+	/// @author Sebastian Kruzel
+	/// 
+	/// </summary>
 	class WorkerSystem : public BaseSystem
 	{
 	public: // Constructors/Destructor/Assignments
@@ -16,8 +21,6 @@ namespace app::sys
 
 		WorkerSystem & operator=(WorkerSystem const &) = default;
 		WorkerSystem & operator=(WorkerSystem &&) = default;
-		//DEBUG
-		float timer = 0.0f;
 	public: // Public Static Functions
 	public: // Public Member Functions
 		virtual void update(app::time::seconds const & dt) override;

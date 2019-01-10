@@ -16,7 +16,6 @@
 /// <param name="dt">time since last update in seconds</param>
 void app::sys::WorkerSystem::update(app::time::seconds const & dt)
 {
-	timer += dt.count();
 	m_registry.view<comp::Worker, comp::Location, comp::Motion>()
 		.each([&, this](app::Entity const entity, app::comp::Worker & worker, app::comp::Location & location, app::comp::Motion & motion)
 	{
@@ -39,11 +38,6 @@ void app::sys::WorkerSystem::update(app::time::seconds const & dt)
 		
 		location.orientation = math::toDegrees(atan2(motion.velocity.y, motion.velocity.x)); //use rad to deg here
 
-		
-		//if (timer > 5)
-		//{
-		//	worker.targetPos = { 600, 650 };
-		//}
 	});
 }
 
