@@ -40,6 +40,7 @@ namespace app
 		app::Entity const createWorld();
 		app::Entity const createPlayer();
 		void createWorkers();
+		math::Vector2f generateRoomPos(int roomNr);
 	private: // Private Static Variables
 		/// <summary>
 		/// @brief defines whether the app is currently running.
