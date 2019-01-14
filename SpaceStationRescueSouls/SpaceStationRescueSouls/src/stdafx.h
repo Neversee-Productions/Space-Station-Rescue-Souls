@@ -111,10 +111,6 @@
 // Entt Library
 #include <Entt/entt.hpp>
 
-// Cute C2 Library
-#define CUTE_C2_IMPLEMENTATION
-#include <Cute/cute_c2.h>
-
 /*********************************/
 /**         Includes here       **/
 /*********************************/

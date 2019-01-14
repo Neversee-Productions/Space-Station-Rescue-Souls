@@ -9,6 +9,7 @@
 #include "system/ControlSystem.h"
 #include "system/BulletSystem.h"
 #include "system/WorkerSystem.h"
+#include "system/CollisionSystem.h"
 
 // Components
 #include "component/Camera.h"
@@ -19,6 +20,7 @@
 #include "component/RenderWorld.h"
 #include "component/Input.h"
 #include "component/Worker.h"
+#include "component/Player.h"
 
 /// <summary>
 /// @brief default constructor.
@@ -98,7 +100,8 @@ bool app::Game::initSystems()
 			std::make_unique<app::sys::MotionSystem>(),
 			std::make_unique<app::sys::ControlSystem>(m_keyHandler),
 			std::make_unique<app::sys::BulletSystem>(),
-			std::make_unique<app::sys::WorkerSystem>()
+			std::make_unique<app::sys::WorkerSystem>(),
+			std::make_unique<app::sys::CollisionSystem>()
 
 		};
 
@@ -216,9 +219,17 @@ app::Entity const app::Game::createPlayer()
 	auto input = comp::Input();
 	m_registry.assign<decltype(input)>(entity, std::move(input));
 
+	auto player = comp::Player();
+	m_registry.assign<decltype(player)>(entity, std::move(player));
+
 	return entity;
 }
 
+/// <summary>
+/// @brief generate the workers in positions within hangars.
+/// 
+/// 
+/// </summary>
 void app::Game::createWorkers()
 {
 	int currentRoom = 1;
