@@ -27,6 +27,7 @@ namespace app::math
 
 	public: // Public Static Functions
 		static Vector2<T> const unit(Vector2<T> const & v);
+
 	public: // Public Member Functions
 		Vector2 & operator+=(Vector2 const & v);
 		Vector2 & operator+=(T const & t);
@@ -42,6 +43,7 @@ namespace app::math
 
 		T magnitudeSqr() const;
 		T magnitude() const;
+		Vector2<T> & truncate(T max);
 		Vector2<T> & unit();
 		Vector2<T> unit() const;
 

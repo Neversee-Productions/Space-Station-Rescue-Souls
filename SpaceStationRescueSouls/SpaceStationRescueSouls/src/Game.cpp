@@ -10,6 +10,8 @@
 #include "system/MotionSystem.h"
 #include "system/ControlSystem.h"
 #include "system/BulletSystem.h"
+#include "system/WorkerSystem.h"
+#include "system/CollisionSystem.h"
 
 // Components
 #include "component/Camera.h"
@@ -19,6 +21,8 @@
 #include "component/RenderRect.h"
 #include "component/RenderWorld.h"
 #include "component/Input.h"
+#include "component/Worker.h"
+#include "component/Player.h"
 
 /// 
 /// @brief default constructor.
@@ -105,7 +109,9 @@ bool app::Game::initSystems()
 			std::make_unique<sys::CameraFollowSystem>(),
 			std::make_unique<app::sys::MotionSystem>(),
 			std::make_unique<app::sys::ControlSystem>(m_keyHandler),
-			std::make_unique<app::sys::BulletSystem>()
+			std::make_unique<app::sys::BulletSystem>(),
+			std::make_unique<app::sys::WorkerSystem>(),
+			std::make_unique<app::sys::CollisionSystem>()
 
 		};
 
@@ -135,6 +141,7 @@ bool app::Game::initEntities()
 	try
 	{
 		auto const cameraFollowEntity = this->createPlayer();
+		this->createWorkers();
 
 		this->createCamera(cameraFollowEntity);
 		this->createWorld();
@@ -168,6 +175,7 @@ void app::Game::createCamera(app::Entity const followEntity)
 	camera.position = { 0.0f, -200.0f };
 	camera.offset = { 0.0f, 0.0f };
 	camera.size = { 1900.0f, 1080.0f };
+	//camera.size = { 17100.0f, 9720.0f };
 	m_registry.assign<decltype(camera)>(entt::tag_t(), entity, std::move(camera));
 }
 
@@ -203,12 +211,118 @@ app::Entity const app::Game::createPlayer()
 
 	auto motion = comp::Motion();
 	motion.velocity = math::Vector2f(0.0f, 0.0f);
+	motion.maxSpeed = 0.08f;
 	m_registry.assign<decltype(motion)>(entity, std::move(motion));
 
 	auto input = comp::Input();
 	m_registry.assign<decltype(input)>(entity, std::move(input));
 
+	auto player = comp::Player();
+	m_registry.assign<decltype(player)>(entity, std::move(player));
+
 	return entity;
+}
+
+/// <summary>
+/// @brief generate the workers in positions within hangars.
+/// 
+/// 
+/// </summary>
+void app::Game::createWorkers()
+{
+	int currentRoom = 1;
+	for (int i = 0; i <= 50; i++)
+	{
+		
+		app::Entity const entity = m_registry.create();
+
+		auto location = comp::Location();
+		location.position = generateRoomPos(currentRoom);
+		location.orientation = rand() % 360;
+		m_registry.assign<decltype(location)>(entity, std::move(location));
+
+		auto dimensions = comp::Dimensions();
+		dimensions.size = { 50.0f, 50.0f };
+		dimensions.origin = dimensions.size / 2.0f;
+		m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
+
+		auto renderRect = comp::RenderRect();
+		renderRect.fill = sf::Color(255u, 255u, 0u, 255u);
+		m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
+
+		auto motion = comp::Motion();
+		motion.velocity = math::Vector2f(0.0f, 0.0f);
+		motion.maxSpeed = 10.0f;
+		m_registry.assign<decltype(motion)>(entity, std::move(motion));
+
+		auto worker = comp::Worker();
+		m_registry.assign<decltype(worker)>(entity, std::move(worker));
+
+		currentRoom++;
+		if (currentRoom > 9)
+		{
+			currentRoom = 1;
+		}
+	}
+
+}
+
+/// <summary>
+/// @brief Generates a random position within one of the 9 rooms.
+/// 
+/// 
+/// </summary>
+/// <param name="roomNr">nuber of the room starting from 1</param>
+/// <returns>position within the room</returns>
+app::math::Vector2f app::Game::generateRoomPos(int roomNr)
+{
+	math::Vector2f position;
+	float offsetX = rand() % 1850;
+	float offsetY = rand() % 1850;
+	switch (roomNr)
+	{
+	case 1:
+		//-4000,-4000
+		position = { -4000 + offsetX, -4000 + offsetY };
+		break;
+	case 2:
+		//-1000,-4000
+		position = { -1000 + offsetX, -4000 + offsetY };
+		break;
+	case 3:
+		//2000,-4000
+		position = { 2000 + offsetX, -4000 + offsetY };
+		break;
+	case 4:
+		//-4000,-1000
+		position = { -4000 + offsetX, -1000 + offsetY };
+		break;
+	case 5:
+		//-1000,-1000
+		position = { -1000 + offsetX, -1000 + offsetY };
+		break;
+	case 6:
+		//2000,-1000
+		position = { 2000 + offsetX, -1000 + offsetY };
+		break;
+	case 7: 
+		//-4000,2000
+		position = { -4000 + offsetX, 2000 + offsetY };
+		break;
+	case 8: 
+		//-1000,2000
+		position = { -1000 + offsetX, 2000 + offsetY };
+		break;
+	case 9:
+		//2000,2000
+		position = { 2000 + offsetX, 2000 + offsetY };
+		break;
+	default:
+		//default first hangar
+		position = { -4000 + offsetX, -4000 + offsetY };
+		break;
+	}
+	return position;
 }
 
 /// 
@@ -225,7 +339,7 @@ app::Entity const app::Game::createPlayer()
 app::Entity const app::Game::createWorld()
 {
 	app::Entity const entity = m_registry.create();
-
+	
 	auto location = comp::Location();
 	location.position = { 0.0f, 0.0f };
 	location.orientation = 0.0f;
@@ -281,6 +395,5 @@ app::Entity const app::Game::createWorld()
 			comp::RenderWorld::Section{ { 1000.0f, 2750.0f },	{ 1000.0f, 500.0f },	corridorRightFloorTexture }
 	};
 	m_registry.assign<decltype(renderWorld)>(entt::tag_t(), entity, std::move(renderWorld));
-
 	return entity;
 }

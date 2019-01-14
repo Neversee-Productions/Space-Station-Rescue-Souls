@@ -9,7 +9,7 @@ namespace app::sys
 {
 	/// <summary>
 	/// @brief The system that fires and updates bullets.
-	/// 
+	/// @author Sebastian Kruzel
 	/// 
 	/// </summary>
 	class BulletSystem : public BaseSystem

@@ -135,6 +135,18 @@
     <ClInclude Include="src\system\BulletSystem.h">
       <Filter>Header Files\system</Filter>
     </ClInclude>
+    <ClInclude Include="src\system\WorkerSystem.h">
+      <Filter>Header Files\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\component\Worker.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\system\CollisionSystem.h">
+      <Filter>Header Files\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\component\Player.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
     <ClInclude Include="src\graphics\Graphics.h">
       <Filter>Header Files\graphics</Filter>
     </ClInclude>
@@ -220,6 +232,21 @@
     </ClCompile>
     <ClCompile Include="src\system\BulletSystem.cpp">
       <Filter>Source Files\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\system\WorkerSystem.cpp">
+      <Filter>Source Files\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\Worker.cpp">
+      <Filter>Source Files\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\system\CollisionSystem.cpp">
+      <Filter>Source Files\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\Player.cpp">
+      <Filter>Source Files\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utilities\cute_c2.cpp">
+      <Filter>Source Files\utilities</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\Graphics.cpp">
       <Filter>Source Files\graphics</Filter>

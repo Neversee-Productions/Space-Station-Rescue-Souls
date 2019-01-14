@@ -5,8 +5,8 @@
 namespace app::sys
 {
 	/// <summary>
-	/// This system deals with motion physics.
-	/// 
+	/// @brief This system deals with motion physics.
+	/// @author Sebastian Kruzel
 	/// 
 	/// </summary>
 	class MotionSystem : public BaseSystem

@@ -72,6 +72,14 @@ app::sys::ControlSystem::~ControlSystem()
 {
 }
 
+/// <summary>
+/// @breif This function spawns a bullet entity.
+/// 
+/// 
+/// </summary>
+/// <param name="position">the position of the bullet</param>
+/// <param name="angle">the angle at which the bullet is orientated</param>
+/// <param name="firedByPlayer">boolean whether bullet was fired by player defaults to false</param>
 void app::sys::ControlSystem::spawnBullet(math::Vector2f position, float angle, bool firedByPlayer)
 {
 	app::Entity const entity = m_registry.create();

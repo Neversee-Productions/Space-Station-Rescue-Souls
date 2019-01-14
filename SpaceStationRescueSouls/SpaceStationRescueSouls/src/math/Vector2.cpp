@@ -113,6 +113,16 @@ T app::math::Vector2<T>::magnitude() const
 }
 
 template<typename T>
+app::math::Vector2<T>& app::math::Vector2<T>::truncate(T max)
+{
+	if (this->magnitude() > max)
+	{
+		(*this) = this->unit() * max;
+	}
+	return *this;
+}
+
+template<typename T>
 app::math::Vector2<T> & app::math::Vector2<T>::unit()
 {
 	auto const length = this->magnitude();
