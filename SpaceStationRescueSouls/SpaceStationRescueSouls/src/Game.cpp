@@ -11,6 +11,7 @@
 #include "system/ControlSystem.h"
 #include "system/BulletSystem.h"
 #include "system/WorkerSystem.h"
+#include "system/CollisionTrackingSystem.h"
 #include "system/CollisionSystem.h"
 
 // Components
@@ -23,6 +24,7 @@
 #include "component/Input.h"
 #include "component/Worker.h"
 #include "component/Player.h"
+#include "component/Collision.h"
 
 /// 
 /// @brief default constructor.
@@ -111,6 +113,7 @@ bool app::Game::initSystems()
 			std::make_unique<app::sys::ControlSystem>(m_keyHandler),
 			std::make_unique<app::sys::BulletSystem>(),
 			std::make_unique<app::sys::WorkerSystem>(),
+			std::make_unique<app::sys::CollisionTrackingSystem>(),
 			std::make_unique<app::sys::CollisionSystem>()
 
 		};
@@ -220,6 +223,10 @@ app::Entity const app::Game::createPlayer()
 	auto player = comp::Player();
 	m_registry.assign<decltype(player)>(entity, std::move(player));
 
+	auto collision = comp::Collision();
+	collision.bounds = cute::c2AABB();
+	m_registry.assign<decltype(collision)>(entity, std::move(collision));
+
 	return entity;
 }
 
@@ -254,6 +261,10 @@ void app::Game::createWorkers()
 		motion.velocity = math::Vector2f(0.0f, 0.0f);
 		motion.maxSpeed = 10.0f;
 		m_registry.assign<decltype(motion)>(entity, std::move(motion));
+
+		auto collision = comp::Collision();
+		collision.bounds = cute::c2AABB();
+		m_registry.assign<decltype(collision)>(entity, std::move(collision));
 
 		auto worker = comp::Worker();
 		m_registry.assign<decltype(worker)>(entity, std::move(worker));

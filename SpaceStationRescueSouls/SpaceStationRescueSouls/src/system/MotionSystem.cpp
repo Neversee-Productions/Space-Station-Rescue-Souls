@@ -34,19 +34,19 @@ void app::sys::MotionSystem::update(app::time::seconds const & dt)
 		.each([&, this](app::Entity const entity, app::comp::Motion & motion, app::comp::Location & location)
 	{
 		//Cap the rotations
-		if (location.orientation > 360)
+		if (location.orientation >= 360)
 		{
 			location.orientation = 0;
 		}
-		else if (location.orientation <= 0)
+		else if (location.orientation < 0)
 		{
 			location.orientation = 360;
 		}
-		if (motion.angle > 360)
+		if (motion.angle >= 360)
 		{
 			motion.angle = 0;
 		}
-		else if (motion.angle <= 0)
+		else if (motion.angle < 0)
 		{
 			motion.angle = 360;
 		}
