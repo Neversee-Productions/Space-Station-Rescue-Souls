@@ -150,6 +150,33 @@
     <ClInclude Include="src\graphics\Graphics.h">
       <Filter>Header Files\graphics</Filter>
     </ClInclude>
+    <ClInclude Include="src\component\Collision.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utilities\cute_c2.h">
+      <Filter>Header Files\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\visitor\CollisionBoundsBoolVisitor.h">
+      <Filter>Header Files\visitor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\visitor\CollisionAabbBoolVisitor.h">
+      <Filter>Header Files\visitor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\visitor\CollisionCircleBoolVisitor.h">
+      <Filter>Header Files\visitor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\system\CollisionTrackingSystem.h">
+      <Filter>Header Files\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\visitor\CollisionRayBoolVisitor.h">
+      <Filter>Header Files\visitor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\visitor\CollisionCapsuleBoolVisitor.h">
+      <Filter>Header Files\visitor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\visitor\CollisionTrackingVisitor.h">
+      <Filter>Header Files\visitor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -250,6 +277,30 @@
     </ClCompile>
     <ClCompile Include="src\graphics\Graphics.cpp">
       <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\Collision.cpp">
+      <Filter>Source Files\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\visitor\CollisionBoundsBoolVisitor.cpp">
+      <Filter>Source Files\visitor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\visitor\CollisionAabbBoolVisitor.cpp">
+      <Filter>Source Files\visitor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\visitor\CollisionCircleBoolVisitor.cpp">
+      <Filter>Source Files\visitor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\system\CollisionTrackingSystem.cpp">
+      <Filter>Source Files\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\visitor\CollisionCapsuleBoolVisitor.cpp">
+      <Filter>Source Files\visitor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\visitor\CollisionRayBoolVisitor.cpp">
+      <Filter>Source Files\visitor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\visitor\CollisionTrackingVisitor.cpp">
+      <Filter>Source Files\visitor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

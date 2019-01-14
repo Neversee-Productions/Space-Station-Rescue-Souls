@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\component\Camera.h" />
+    <ClInclude Include="src\component\Collision.h" />
     <ClInclude Include="src\component\Dimensions.h" />
     <ClInclude Include="src\component\Input.h" />
     <ClInclude Include="src\component\Location.h" />
@@ -42,17 +43,26 @@
     <ClInclude Include="src\system\BulletSystem.h" />
     <ClInclude Include="src\system\CameraFollowSystem.h" />
     <ClInclude Include="src\system\CollisionSystem.h" />
+    <ClInclude Include="src\system\CollisionTrackingSystem.h" />
     <ClInclude Include="src\system\ControlSystem.h" />
     <ClInclude Include="src\system\MotionSystem.h" />
     <ClInclude Include="src\system\RenderSystem.h" />
     <ClInclude Include="src\system\WorkerSystem.h" />
     <ClInclude Include="src\system\RenderWorldSystem.h" />
     <ClInclude Include="src\utilities\Console.h" />
+    <ClInclude Include="src\utilities\cute_c2.h" />
     <ClInclude Include="src\utilities\Time.h" />
+    <ClInclude Include="src\visitor\CollisionAabbBoolVisitor.h" />
+    <ClInclude Include="src\visitor\CollisionBoundsBoolVisitor.h" />
+    <ClInclude Include="src\visitor\CollisionCapsuleBoolVisitor.h" />
+    <ClInclude Include="src\visitor\CollisionCircleBoolVisitor.h" />
+    <ClInclude Include="src\visitor\CollisionRayBoolVisitor.h" />
+    <ClInclude Include="src\visitor\CollisionTrackingVisitor.h" />
     <ClInclude Include="src\visitor\RenderFillVisitor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\component\Camera.cpp" />
+    <ClCompile Include="src\component\Collision.cpp" />
     <ClCompile Include="src\component\Dimensions.cpp" />
     <ClCompile Include="src\component\Input.cpp" />
     <ClCompile Include="src\component\Location.cpp" />
@@ -81,6 +91,7 @@
     <ClCompile Include="src\system\BulletSystem.cpp" />
     <ClCompile Include="src\system\CameraFollowSystem.cpp" />
     <ClCompile Include="src\system\CollisionSystem.cpp" />
+    <ClCompile Include="src\system\CollisionTrackingSystem.cpp" />
     <ClCompile Include="src\system\ControlSystem.cpp" />
     <ClCompile Include="src\system\MotionSystem.cpp" />
     <ClCompile Include="src\system\RenderSystem.cpp" />
@@ -89,6 +100,12 @@
     <ClCompile Include="src\utilities\Console.cpp" />
     <ClCompile Include="src\utilities\cute_c2.cpp" />
     <ClCompile Include="src\utilities\Time.cpp" />
+    <ClCompile Include="src\visitor\CollisionAabbBoolVisitor.cpp" />
+    <ClCompile Include="src\visitor\CollisionBoundsBoolVisitor.cpp" />
+    <ClCompile Include="src\visitor\CollisionCapsuleBoolVisitor.cpp" />
+    <ClCompile Include="src\visitor\CollisionCircleBoolVisitor.cpp" />
+    <ClCompile Include="src\visitor\CollisionRayBoolVisitor.cpp" />
+    <ClCompile Include="src\visitor\CollisionTrackingVisitor.cpp" />
     <ClCompile Include="src\visitor\RenderFillVisitor.cpp" />
   </ItemGroup>
   <ItemGroup>

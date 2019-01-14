@@ -1,19 +1,21 @@
-﻿#ifndef _COLLISION_SYSTEM_H
+﻿#ifndef _COLLISION_TRACKING_SYSTEM_H
+#define _COLLISION_TRACKING_SYSTEM_H
+
 #include "BaseSystem.h"
 
 namespace app::sys
 {
-	class CollisionSystem : public BaseSystem
+	class CollisionTrackingSystem : public BaseSystem
 	{
 	public: // Constructors/Destructor/Assignments
-		CollisionSystem();
-		virtual ~CollisionSystem() = default;
+		CollisionTrackingSystem();
+		virtual ~CollisionTrackingSystem() = default;
 
-		CollisionSystem(CollisionSystem const &) = default;
-		CollisionSystem & operator=(CollisionSystem const &) = default;
+		CollisionTrackingSystem(CollisionTrackingSystem const &) = default;
+		CollisionTrackingSystem & operator=(CollisionTrackingSystem const &) = default;
 
-		CollisionSystem(CollisionSystem &&) = default;
-		CollisionSystem & operator=(CollisionSystem &&) = default;
+		CollisionTrackingSystem(CollisionTrackingSystem &&) = default;
+		CollisionTrackingSystem & operator=(CollisionTrackingSystem &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
@@ -26,11 +28,9 @@ namespace app::sys
 	protected: // Protected Member Variables
 	private: // Private Static Functions
 	private: // Private Member Functions
-		void playerWorkerCollision();
 	private: // Private Static Variables
 	private: // Private Member Variables
 	};
 }
 
-
-#endif // !_COLLISION_SYSTEM_H
+#endif // !_COLLISION_TRACKING_SYSTEM_H
