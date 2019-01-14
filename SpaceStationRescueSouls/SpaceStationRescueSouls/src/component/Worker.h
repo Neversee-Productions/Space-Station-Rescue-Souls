@@ -100,6 +100,22 @@ namespace app::comp
 		/// </summary>
 		float angleChange = 2.0f;
 
+		/// <summary>
+		/// @brief the look ahead vector of the worker.
+		/// 
+		/// 
+		/// </summary>
+		math::Vector2f rayVector;
+
+		/// <summary>
+		/// @brief length of the ray vector
+		/// how far the ai looks for collision
+		/// 
+		/// defualts to 100.
+		/// </summary>
+		float lookAhead = 100.0f;
+
+
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables

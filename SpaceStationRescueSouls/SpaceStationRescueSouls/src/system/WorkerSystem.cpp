@@ -19,6 +19,7 @@ void app::sys::WorkerSystem::update(app::time::seconds const & dt)
 	m_registry.view<comp::Worker, comp::Location, comp::Motion>()
 		.each([&, this](app::Entity const entity, app::comp::Worker & worker, app::comp::Location & location, app::comp::Motion & motion)
 	{
+
 		//get the displacement circle
 
 		worker.circleCenter = math::Vector2f{ cos(math::toRadians(location.orientation)), sin(math::toRadians(location.orientation)) } * worker.circleDistance; //use deg to rad here

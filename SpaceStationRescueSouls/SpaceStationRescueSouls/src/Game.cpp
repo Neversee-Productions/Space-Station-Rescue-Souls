@@ -155,8 +155,8 @@ void app::Game::createCamera(app::Entity const followEntity)
 	camera.entity = followEntity;
 	camera.position = { 0.0f, -200.0f };
 	camera.offset = { 0.0f, 0.0f };
-	//	camera.size = { 1900.0f, 1080.0f };
-	camera.size = { 17100.0f, 9720.0f };
+	camera.size = { 1900.0f, 1080.0f };
+	//camera.size = { 17100.0f, 9720.0f };
 	m_registry.assign<decltype(camera)>(entt::tag_t(), entity, std::move(camera));
 }
 
@@ -391,6 +391,5 @@ app::Entity const app::Game::createWorld()
 			comp::RenderWorld::Section{ { 1000.0f, 2750.0f },	{ 1000.0f, 500.0f },	corridorRightFloorTexture }
 	};
 	m_registry.assign<decltype(renderWorld)>(entt::tag_t(), entity, std::move(renderWorld));
-
 	return entity;
 }
