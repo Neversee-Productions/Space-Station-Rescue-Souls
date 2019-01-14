@@ -146,6 +146,7 @@ bool app::Game::initEntities()
 		auto const cameraFollowEntity = this->createPlayer();
 		this->createWorkers();
 
+		this->createRadar({});
 		this->createCamera(cameraFollowEntity);
 		this->createWorld();
 
@@ -167,8 +168,8 @@ bool app::Game::initEntities()
 /// - app::comp::Camera
 /// </summary>
 /// <param name="followEntity">the id of entity we which the camera to follow.</param>
-/// @warning Only ever create one camera entity.
-void app::Game::createCamera(app::Entity const followEntity)
+/// <returns></returns>
+app::Entity const app::Game::createCamera(app::Entity const followEntity)
 {
 	assert(m_registry.valid(followEntity));
 	app::Entity const entity = m_registry.create();
@@ -178,8 +179,25 @@ void app::Game::createCamera(app::Entity const followEntity)
 	camera.position = { 0.0f, -200.0f };
 	camera.offset = { 0.0f, 0.0f };
 	camera.size = { 1900.0f, 1080.0f };
-	//camera.size = { 17100.0f, 9720.0f };
-	m_registry.assign<decltype(camera)>(entt::tag_t(), entity, std::move(camera));
+	camera.viewport = { 0.0f, 0.0f, 1.0f, 1.0f };
+	m_registry.assign<decltype(camera)>(entity, std::move(camera));
+
+	return entity;
+}
+
+app::Entity const app::Game::createRadar(std::optional<app::Entity> followEntity)
+{
+	app::Entity const entity = m_registry.create();
+
+	auto camera = comp::Camera();
+	camera.entity.swap(followEntity);
+	camera.position = { 0.0f, 0.0f };
+	camera.offset = { 0.0f, 0.0f };
+	camera.size = math::Vector2f{ 1900.0f, 1080.0f } * 8.0f;
+	camera.viewport = { -0.04f, 0.01f, 0.21f, 0.21f };
+	m_registry.assign<decltype(camera)>(entity, std::move(camera));
+
+	return entity;
 }
 
 /// 

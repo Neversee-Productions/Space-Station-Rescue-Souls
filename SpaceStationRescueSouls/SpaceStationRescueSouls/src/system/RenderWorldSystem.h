@@ -34,6 +34,7 @@ namespace app::sys
 		app::gra::Window & m_window;
 
 		sf::RectangleShape m_renderShape;
+		sf::View m_view;
 	};
 }
 
