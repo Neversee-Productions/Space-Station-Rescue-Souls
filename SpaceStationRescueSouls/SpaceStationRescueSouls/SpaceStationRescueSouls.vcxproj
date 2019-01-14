@@ -30,6 +30,7 @@
     <ClInclude Include="src\component\Worker.h" />
     <ClInclude Include="src\component\RenderWorld.h" />
     <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\graphics\Graphics.h" />
     <ClInclude Include="src\graphics\Window.h" />
     <ClInclude Include="src\input\Keyhandler.h" />
     <ClInclude Include="src\input\Mousehandler.h" />
@@ -62,6 +63,7 @@
     <ClCompile Include="src\component\Worker.cpp" />
     <ClCompile Include="src\component\RenderWorld.cpp" />
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\graphics\Graphics.cpp" />
     <ClCompile Include="src\graphics\Window.cpp" />
     <ClCompile Include="src\input\Keyhandler.cpp" />
     <ClCompile Include="src\input\Mousehandler.cpp" />

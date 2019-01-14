@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vector2',['Vector2',['../classapp_1_1math_1_1_vector2.html',1,'app::math']]]
+  ['window',['Window',['../classapp_1_1gra_1_1_window.html',1,'app::gra']]]
 ];

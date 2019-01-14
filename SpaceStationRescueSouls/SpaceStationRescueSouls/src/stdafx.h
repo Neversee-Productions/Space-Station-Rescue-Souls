@@ -111,17 +111,13 @@
 // Entt Library
 #include <Entt/entt.hpp>
 
-/*********************************/
-/**         Includes here       **/
-/*********************************/
+
+//
+// Includes here
+//
 
 #include "input/Keyhandler.h"
 #include "input/MouseHandler.h"
-namespace app::inp
-{
-	using KeyHandler = Keyhandler<sf::Keyboard::Key>;
-	using MouseHandler = Mousehandler<sf::Mouse::Button>;
-}
 
 #include "math/Vector2.h"
 
@@ -130,16 +126,9 @@ namespace app::inp
 
 #include "Registry.h"
 
-namespace app::gra
+namespace app::inp
 {
-	static std::shared_ptr<sf::Texture> loadTexture(std::string const & filePath)
-	{
-		auto texture = sf::Texture();
-		if (texture.loadFromFile(filePath))
-		{
-			texture.setSmooth(true);
-			return std::make_shared<decltype(texture)>(std::move(texture));
-		}
-		return nullptr;
-	}
+	using KeyHandler = Keyhandler<sf::Keyboard::Key>;
+	using MouseHandler = Mousehandler<sf::Mouse::Button>;
 }
+

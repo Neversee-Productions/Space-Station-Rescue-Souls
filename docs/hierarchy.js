@@ -9,7 +9,6 @@ var hierarchy =
       [ "app::sys::RenderWorldSystem", "classapp_1_1sys_1_1_render_world_system.html", null ]
     ] ],
     [ "app::comp::Camera", "structapp_1_1comp_1_1_camera.html", null ],
-    [ "Class", "class_class.html", null ],
     [ "app::Console", "classapp_1_1_console.html", null ],
     [ "app::comp::Dimensions", "structapp_1_1comp_1_1_dimensions.html", null ],
     [ "app::Game", "classapp_1_1_game.html", null ],
@@ -24,7 +23,6 @@ var hierarchy =
     [ "app::comp::RenderRect", "structapp_1_1comp_1_1_render_rect.html", null ],
     [ "app::comp::RenderWorld", "structapp_1_1comp_1_1_render_world.html", null ],
     [ "app::comp::RenderWorld::Section", "structapp_1_1comp_1_1_render_world_1_1_section.html", null ],
-    [ "This", "class_this.html", null ],
     [ "app::math::Vector2< T >", "classapp_1_1math_1_1_vector2.html", null ],
     [ "app::gra::Window", "classapp_1_1gra_1_1_window.html", null ]
 ];

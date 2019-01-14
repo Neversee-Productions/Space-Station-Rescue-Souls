@@ -1,6 +1,8 @@
 var searchData=
 [
+  ['space_20station_20rescue_20souls',['Space Station Rescue Souls',['../index.html',1,'']]],
   ['s_5fmax_5fspeed',['s_MAX_SPEED',['../classapp_1_1sys_1_1_motion_system.html#acae301a269a29f8843d38bb49dcaa597',1,'app::sys::MotionSystem']]],
+  ['s_5fregistry',['s_registry',['../classapp_1_1_reg.html#a9cd95a78a2e4fc68ec229f826a093e57',1,'app::Reg']]],
   ['seconds',['seconds',['../namespaceapp_1_1time.html#afeb86c6f631e8466e0e6a753410c9e37',1,'app::time']]],
   ['section',['Section',['../structapp_1_1comp_1_1_render_world_1_1_section.html',1,'app::comp::RenderWorld::Section'],['../structapp_1_1comp_1_1_render_world_1_1_section.html#a55c52febd09868e936708bbbb7067568',1,'app::comp::RenderWorld::Section::Section()=default'],['../structapp_1_1comp_1_1_render_world_1_1_section.html#a336b562c3cc69c69fa2b812dc6ab1dd9',1,'app::comp::RenderWorld::Section::Section(math::Vector2f _position, math::Vector2f _size, std::variant&lt; sf::Color, std::shared_ptr&lt; sf::Texture &gt;&gt; _fill)']]],
   ['sections',['sections',['../structapp_1_1comp_1_1_render_world.html#aea01fc5e30168801f65eb5ff47006be0',1,'app::comp::RenderWorld']]],
