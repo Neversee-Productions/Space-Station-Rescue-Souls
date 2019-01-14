@@ -4,7 +4,7 @@
 namespace app::sys 
 {
 	/// <summary>
-	/// @class Class that responds to input.
+	/// Class that responds to input.
 	/// </summary>
 	class ControlSystem :
 		public BaseSystem

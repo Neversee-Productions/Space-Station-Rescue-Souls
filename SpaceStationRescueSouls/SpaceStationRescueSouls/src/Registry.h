@@ -6,18 +6,20 @@ namespace app
 	using Entity = std::uint32_t;
 	using Registry = ::entt::Registry<Entity>;
 
+	/// 
+	/// @brief Represents non-constructable registry.
+	/// @author Rafael Plugge
+	/// 
+	/// <summary>
+	/// Contains a single static instance of our registry to make access to the registry easier
+	/// as well as utilise the singleton pattern to garantee only one registry is ever created.
+	/// 
+	/// A registry will store all our entities and their components in highly optimised sets to allow for
+	/// fast retrieval and iteration of several entities and different combinations of componenents.
+	/// </summary>
 	class Reg
 	{
 	private: // Constructors/Destructor/Assignments
-		Reg() = default;
-		~Reg() = default;
-
-		Reg(Reg const &) = default;
-		Reg & operator=(Reg const &) = default;
-
-		Reg(Reg &&) = default;
-		Reg & operator=(Reg &&) = default;
-
 	public: // Public Static Functions
 		static Registry & get();
 	public: // Public Member Functions

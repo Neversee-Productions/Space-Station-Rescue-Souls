@@ -12,5 +12,7 @@ var classapp_1_1inp_1_1_keyhandler =
     [ "operator=", "classapp_1_1inp_1_1_keyhandler.html#a58bded93070e637ce38aed28a88c1e97", null ],
     [ "operator=", "classapp_1_1inp_1_1_keyhandler.html#ac88dab1dc2104297bc2cf9e33badba7c", null ],
     [ "update", "classapp_1_1inp_1_1_keyhandler.html#a3df59a349c0beec09f3a6c3444cb7ef6", null ],
-    [ "updateKey", "classapp_1_1inp_1_1_keyhandler.html#aa9722342e31bc195ac1a9d7630b12ed7", null ]
+    [ "updateKey", "classapp_1_1inp_1_1_keyhandler.html#aa9722342e31bc195ac1a9d7630b12ed7", null ],
+    [ "m_keyNowMap", "classapp_1_1inp_1_1_keyhandler.html#a590901387525e7eab93bd77495eb3999", null ],
+    [ "m_keyPrevMap", "classapp_1_1inp_1_1_keyhandler.html#afaa31c7ce7aa092321d2781f9d8502bf", null ]
 ];

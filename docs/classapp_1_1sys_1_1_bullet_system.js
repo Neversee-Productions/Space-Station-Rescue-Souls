@@ -7,5 +7,7 @@ var classapp_1_1sys_1_1_bullet_system =
     [ "operator=", "classapp_1_1sys_1_1_bullet_system.html#a7f0f1be84034bfee6434d762b0835664", null ],
     [ "operator=", "classapp_1_1sys_1_1_bullet_system.html#a95abcb19b50f228b87a0743f930c5b43", null ],
     [ "spawnBullet", "classapp_1_1sys_1_1_bullet_system.html#a7f82eb5b28802506cf0988daaa9e5e9c", null ],
-    [ "update", "classapp_1_1sys_1_1_bullet_system.html#acee933bb079a7e687bfa3712ac3fcac1", null ]
+    [ "update", "classapp_1_1sys_1_1_bullet_system.html#acee933bb079a7e687bfa3712ac3fcac1", null ],
+    [ "m_registry", "classapp_1_1sys_1_1_bullet_system.html#a8a1f2f3a0c5eb6e14356f572fbebb317", null ],
+    [ "PI", "classapp_1_1sys_1_1_bullet_system.html#a85d6b8c7f3b60c4b5ed881841b09cb18", null ]
 ];

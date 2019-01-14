@@ -7,13 +7,20 @@ var classapp_1_1inp_1_1_mousehandler =
     [ "getPosition", "classapp_1_1inp_1_1_mousehandler.html#aeee1308ab799c6d972819608b502dd4c", null ],
     [ "isButtonDown", "classapp_1_1inp_1_1_mousehandler.html#aeaa7da84cba3c111c7037f1a783f5d0b", null ],
     [ "isButtonDown", "classapp_1_1inp_1_1_mousehandler.html#aa3bc216b2737b2db0635cefe03371305", null ],
+    [ "isButtonDown", "classapp_1_1inp_1_1_mousehandler.html#a5804c4ea28ee61369baef77c37207000", null ],
+    [ "isButtonDown", "classapp_1_1inp_1_1_mousehandler.html#adc763fd037b34999909070a4ec725dd5", null ],
     [ "isButtonPressed", "classapp_1_1inp_1_1_mousehandler.html#a599efd19cf140b059b583bf8268683ac", null ],
     [ "isButtonPressed", "classapp_1_1inp_1_1_mousehandler.html#acdbca5c7275f0d9b7c005e15d5cedb72", null ],
     [ "isButtonUp", "classapp_1_1inp_1_1_mousehandler.html#aaa3d53cb00ab28475b899c9f810f937b", null ],
     [ "isButtonUp", "classapp_1_1inp_1_1_mousehandler.html#a53d154bc4bc3e13ad13ae76ce279b5db", null ],
+    [ "isButtonUp", "classapp_1_1inp_1_1_mousehandler.html#af41ba408cc72a93ae2ecaf3683a2a587", null ],
+    [ "isButtonUp", "classapp_1_1inp_1_1_mousehandler.html#ad48fa91b36a94ccd3561d8f9aaecd9fc", null ],
     [ "operator=", "classapp_1_1inp_1_1_mousehandler.html#aaa29e971a17a0341365ed57709107247", null ],
     [ "operator=", "classapp_1_1inp_1_1_mousehandler.html#a8fd0979b7f25ae2032b52cf6d116fe56", null ],
     [ "update", "classapp_1_1inp_1_1_mousehandler.html#ae1c6cb48dc99e12b4cabb12bb4ab2293", null ],
     [ "updateButton", "classapp_1_1inp_1_1_mousehandler.html#a353051bf8a07547bf9a4ea92669451a0", null ],
-    [ "updatePosition", "classapp_1_1inp_1_1_mousehandler.html#a26fd11646a0ee51f2cd817fe82ab470d", null ]
+    [ "updatePosition", "classapp_1_1inp_1_1_mousehandler.html#a26fd11646a0ee51f2cd817fe82ab470d", null ],
+    [ "m_keyNowMap", "classapp_1_1inp_1_1_mousehandler.html#a0c6db4a0ff43c889e73a976608410c85", null ],
+    [ "m_keyPrevMap", "classapp_1_1inp_1_1_mousehandler.html#adaa88230e80e1a0592714135574969fa", null ],
+    [ "m_mouse", "classapp_1_1inp_1_1_mousehandler.html#a9b7bf1482a1d00afdef74197b586b7fe", null ]
 ];

@@ -8,9 +8,9 @@
 #endif // _WIN32
 
 
-/// <summary>
-/// @brief Creates and window wrapper.
 /// 
+/// @brief Creates and window wrapper.
+/// <summary>
 /// Creates a sfml window,
 /// acquires possible resolutions,
 /// sets the best one to the current resolutions.

@@ -5,7 +5,7 @@
 namespace app::sys
 {
 	/// <summary>
-	/// @class This system deals with motion physics.
+	/// This system deals with motion physics.
 	/// 
 	/// 
 	/// </summary>

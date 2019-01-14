@@ -18,5 +18,12 @@ var classapp_1_1gra_1_1_window =
     [ "processEvents", "classapp_1_1gra_1_1_window.html#ae77ddd1aad14989479a029ce01ca19b5", null ],
     [ "resetView", "classapp_1_1gra_1_1_window.html#a254632cee37442abf806426e72109468", null ],
     [ "setStyle", "classapp_1_1gra_1_1_window.html#ae9e40a8c2ab6cb5b112285dd30593aa6", null ],
-    [ "setView", "classapp_1_1gra_1_1_window.html#a5d6489385ad7e3b74c003e0cda770fc5", null ]
+    [ "setView", "classapp_1_1gra_1_1_window.html#a5d6489385ad7e3b74c003e0cda770fc5", null ],
+    [ "m_keyHandler", "classapp_1_1gra_1_1_window.html#a52dab7ecc173d9964f90756489eb5e1e", null ],
+    [ "m_mouseHandler", "classapp_1_1gra_1_1_window.html#a0397f06106f7f290a2ca9569c08b2c05", null ],
+    [ "m_resolution", "classapp_1_1gra_1_1_window.html#ae95e525cf0f4e612513d4b77dd7f9662", null ],
+    [ "m_sfWindow", "classapp_1_1gra_1_1_window.html#a7d22871a59525ea8d132001865cf5026", null ],
+    [ "m_style", "classapp_1_1gra_1_1_window.html#a6cdb45502dab8cd588f1dccbf5e07443", null ],
+    [ "m_supportedResolutions", "classapp_1_1gra_1_1_window.html#a846a4a633fd8c0e987f190c8b7a392de", null ],
+    [ "m_title", "classapp_1_1gra_1_1_window.html#acfd443be71b7a31b5547e5a91d6a3684", null ]
 ];
