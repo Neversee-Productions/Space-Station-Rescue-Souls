@@ -44,7 +44,8 @@ namespace app
 		bool initSystems();
 		bool initEntities();
 
-		void createCamera(app::Entity const entity);
+		app::Entity const createCamera(app::Entity const entity);
+		app::Entity const createRadar(std::optional<app::Entity> followEntity);
 		app::Entity const createWorld();
 		app::Entity const createPlayer();
 		void createWorkers();
