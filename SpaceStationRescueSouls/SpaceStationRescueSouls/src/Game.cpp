@@ -12,6 +12,7 @@
 #include "system/BulletSystem.h"
 #include "system/WorkerSystem.h"
 #include "system/CollisionSystem.h"
+#include "system/SweeperSystem.h"
 
 // Components
 #include "component/Camera.h"
@@ -23,6 +24,7 @@
 #include "component/Input.h"
 #include "component/Worker.h"
 #include "component/Player.h"
+#include "component/Sweeper.h"
 
 /// 
 /// @brief default constructor.
@@ -111,7 +113,8 @@ bool app::Game::initSystems()
 			std::make_unique<app::sys::ControlSystem>(m_keyHandler),
 			std::make_unique<app::sys::BulletSystem>(),
 			std::make_unique<app::sys::WorkerSystem>(),
-			std::make_unique<app::sys::CollisionSystem>()
+			std::make_unique<app::sys::CollisionSystem>(),
+			std::make_unique<app::sys::SweeperSystem>()
 
 		};
 
@@ -142,6 +145,7 @@ bool app::Game::initEntities()
 	{
 		auto const cameraFollowEntity = this->createPlayer();
 		this->createWorkers();
+		this->createSweepers();
 
 		this->createCamera(cameraFollowEntity);
 		this->createWorld();
@@ -174,8 +178,8 @@ void app::Game::createCamera(app::Entity const followEntity)
 	camera.entity = followEntity;
 	camera.position = { 0.0f, -200.0f };
 	camera.offset = { 0.0f, 0.0f };
-	camera.size = { 1900.0f, 1080.0f };
-	//camera.size = { 17100.0f, 9720.0f };
+	//camera.size = { 1900.0f, 1080.0f };
+	camera.size = { 17100.0f, 9720.0f };
 	m_registry.assign<decltype(camera)>(entt::tag_t(), entity, std::move(camera));
 }
 
@@ -265,6 +269,48 @@ void app::Game::createWorkers()
 		}
 	}
 
+}
+
+/// <summary>
+/// @brief create sweeper entities in each room.
+/// 
+/// 
+/// </summary>
+void app::Game::createSweepers()
+{
+	int currentRoom = 1;
+	for (int i = 0; i <= 18; i++)
+	{
+
+		app::Entity const entity = m_registry.create();
+
+		auto location = comp::Location();
+		location.position = generateRoomPos(currentRoom);
+		location.orientation = rand() % 360;
+		m_registry.assign<decltype(location)>(entity, std::move(location));
+
+		auto dimensions = comp::Dimensions();
+		dimensions.size = { 80.0f, 80.0f };
+		dimensions.origin = dimensions.size / 2.0f;
+		m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
+
+		auto renderRect = comp::RenderRect();
+		renderRect.fill = sf::Color(255u, 0u, 255u, 255u);
+		m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
+
+		auto motion = comp::Motion();
+		motion.velocity = math::Vector2f(0.0f, 0.0f);
+		m_registry.assign<decltype(motion)>(entity, std::move(motion));
+
+		auto sweeper = comp::Sweeper();
+		m_registry.assign<decltype(sweeper)>(entity, std::move(sweeper));
+
+		currentRoom++;
+		if (currentRoom > 9)
+		{
+			currentRoom = 1;
+		}
+	}
 }
 
 /// <summary>

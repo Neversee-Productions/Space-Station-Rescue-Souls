@@ -27,8 +27,17 @@ namespace app::sys
 	private: // Private Static Functions
 	private: // Private Member Functions
 		void playerWorkerCollision();
+		void seekerWorkerCollision();
 	private: // Private Static Variables
 	private: // Private Member Variables
+		/// <summary>
+		/// @brief in order for higher efficiency check only
+		/// within 400 units SQUARED of entities.
+		/// 
+		/// reason for squared is so we do not perform a sqrt
+		/// operation when calculating len between entities.
+		/// </summary>
+		float checkAroundLimit = 160000.0f;
 	};
 }
 
