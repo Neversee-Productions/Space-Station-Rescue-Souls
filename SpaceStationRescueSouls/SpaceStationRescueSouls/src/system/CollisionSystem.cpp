@@ -20,7 +20,6 @@
 void app::sys::CollisionSystem::update(app::time::seconds const & dt)
 {
 	playerWorkerCollision();
-	workerAvoidance();
 }
 
 /// <summary>
