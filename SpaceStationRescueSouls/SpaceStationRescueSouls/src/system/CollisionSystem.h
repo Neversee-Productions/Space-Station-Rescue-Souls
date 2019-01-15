@@ -28,6 +28,7 @@ namespace app::sys
 	private: // Private Member Functions
 		void playerWorkerCollision();
 		void seekerWorkerCollision();
+		void projectileVsEnemy();
 	private: // Private Static Variables
 	private: // Private Member Variables
 		/// <summary>

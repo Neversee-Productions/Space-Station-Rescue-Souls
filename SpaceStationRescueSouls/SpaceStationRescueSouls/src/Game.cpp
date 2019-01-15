@@ -25,6 +25,7 @@
 #include "component/Worker.h"
 #include "component/Player.h"
 #include "component/Sweeper.h"
+#include "component/Health.h"
 
 /// 
 /// @brief default constructor.
@@ -113,8 +114,9 @@ bool app::Game::initSystems()
 			std::make_unique<app::sys::ControlSystem>(m_keyHandler),
 			std::make_unique<app::sys::BulletSystem>(),
 			std::make_unique<app::sys::WorkerSystem>(),
-			std::make_unique<app::sys::CollisionSystem>(),
-			std::make_unique<app::sys::SweeperSystem>()
+			std::make_unique<app::sys::SweeperSystem>(),
+			std::make_unique<app::sys::CollisionSystem>()
+
 
 		};
 
@@ -224,6 +226,10 @@ app::Entity const app::Game::createPlayer()
 	auto player = comp::Player();
 	m_registry.assign<decltype(player)>(entity, std::move(player));
 
+	auto health = comp::Health();
+	health.isPlayer = true;
+	m_registry.assign<decltype(health)>(entity, std::move(health));
+
 	return entity;
 }
 
@@ -304,6 +310,10 @@ void app::Game::createSweepers()
 
 		auto sweeper = comp::Sweeper();
 		m_registry.assign<decltype(sweeper)>(entity, std::move(sweeper));
+
+		auto health = comp::Health();
+		m_registry.assign<decltype(health)>(entity, std::move(health));
+
 
 		currentRoom++;
 		if (currentRoom > 9)

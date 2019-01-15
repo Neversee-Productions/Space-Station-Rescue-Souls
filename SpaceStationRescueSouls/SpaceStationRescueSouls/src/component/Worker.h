@@ -70,7 +70,7 @@ namespace app::comp
 		/// 
 		/// 
 		/// </summary>
-		float maxForce = 0.03f;
+		float maxForce = 0.08f;
 
 		/// <summary>
 		/// @brief steering vector.
@@ -91,14 +91,14 @@ namespace app::comp
 		/// 
 		/// 
 		/// </summary>
-		float wanderAngle = 1.0f;
+		float wanderAngle = 4.0f;
 
 		/// <summary>
 		/// @brief angle to change the wandering force by each frame
 		/// 
 		/// 
 		/// </summary>
-		float angleChange = 2.0f;
+		float angleChange = 8.0f;
 
 		/// <summary>
 		/// @brief the look ahead vector of the worker.

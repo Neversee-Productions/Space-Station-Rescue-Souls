@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="src\component\Camera.h" />
     <ClInclude Include="src\component\Dimensions.h" />
+    <ClInclude Include="src\component\Health.h" />
     <ClInclude Include="src\component\Input.h" />
     <ClInclude Include="src\component\Location.h" />
     <ClInclude Include="src\component\Motion.h" />
@@ -56,6 +57,7 @@
   <ItemGroup>
     <ClCompile Include="src\component\Camera.cpp" />
     <ClCompile Include="src\component\Dimensions.cpp" />
+    <ClCompile Include="src\component\Health.cpp" />
     <ClCompile Include="src\component\Input.cpp" />
     <ClCompile Include="src\component\Location.cpp" />
     <ClCompile Include="src\component\Motion.cpp" />
@@ -104,7 +106,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{85143994-7BC3-400C-8CEB-9B8C844E8270}</ProjectGuid>
     <RootNamespace>SpaceStationRescueSouls</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

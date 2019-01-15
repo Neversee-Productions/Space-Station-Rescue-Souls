@@ -8,6 +8,8 @@
 #include "component/RenderWorld.h"
 #include "component/Motion.h"
 #include "component/Sweeper.h"
+#include "component/Projectile.h"
+#include "component/Health.h"
 
 
 #include <Cute/cute_c2.h>
@@ -22,6 +24,7 @@ void app::sys::CollisionSystem::update(app::time::seconds const & dt)
 {
 	playerWorkerCollision();
 	seekerWorkerCollision();
+	projectileVsEnemy();
 }
 
 /// <summary>
@@ -120,6 +123,102 @@ void app::sys::CollisionSystem::seekerWorkerCollision()
 			}
 		});
 	});
+}
+
+/// <summary>
+/// @brief handles collision detection and response
+/// between player fired projectiles and enemies
+/// Enemies include sweeper bots, predators, predator missiles
+/// and nests
+/// 
+/// </summary>
+void app::sys::CollisionSystem::projectileVsEnemy()
+{
+	cute::c2AABB projectileSquare;
+	math::Vector2f halfSizeP;
+	cute::c2AABB attackableSquare;
+	math::Vector2f halfSizeA;
+	auto projectilesToDelete = std::forward_list<app::Entity>();
+	auto sweeperEntities = m_registry.view<comp::Health, comp::Sweeper>();
+	auto players = m_registry.view<comp::Player>();
+
+	m_registry.view<comp::Projectile, comp::Dimensions, comp::Location>()
+		.each([&, this](app::Entity const projectileEnt, comp::Projectile & projectile, comp::Dimensions & projectileDimensions, comp::Location & projectileLocation)
+	{
+		m_registry.view<comp::Health, comp::Dimensions, comp::Location>()
+			.each([&, this](app::Entity const attackableEnt, comp::Health & health, comp::Dimensions & attackableDimensions, comp::Location & attackableLocation)
+		{
+			//Limit search space
+			if ((projectileLocation.position - attackableLocation.position).magnitudeSqr() < checkAroundLimit)
+			{
+				halfSizeP = projectileDimensions.size / 2.0f;
+				projectileSquare.min.x = projectileLocation.position.x - halfSizeP.x;
+				projectileSquare.min.y = projectileLocation.position.y - halfSizeP.y;
+				projectileSquare.max.x = projectileLocation.position.x + halfSizeP.x;
+				projectileSquare.max.y = projectileLocation.position.y + halfSizeP.y;
+
+				halfSizeA = attackableDimensions.size / 2.0f;
+				attackableSquare.min.x = attackableLocation.position.x - halfSizeA.x;
+				attackableSquare.min.y = attackableLocation.position.y - halfSizeA.y;
+				attackableSquare.max.x = attackableLocation.position.x + halfSizeA.x;
+				attackableSquare.max.y = attackableLocation.position.y + halfSizeA.y;
+				//if enemy projectile hits the player
+				if (!projectile.m_firedByPlayer && health.isPlayer)
+				{
+					//check for collision
+					if (cute::c2AABBtoAABB(projectileSquare, attackableSquare) == 1)
+					{
+						health.amount -= projectile.damage;
+						if (health.amount <= 0)
+						{
+							//m_registry.destroy(attackableEnt);
+							//GAME OVER
+						}
+					  projectilesToDelete.push_front(projectileEnt);
+					}
+				}
+				//otherwise if player projectile hits enemy
+				else if (projectile.m_firedByPlayer && !health.isPlayer)
+				{
+					//check for collision
+					if (cute::c2AABBtoAABB(projectileSquare, attackableSquare))
+					{
+						std::cout << "projectile hit enemy!" << std::endl;
+						health.amount -= projectile.damage;
+						if (health.amount <= 0)
+						{
+							//checking validity
+							if (m_registry.fast(attackableEnt))
+							{
+								//if sweeper is killed transfer workers.
+								if (sweeperEntities.contains(attackableEnt))
+								{
+									players.each([&, this](app::Entity const playerEnt, comp::Player & player)
+									{
+										auto & sweeper = sweeperEntities.get<comp::Sweeper>(attackableEnt);
+										player.savedWorkers += sweeper.capturedWorkers;
+									});
+								}
+								m_registry.destroy(attackableEnt);
+							}
+
+						}
+						if (m_registry.fast(projectileEnt))
+						{
+							projectilesToDelete.push_front(projectileEnt);
+						}
+					}
+				}
+			}
+		});
+
+
+	});
+	for (app::Entity const & entity : projectilesToDelete)
+	{
+		m_registry.destroy(entity);
+	}
+	projectilesToDelete.clear();
 }
 
 

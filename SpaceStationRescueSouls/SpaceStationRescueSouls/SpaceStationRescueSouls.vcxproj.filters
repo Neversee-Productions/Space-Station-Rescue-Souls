@@ -156,6 +156,9 @@
     <ClInclude Include="src\system\SweeperSystem.h">
       <Filter>Header Files\system</Filter>
     </ClInclude>
+    <ClInclude Include="src\component\Health.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -262,6 +265,9 @@
     </ClCompile>
     <ClCompile Include="src\system\SweeperSystem.cpp">
       <Filter>Source Files\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\Health.cpp">
+      <Filter>Source Files\component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
