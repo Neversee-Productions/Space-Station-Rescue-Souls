@@ -29,6 +29,8 @@ namespace app::sys
 		void playerWorkerCollision();
 	private: // Private Static Variables
 	private: // Private Member Variables
+		sf::SoundBuffer pickupWorkerBuffer;
+		sf::Sound pickupWorker;
 	};
 }
 

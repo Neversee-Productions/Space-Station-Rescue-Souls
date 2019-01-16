@@ -16,7 +16,13 @@
 app::sys::ControlSystem::ControlSystem(const app::inp::KeyHandler & keyhandler)
 	: m_keyHandler(keyhandler)
 	, m_rotate(200.0f)
+	, bulletTexture(app::gra::loadTexture("./res/player/player_bullet_placeholder.png"))
 {
+	if (!buffer.loadFromFile("./res/player/bullet_fire.ogg"))
+	{
+		Console::writeLine({ "Could not load bullet_fire.ogg" });
+	}
+	shot.setBuffer(buffer);
 }
 
 /// <summary>
@@ -51,6 +57,7 @@ void app::sys::ControlSystem::update(app::time::seconds const & dt)
 		}
 		if (m_keyHandler.isKeyDown(sf::Keyboard::Space) && input.fired == false)
 		{
+			shot.play();
 			input.fired = true;
 			input.timeToFire = input.fireRate;
 			spawnBullet(location.position, location.orientation, true);
@@ -90,12 +97,12 @@ void app::sys::ControlSystem::spawnBullet(math::Vector2f position, float angle, 
 	m_registry.assign<decltype(location)>(entity, std::move(location));
 
 	auto dimensions = comp::Dimensions();
-	dimensions.size = { 10.0f, 10.0f };
+	dimensions.size = { 30.0f, 30.0f };
 	dimensions.origin = dimensions.size / 2.0f;
 	m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
 
 	auto renderRect = comp::RenderRect();
-	renderRect.fill = sf::Color(255u, 255u, 255u, 255u);
+	renderRect.fill = bulletTexture;
 	m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
 
 	auto motion = comp::Motion();

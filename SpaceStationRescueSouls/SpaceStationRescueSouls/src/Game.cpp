@@ -44,6 +44,26 @@ app::Game::Game()
 {
 	m_running = this->initSystems()
 		&& this->initEntities();
+	if (!music_calm.openFromFile("./res/music_calm.wav"))
+	{
+		Console::writeLine("Could not load music_calm.wav");
+	}
+	else
+	{
+		music_calm.setVolume(50.0f);
+		music_calm.setLoop(true);
+		music_calm.play();
+		current_music = &music_calm;
+	}
+	if (!music_intense.openFromFile("./res/music_intense.wav"))
+	{
+		Console::writeLine("Could not load music_intense.wav");
+	}
+	else
+	{
+		music_intense.setVolume(50.0f);
+		music_intense.setLoop(true);
+	}
 }
 
 /// 
@@ -70,7 +90,19 @@ void app::Game::update(app::time::seconds const & dt)
 	{
 		uptrSystem->update(dt);
 	}
-
+	//TODO: testing fadeToSongFunc
+	timerForCalm -= dt.count();
+	if (timerForCalm < 0 && !change)
+	{
+		fadeToSong(music_intense);
+		change = !change;
+	}
+	else if (timerForCalm < 0)
+	{
+		fadeToSong(music_calm);
+		change = !change;
+	}
+	////////////////////////////////
 	m_keyHandler.update();
 	m_mouseHandler.update();
 }
@@ -214,6 +246,7 @@ app::Entity const app::Game::createRadar(std::optional<app::Entity> followEntity
 /// <returns>The id of other player entity.</returns>
 app::Entity const app::Game::createPlayer()
 {
+	const auto playerTexture = app::gra::loadTexture("./res/player/ship_placeholder.png");
 	app::Entity const entity = m_registry.create();
 
 	auto location = comp::Location();
@@ -222,12 +255,12 @@ app::Entity const app::Game::createPlayer()
 	m_registry.assign<decltype(location)>(entity, std::move(location));
 
 	auto dimensions = comp::Dimensions();
-	dimensions.size = { 50.0f, 50.0f };
+	dimensions.size = { 120.0f, 100.0f };
 	dimensions.origin = dimensions.size / 2.0f;
 	m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
 
 	auto renderRect = comp::RenderRect();
-	renderRect.fill = sf::Color(255u, 0u, 0u, 255u);
+	renderRect.fill = playerTexture;
 	m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
 
 	auto motion = comp::Motion();
@@ -255,6 +288,7 @@ app::Entity const app::Game::createPlayer()
 /// </summary>
 void app::Game::createWorkers()
 {
+	const auto workerTexture = app::gra::loadTexture("./res/worker/worker_placeholder.png");
 	int currentRoom = 1;
 	for (int i = 0; i <= 50; i++)
 	{
@@ -272,7 +306,7 @@ void app::Game::createWorkers()
 		m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
 
 		auto renderRect = comp::RenderRect();
-		renderRect.fill = sf::Color(255u, 255u, 0u, 255u);
+		renderRect.fill = workerTexture;
 		m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
 
 		auto motion = comp::Motion();
@@ -352,6 +386,37 @@ app::math::Vector2f app::Game::generateRoomPos(int roomNr)
 		break;
 	}
 	return position;
+}
+
+/// <summary>
+/// @brief This method will fade out the song
+/// that is currently playing, once faded out new 
+/// song will play.
+/// </summary>
+/// <param name="newSong">The song to play after current fades out</param>
+void app::Game::fadeToSong(sf::Music & newSong)
+{
+	//check if new song is already playing
+	if (newSong.getStatus() == sf::Music::Stopped) 
+	{
+
+		//if volume of old song is low enough play new song
+		//and set current music to new song
+		if (current_music->getVolume() < 5.0f)
+		{
+			current_music->stop();
+			current_music->setVolume(50.0f);
+			newSong.play();
+			current_music = &newSong;
+			timerForCalm = 10.0f;
+
+		}
+		else
+		{
+			//otherwise lower volume of current song
+			current_music->setVolume(current_music->getVolume() - 0.5f);
+		}
+	}
 }
 
 /// 
