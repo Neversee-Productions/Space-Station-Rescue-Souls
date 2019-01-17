@@ -1,22 +1,21 @@
-﻿#ifndef _RENDER_WORLD_SYSTEM_H
-#define _RENDER_WORLD_SYSTEM_H
+﻿#ifndef _COLLISION_TRACKING_SYSTEM_H
+#define _COLLISION_TRACKING_SYSTEM_H
 
 #include "BaseSystem.h"
-#include "graphics/Window.h"
 
 namespace app::sys
 {
-	class RenderWorldSystem : public BaseSystem
+	class CollisionTrackingSystem : public BaseSystem
 	{
 	public: // Constructors/Destructor/Assignments
-		RenderWorldSystem(gra::Window & window);
-		virtual ~RenderWorldSystem() = default;
+		CollisionTrackingSystem();
+		virtual ~CollisionTrackingSystem() = default;
 
-		RenderWorldSystem(RenderWorldSystem const &) = default;
-		RenderWorldSystem(RenderWorldSystem &&) = default;
+		CollisionTrackingSystem(CollisionTrackingSystem const &) = default;
+		CollisionTrackingSystem & operator=(CollisionTrackingSystem const &) = default;
 
-		RenderWorldSystem & operator=(RenderWorldSystem const &) = default;
-		RenderWorldSystem & operator=(RenderWorldSystem &&) = default;
+		CollisionTrackingSystem(CollisionTrackingSystem &&) = default;
+		CollisionTrackingSystem & operator=(CollisionTrackingSystem &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
@@ -31,11 +30,7 @@ namespace app::sys
 	private: // Private Member Functions
 	private: // Private Static Variables
 	private: // Private Member Variables
-		app::gra::Window & m_window;
-
-		sf::RectangleShape m_renderShape;
-		sf::View m_view;
 	};
 }
 
-#endif // !_RENDER_WORLD_SYSTEM_H
+#endif // !_COLLISION_TRACKING_SYSTEM_H

@@ -44,7 +44,8 @@ namespace app
 		bool initSystems();
 		bool initEntities();
 
-		void createCamera(app::Entity const entity);
+		app::Entity const createCamera(app::Entity const entity);
+		app::Entity const createRadar(std::optional<app::Entity> followEntity);
 		app::Entity const createWorld();
 		app::Entity const createPlayer();
 		void createWorkers();
@@ -91,7 +92,7 @@ namespace app
 		/// 
 		/// <summary>
 		/// </summary>
-		std::array<std::unique_ptr<app::sys::BaseSystem>, 7> m_updateSystems;
+		std::array<std::unique_ptr<app::sys::BaseSystem>, 8> m_updateSystems;
 
 		/// 
 		/// @brief container that holds pointers to the systems to run in the draw method.

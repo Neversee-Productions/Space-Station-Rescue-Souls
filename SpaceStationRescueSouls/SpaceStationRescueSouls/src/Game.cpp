@@ -11,6 +11,7 @@
 #include "system/ControlSystem.h"
 #include "system/BulletSystem.h"
 #include "system/WorkerSystem.h"
+#include "system/CollisionTrackingSystem.h"
 #include "system/CollisionSystem.h"
 #include "system/SweeperSystem.h"
 
@@ -26,6 +27,7 @@
 #include "component/Player.h"
 #include "component/Sweeper.h"
 #include "component/Health.h"
+#include "component/Collision.h"
 
 /// 
 /// @brief default constructor.
@@ -115,6 +117,7 @@ bool app::Game::initSystems()
 			std::make_unique<app::sys::BulletSystem>(),
 			std::make_unique<app::sys::WorkerSystem>(),
 			std::make_unique<app::sys::SweeperSystem>(),
+			std::make_unique<app::sys::CollisionTrackingSystem>(),
 			std::make_unique<app::sys::CollisionSystem>()
 
 
@@ -149,6 +152,7 @@ bool app::Game::initEntities()
 		this->createWorkers();
 		this->createSweepers();
 
+		this->createRadar({});
 		this->createCamera(cameraFollowEntity);
 		this->createWorld();
 
@@ -170,8 +174,8 @@ bool app::Game::initEntities()
 /// - app::comp::Camera
 /// </summary>
 /// <param name="followEntity">the id of entity we which the camera to follow.</param>
-/// @warning Only ever create one camera entity.
-void app::Game::createCamera(app::Entity const followEntity)
+/// <returns></returns>
+app::Entity const app::Game::createCamera(app::Entity const followEntity)
 {
 	assert(m_registry.valid(followEntity));
 	app::Entity const entity = m_registry.create();
@@ -181,8 +185,26 @@ void app::Game::createCamera(app::Entity const followEntity)
 	camera.position = { 0.0f, -200.0f };
 	camera.offset = { 0.0f, 0.0f };
 	//camera.size = { 1900.0f, 1080.0f };
-	camera.size = { 17100.0f, 9720.0f };
-	m_registry.assign<decltype(camera)>(entt::tag_t(), entity, std::move(camera));
+	camera.size = { 1900.0f, 1080.0f };
+	camera.viewport = { 0.0f, 0.0f, 1.0f, 1.0f };
+	m_registry.assign<decltype(camera)>(entity, std::move(camera));
+
+	return entity;
+}
+
+app::Entity const app::Game::createRadar(std::optional<app::Entity> followEntity)
+{
+	app::Entity const entity = m_registry.create();
+
+	auto camera = comp::Camera();
+	camera.entity.swap(followEntity);
+	camera.position = { 0.0f, 0.0f };
+	camera.offset = { 0.0f, 0.0f };
+	camera.size = math::Vector2f{ 1900.0f, 1080.0f } * 8.0f;
+	camera.viewport = { -0.04f, 0.01f, 0.21f, 0.21f };
+	m_registry.assign<decltype(camera)>(entity, std::move(camera));
+
+	return entity;
 }
 
 /// 
@@ -229,6 +251,9 @@ app::Entity const app::Game::createPlayer()
 	auto health = comp::Health();
 	health.isPlayer = true;
 	m_registry.assign<decltype(health)>(entity, std::move(health));
+	auto collision = comp::Collision();
+	collision.bounds = cute::c2AABB();
+	m_registry.assign<decltype(collision)>(entity, std::move(collision));
 
 	return entity;
 }
@@ -264,6 +289,10 @@ void app::Game::createWorkers()
 		motion.velocity = math::Vector2f(0.0f, 0.0f);
 		motion.maxSpeed = 10.0f;
 		m_registry.assign<decltype(motion)>(entity, std::move(motion));
+
+		auto collision = comp::Collision();
+		collision.bounds = cute::c2AABB();
+		m_registry.assign<decltype(collision)>(entity, std::move(collision));
 
 		auto worker = comp::Worker();
 		m_registry.assign<decltype(worker)>(entity, std::move(worker));

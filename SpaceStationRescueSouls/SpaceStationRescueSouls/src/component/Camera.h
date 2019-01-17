@@ -25,6 +25,7 @@ namespace app::comp
 	public: // Public Member Functions
 	public: // Public Static Variables
 	public: // Public Member Variables
+
 		/// 
 		/// @brief Represents the entity that we will follow.
 		/// 
@@ -53,6 +54,14 @@ namespace app::comp
 		/// <summary>
 		/// </summary>
 		math::Vector2f offset = { 0.0f, 0.0f };
+
+		struct
+		{
+			float x = 0.0f
+				, y = 0.0f
+				, w = 0.0f
+				, h = 0.0f;
+		}viewport;
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables

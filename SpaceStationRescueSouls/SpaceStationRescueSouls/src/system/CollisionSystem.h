@@ -6,7 +6,7 @@ namespace app::sys
 	class CollisionSystem : public BaseSystem
 	{
 	public: // Constructors/Destructor/Assignments
-		CollisionSystem() = default;
+		CollisionSystem();
 		virtual ~CollisionSystem() = default;
 
 		CollisionSystem(CollisionSystem const &) = default;
