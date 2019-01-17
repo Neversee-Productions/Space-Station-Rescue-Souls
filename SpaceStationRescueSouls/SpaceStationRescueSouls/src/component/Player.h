@@ -25,6 +25,10 @@ namespace app::comp
 	public: // Public Member Variables
 		int health = 1;
 		int savedWorkers = 0;
+		float increasedFireRatePowerTime = 0.0f;
+		float increasedSpeedPowerTime = 0.0f;
+		float shieldPowerTime = 0.0f;
+		bool shielded = false;
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables

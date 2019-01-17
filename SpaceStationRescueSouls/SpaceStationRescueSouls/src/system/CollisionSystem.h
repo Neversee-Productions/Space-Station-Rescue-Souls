@@ -30,6 +30,7 @@ namespace app::sys
 		void seekerWorkerCollision();
 		void projectileVsEnemy();
 		void wallCollision();
+		void playerPowerUpCollision();
 	private: // Private Static Variables
 	private: // Private Member Variables
 		sf::SoundBuffer pickupWorkerBuffer;

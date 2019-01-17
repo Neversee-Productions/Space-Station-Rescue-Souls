@@ -3,6 +3,7 @@
 
 #include "graphics/Window.h"
 #include "system/BaseSystem.h"
+#include "component/PowerUp.h"
 
 namespace app
 {
@@ -51,6 +52,8 @@ namespace app
 		void createWorkers();
 		void createSweepers();
 		math::Vector2f generateRoomPos(int roomNr);
+		void spawnNextPowerUps();
+		void createPowerUp(int roomNr, app::comp::PowerUp::Type type);
 	private: // Private Static Variables
 		/// 
 		/// @brief defines whether the app is currently running.
@@ -92,7 +95,7 @@ namespace app
 		/// 
 		/// <summary>
 		/// </summary>
-		std::array<std::unique_ptr<app::sys::BaseSystem>, 9> m_updateSystems;
+		std::array<std::unique_ptr<app::sys::BaseSystem>, 10> m_updateSystems;
 
 		/// 
 		/// @brief container that holds pointers to the systems to run in the draw method.
@@ -100,6 +103,34 @@ namespace app
 		/// <summary>
 		/// </summary>
 		std::array<std::unique_ptr<app::sys::BaseSystem>, 2> m_renderSystems;
+
+		/// <summary>
+		/// @brief speed power up texture.
+		/// 
+		/// 
+		/// </summary>
+		std::shared_ptr<sf::Texture> speedPower;
+
+		/// <summary>
+		/// @brief fire rate power up texture.
+		/// 
+		/// 
+		/// </summary>
+		std::shared_ptr<sf::Texture> fireRatePower;
+
+		/// <summary>
+		/// @brief shield power up texture.
+		/// 
+		/// 
+		/// </summary>
+		std::shared_ptr<sf::Texture> shieldPower;
+
+		/// <summary>
+		/// @brief timer for next power ups to spawn.
+		/// 
+		/// 
+		/// </summary>
+		float timeForNextPowerUp = 15.0f;
 
 	};
 }

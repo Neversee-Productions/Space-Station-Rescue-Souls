@@ -15,6 +15,7 @@
 #include "system/CollisionSystem.h"
 #include "system/DynamicMusicSystem.h"
 #include "system/SweeperSystem.h"
+#include "system/PlayerSystem.h"
 
 // Components
 #include "component/Camera.h"
@@ -46,10 +47,13 @@ app::Game::Game()
 	, m_window(m_keyHandler, m_mouseHandler)
 	, m_updateSystems()
 	, m_renderSystems()
+	, speedPower(app::gra::loadTexture("./res/power_ups/speed.png"))
+	, fireRatePower(app::gra::loadTexture("./res/power_ups/fire_rate.png"))
+	, shieldPower(app::gra::loadTexture("./res/power_ups/shield.png"))
 {
 	m_running = this->initSystems()
 		&& this->initEntities();
-	
+	spawnNextPowerUps();
 }
 
 /// 
@@ -79,6 +83,13 @@ void app::Game::update(app::time::seconds const & dt)
 
 	m_keyHandler.update();
 	m_mouseHandler.update();
+
+	timeForNextPowerUp -= dt.count();
+	if (timeForNextPowerUp <= 0)
+	{
+		spawnNextPowerUps();
+		timeForNextPowerUp = 15.0f;
+	}
 }
 
 /// 
@@ -122,7 +133,8 @@ bool app::Game::initSystems()
 			std::make_unique<app::sys::SweeperSystem>(),
 			std::make_unique<app::sys::CollisionTrackingSystem>(),
 			std::make_unique<app::sys::CollisionSystem>(),
-			std::make_unique<app::sys::DynamicMusicSystem>()
+			std::make_unique<app::sys::DynamicMusicSystem>(),
+			std::make_unique<app::sys::PlayerSystem>()
 
 
 		};
@@ -420,6 +432,72 @@ app::math::Vector2f app::Game::generateRoomPos(int roomNr)
 		break;
 	}
 	return position;
+}
+
+/// <summary>
+/// @brief this method will spawn 2 power ups
+/// randomly within the game.
+/// 
+/// 
+/// </summary>
+void app::Game::spawnNextPowerUps()
+{
+	int roomNr1 = rand() % 9 + 1;
+	int roomNr2 = rand() % 9 + 1;
+
+	int powerUpType1 = rand() % 3;
+	int powerUpType2 = rand() % 3;
+
+	createPowerUp(roomNr1, static_cast<app::comp::PowerUp::Type>(powerUpType1));
+	createPowerUp(roomNr2, static_cast<app::comp::PowerUp::Type>(powerUpType2));
+}
+
+/// <summary>
+/// @brief create a power up entity.
+/// 
+/// 
+/// </summary>
+/// <param name="position">position in the world</param>
+/// <param name="type">type of powerup</param>
+void app::Game::createPowerUp(int roomNr, comp::PowerUp::Type type)
+{
+	app::Entity const entity = m_registry.create();
+
+	auto location = comp::Location();
+	location.position = generateRoomPos(roomNr);
+	location.orientation = 0;
+	m_registry.assign<decltype(location)>(entity, std::move(location));
+
+	auto dimensions = comp::Dimensions();
+	dimensions.size = { 100.0f, 100.0f };
+	dimensions.origin = dimensions.size / 2.0f;
+	m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
+
+	auto renderRect = comp::RenderRect();
+	switch (type)
+	{
+	case app::comp::PowerUp::Type::SPEED_UP:
+		renderRect.fill = speedPower;
+		break;
+	case app::comp::PowerUp::Type::FIRE_RATE_UP:
+		renderRect.fill = fireRatePower;
+		break;
+	case app::comp::PowerUp::Type::SHIELD:
+		renderRect.fill = shieldPower;
+		break;
+	default:
+		break;
+	}
+	m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
+
+	auto collision = comp::Collision();
+	collision.bounds = cute::c2AABB();
+	m_registry.assign<decltype(collision)>(entity, std::move(collision));
+
+	auto powerUp = comp::PowerUp();
+	powerUp.powerUpType = type;
+	m_registry.assign<decltype(powerUp)>(entity, std::move(powerUp));
+
 }
 
 /// 
