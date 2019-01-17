@@ -14,6 +14,7 @@
 #include "system/CollisionTrackingSystem.h"
 #include "system/CollisionSystem.h"
 #include "system/DynamicMusicSystem.h"
+#include "system/SweeperSystem.h"
 
 // Components
 #include "component/Camera.h"
@@ -25,7 +26,10 @@
 #include "component/Input.h"
 #include "component/Worker.h"
 #include "component/Player.h"
+#include "component/Sweeper.h"
+#include "component/Health.h"
 #include "component/Collision.h"
+#include "component/CollisionWorld.h"
 
 /// 
 /// @brief default constructor.
@@ -115,9 +119,11 @@ bool app::Game::initSystems()
 			std::make_unique<app::sys::ControlSystem>(m_keyHandler),
 			std::make_unique<app::sys::BulletSystem>(),
 			std::make_unique<app::sys::WorkerSystem>(),
+			std::make_unique<app::sys::SweeperSystem>(),
 			std::make_unique<app::sys::CollisionTrackingSystem>(),
 			std::make_unique<app::sys::CollisionSystem>(),
 			std::make_unique<app::sys::DynamicMusicSystem>()
+
 
 		};
 
@@ -148,6 +154,7 @@ bool app::Game::initEntities()
 	{
 		auto const cameraFollowEntity = this->createPlayer();
 		this->createWorkers();
+		this->createSweepers();
 
 		this->createRadar({});
 		this->createCamera(cameraFollowEntity);
@@ -181,6 +188,7 @@ app::Entity const app::Game::createCamera(app::Entity const followEntity)
 	camera.entity = followEntity;
 	camera.position = { 0.0f, -200.0f };
 	camera.offset = { 0.0f, 0.0f };
+	//camera.size = { 1900.0f, 1080.0f };
 	camera.size = { 1900.0f, 1080.0f };
 	camera.viewport = { 0.0f, 0.0f, 1.0f, 1.0f };
 	m_registry.assign<decltype(camera)>(entity, std::move(camera));
@@ -245,6 +253,9 @@ app::Entity const app::Game::createPlayer()
 	auto player = comp::Player();
 	m_registry.assign<decltype(player)>(entity, std::move(player));
 
+	auto health = comp::Health();
+	health.isPlayer = true;
+	m_registry.assign<decltype(health)>(entity, std::move(health));
 	auto collision = comp::Collision();
 	collision.bounds = cute::c2AABB();
 	m_registry.assign<decltype(collision)>(entity, std::move(collision));
@@ -299,6 +310,58 @@ void app::Game::createWorkers()
 		}
 	}
 
+}
+
+/// <summary>
+/// @brief create sweeper entities in each room.
+/// 
+/// 
+/// </summary>
+void app::Game::createSweepers()
+{
+	const auto sweeperTexture = app::gra::loadTexture("./res/sweeper/sweeper_placeholder.png");
+
+	int currentRoom = 1;
+	for (int i = 0; i <= 18; i++)
+	{
+
+		app::Entity const entity = m_registry.create();
+
+		auto location = comp::Location();
+		location.position = generateRoomPos(currentRoom);
+		location.orientation = rand() % 360;
+		m_registry.assign<decltype(location)>(entity, std::move(location));
+
+		auto dimensions = comp::Dimensions();
+		dimensions.size = { 80.0f, 80.0f };
+		dimensions.origin = dimensions.size / 2.0f;
+		m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
+
+		auto renderRect = comp::RenderRect();
+		renderRect.fill = sweeperTexture;
+		m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
+
+		auto motion = comp::Motion();
+		motion.velocity = math::Vector2f(0.0f, 0.0f);
+		m_registry.assign<decltype(motion)>(entity, std::move(motion));
+
+		auto sweeper = comp::Sweeper();
+		m_registry.assign<decltype(sweeper)>(entity, std::move(sweeper));
+
+		auto collision = comp::Collision();
+		collision.bounds = cute::c2AABB();
+		m_registry.assign<decltype(collision)>(entity, std::move(collision));
+
+		auto health = comp::Health();
+		m_registry.assign<decltype(health)>(entity, std::move(health));
+
+
+		currentRoom++;
+		if (currentRoom > 9)
+		{
+			currentRoom = 1;
+		}
+	}
 }
 
 /// <summary>
@@ -429,5 +492,53 @@ app::Entity const app::Game::createWorld()
 			comp::RenderWorld::Section{ { 1000.0f, 2750.0f },	{ 1000.0f, 500.0f },	corridorRightFloorTexture }
 	};
 	m_registry.assign<decltype(renderWorld)>(entt::tag_t(), entity, std::move(renderWorld));
+
+	auto collisionWorld = comp::CollisionWorld();
+	collisionWorld.walls = decltype(collisionWorld.walls) {
+		// left outer region border
+		cute::c2AABB{ { -4500.0f, -4500.0f }, { -4000.0f, 4500.0f } },
+		// top outer region border
+		cute::c2AABB{ { -4500.0f, -4500.0f }, { 4500.0f, -4000.0f} },
+		// bottom outer region border
+		cute::c2AABB{ { -4500.0f, 4000.0f }, { 4500.0f, 4500.0f } },
+		// right outer region border
+		cute::c2AABB{ { 4000.0f, -4000.0f }, { 4500.0f, 4500.0f} },
+
+		// top-left inner region border
+		cute::c2AABB{ { -2000.0f, -4500.0f }, { -1000.0f, -3250.0f } },
+		// top-right inner region border
+		cute::c2AABB{ { 1000.0f, -4500.0f }, { 2000.0f, -3250.0f } },
+		// bottom-left inner region border
+		cute::c2AABB{ { -2000.0f, 3250.0f }, { -1000.0f, 4500.0f } },
+		// bottom-right inner region border
+		cute::c2AABB{ { 1000.0f, 3250.0f }, { 2000.0f, 4500.0f } },
+		// left-top inner region border
+		cute::c2AABB{ { -4500.0f, -2000.0f }, { -3250.0f, -1000.0f } },
+		// left-bottom inner region border
+		cute::c2AABB{ { -4500.0f, 1000.0f }, { -3250.0f, 2000.0f } },
+		// right-top inner region border
+		cute::c2AABB{ { 3250.0f, -2000.0f }, { 4500.0f, -1000.0f } },
+		// right-bottom inner region border
+		cute::c2AABB{ { 3250.0f, 1000.0f }, { 4500.0f, 2000.0f } },
+
+		// top-left region vertical border
+		cute::c2AABB{ { -2000.0f, -2750.0f }, { -1000.0f, -250.0f } },
+		// top-left region horizontal border
+		cute::c2AABB{ { -2750.0f, -2000.0f }, { -250.0f, -1000.0f } },
+		// top-right region vertical border
+		cute::c2AABB{ { 1000.0f, -2750.0f }, { 2000.0f, -250.0f } },
+		// top-right region horizontal border
+		cute::c2AABB{ { 250.0f, -2000.0f }, { 2750.0f, -1000.0f } },
+		// bottom-left region vertical border
+		cute::c2AABB{ { -2000.0f, 250.0f }, { -1000.0f, 2750.0f } },
+		// bottom-left region horizontal border
+		cute::c2AABB{ { -2750.0f, 1000.0f }, { -250.0f, 2000.0f } },
+		// bottom-right region vertical border
+		cute::c2AABB{ { 1000.0f, 250.0f }, { 2000.0f, 2750.0f } },
+		// bottom-right region horizontal border
+		cute::c2AABB{ { 250.0f, 1000.0f }, { 2750.0f, 2000.0f } }
+	};
+	m_registry.assign<decltype(collisionWorld)>(entt::tag_t(), entity, std::move(collisionWorld));
+
 	return entity;
 }

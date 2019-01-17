@@ -150,6 +150,15 @@
     <ClInclude Include="src\graphics\Graphics.h">
       <Filter>Header Files\graphics</Filter>
     </ClInclude>
+    <ClInclude Include="src\component\Sweeper.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\system\SweeperSystem.h">
+      <Filter>Header Files\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\component\Health.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
     <ClInclude Include="src\component\Collision.h">
       <Filter>Header Files\component</Filter>
     </ClInclude>
@@ -179,6 +188,18 @@
     </ClInclude>
     <ClInclude Include="src\system\DynamicMusicSystem.h">
       <Filter>Header Files\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\component\CollisionWorld.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\visitor\CollisionAabbManiVisitor.h">
+      <Filter>Header Files\visitor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\visitor\CollisionBoundsManiVisitor.h">
+      <Filter>Header Files\visitor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\visitor\CollisionCircleManiVisitor.h">
+      <Filter>Header Files\visitor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -281,6 +302,15 @@
     <ClCompile Include="src\graphics\Graphics.cpp">
       <Filter>Source Files\graphics</Filter>
     </ClCompile>
+    <ClCompile Include="src\component\Sweeper.cpp">
+      <Filter>Source Files\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\system\SweeperSystem.cpp">
+      <Filter>Source Files\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\Health.cpp">
+      <Filter>Source Files\component</Filter>
+    </ClCompile>
     <ClCompile Include="src\component\Collision.cpp">
       <Filter>Source Files\component</Filter>
     </ClCompile>
@@ -307,6 +337,18 @@
     </ClCompile>
     <ClCompile Include="src\system\DynamicMusicSystem.cpp">
       <Filter>Source Files\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\CollisionWorld.cpp">
+      <Filter>Source Files\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\visitor\CollisionCircleManiVisitor.cpp">
+      <Filter>Source Files\visitor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\visitor\CollisionAabbManiVisitor.cpp">
+      <Filter>Source Files\visitor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\visitor\CollisionBoundsManiVisitor.cpp">
+      <Filter>Source Files\visitor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

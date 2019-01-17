@@ -141,6 +141,12 @@ app::math::Vector2<T> app::math::Vector2<T>::unit() const
 }
 
 template<typename T>
+float app::math::Vector2<T>::dot(app::math::Vector2<T> other) const
+{
+	return (this->x * other.x) + (this->y * other.y);
+}
+
+template<typename T>
 app::math::Vector2<T>::operator std::string() const
 {
 	return std::to_string(this->x) + ", " + std::to_string(this->y);
