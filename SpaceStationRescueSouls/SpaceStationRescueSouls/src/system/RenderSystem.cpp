@@ -13,6 +13,7 @@ app::sys::RenderSystem::RenderSystem(app::gra::Window & window)
 	: m_window(window)
 	, m_renderShape()
 	, m_view({ 0.0f, 0.0f }, { 1.0f, 1.0f })
+
 {
 	m_registry.prepare<comp::Location, comp::Dimensions, comp::RenderRect>();
 }
@@ -38,4 +39,5 @@ void app::sys::RenderSystem::update(app::time::seconds const & dt)
 		});
 		m_window.resetView();
 	});
+
 }

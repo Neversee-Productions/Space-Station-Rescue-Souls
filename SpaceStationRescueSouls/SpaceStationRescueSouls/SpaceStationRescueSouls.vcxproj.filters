@@ -177,6 +177,9 @@
     <ClInclude Include="src\visitor\CollisionTrackingVisitor.h">
       <Filter>Header Files\visitor</Filter>
     </ClInclude>
+    <ClInclude Include="src\system\DynamicMusicSystem.h">
+      <Filter>Header Files\system</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -301,6 +304,9 @@
     </ClCompile>
     <ClCompile Include="src\visitor\CollisionTrackingVisitor.cpp">
       <Filter>Source Files\visitor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\system\DynamicMusicSystem.cpp">
+      <Filter>Source Files\system</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

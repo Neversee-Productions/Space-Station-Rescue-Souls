@@ -31,10 +31,28 @@ namespace app::sys
 	private: // Private Member Functions
 	private: // Private Static Variables
 	private: // Private Member Variables
+		/// <summary>
+		/// @brief reference to game window.
+		/// 
+		/// 
+		/// </summary>
 		app::gra::Window & m_window;
 
+		/// <summary>
+		/// @brief shape to be rendered on screen.
+		/// 
+		/// 
+		/// </summary>
 		sf::RectangleShape m_renderShape;
+
+		/// <summary>
+		/// @brief view to render the shape in.
+		/// 
+		/// 
+		/// </summary>
 		sf::View m_view;
+
+		
 	};
 }
 

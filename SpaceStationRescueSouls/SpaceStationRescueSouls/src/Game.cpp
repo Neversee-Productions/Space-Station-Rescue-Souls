@@ -13,6 +13,7 @@
 #include "system/WorkerSystem.h"
 #include "system/CollisionTrackingSystem.h"
 #include "system/CollisionSystem.h"
+#include "system/DynamicMusicSystem.h"
 
 // Components
 #include "component/Camera.h"
@@ -44,26 +45,7 @@ app::Game::Game()
 {
 	m_running = this->initSystems()
 		&& this->initEntities();
-	if (!music_calm.openFromFile("./res/music_calm.wav"))
-	{
-		Console::writeLine("Could not load music_calm.wav");
-	}
-	else
-	{
-		music_calm.setVolume(50.0f);
-		music_calm.setLoop(true);
-		music_calm.play();
-		current_music = &music_calm;
-	}
-	if (!music_intense.openFromFile("./res/music_intense.wav"))
-	{
-		Console::writeLine("Could not load music_intense.wav");
-	}
-	else
-	{
-		music_intense.setVolume(50.0f);
-		music_intense.setLoop(true);
-	}
+	
 }
 
 /// 
@@ -90,19 +72,7 @@ void app::Game::update(app::time::seconds const & dt)
 	{
 		uptrSystem->update(dt);
 	}
-	//TODO: testing fadeToSongFunc
-	timerForCalm -= dt.count();
-	if (timerForCalm < 0 && !change)
-	{
-		fadeToSong(music_intense);
-		change = !change;
-	}
-	else if (timerForCalm < 0)
-	{
-		fadeToSong(music_calm);
-		change = !change;
-	}
-	////////////////////////////////
+
 	m_keyHandler.update();
 	m_mouseHandler.update();
 }
@@ -146,7 +116,8 @@ bool app::Game::initSystems()
 			std::make_unique<app::sys::BulletSystem>(),
 			std::make_unique<app::sys::WorkerSystem>(),
 			std::make_unique<app::sys::CollisionTrackingSystem>(),
-			std::make_unique<app::sys::CollisionSystem>()
+			std::make_unique<app::sys::CollisionSystem>(),
+			std::make_unique<app::sys::DynamicMusicSystem>()
 
 		};
 
@@ -386,37 +357,6 @@ app::math::Vector2f app::Game::generateRoomPos(int roomNr)
 		break;
 	}
 	return position;
-}
-
-/// <summary>
-/// @brief This method will fade out the song
-/// that is currently playing, once faded out new 
-/// song will play.
-/// </summary>
-/// <param name="newSong">The song to play after current fades out</param>
-void app::Game::fadeToSong(sf::Music & newSong)
-{
-	//check if new song is already playing
-	if (newSong.getStatus() == sf::Music::Stopped) 
-	{
-
-		//if volume of old song is low enough play new song
-		//and set current music to new song
-		if (current_music->getVolume() < 5.0f)
-		{
-			current_music->stop();
-			current_music->setVolume(50.0f);
-			newSong.play();
-			current_music = &newSong;
-			timerForCalm = 10.0f;
-
-		}
-		else
-		{
-			//otherwise lower volume of current song
-			current_music->setVolume(current_music->getVolume() - 0.5f);
-		}
-	}
 }
 
 /// 

@@ -50,7 +50,6 @@ namespace app
 		app::Entity const createPlayer();
 		void createWorkers();
 		math::Vector2f generateRoomPos(int roomNr);
-		void fadeToSong(sf::Music & newSong);
 	private: // Private Static Variables
 		/// 
 		/// @brief defines whether the app is currently running.
@@ -92,7 +91,7 @@ namespace app
 		/// 
 		/// <summary>
 		/// </summary>
-		std::array<std::unique_ptr<app::sys::BaseSystem>, 7> m_updateSystems;
+		std::array<std::unique_ptr<app::sys::BaseSystem>, 8> m_updateSystems;
 
 		/// 
 		/// @brief container that holds pointers to the systems to run in the draw method.
@@ -101,32 +100,6 @@ namespace app
 		/// </summary>
 		std::array<std::unique_ptr<app::sys::BaseSystem>, 2> m_renderSystems;
 
-		/// <summary>
-		/// @brief calm music to play within the game.
-		/// 
-		/// 
-		/// </summary>
-		sf::Music music_calm;
-
-		/// <summary>
-		/// @brief intense music when in range of combat.
-		/// 
-		/// 
-		/// </summary>
-		sf::Music music_intense;
-
-		/// <summary>
-		/// @brief reference to music that is currently playing.
-		/// 
-		/// 
-		/// </summary>
-		sf::Music * current_music;
-
-		bool fadeSong = false;
-
-		float timer = 4.0f;
-		bool change = false;
-		float timerForCalm = 10.0f;
 	};
 }
 

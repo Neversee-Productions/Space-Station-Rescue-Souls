@@ -45,6 +45,7 @@
     <ClInclude Include="src\system\CollisionSystem.h" />
     <ClInclude Include="src\system\CollisionTrackingSystem.h" />
     <ClInclude Include="src\system\ControlSystem.h" />
+    <ClInclude Include="src\system\DynamicMusicSystem.h" />
     <ClInclude Include="src\system\MotionSystem.h" />
     <ClInclude Include="src\system\RenderSystem.h" />
     <ClInclude Include="src\system\WorkerSystem.h" />
@@ -93,6 +94,7 @@
     <ClCompile Include="src\system\CollisionSystem.cpp" />
     <ClCompile Include="src\system\CollisionTrackingSystem.cpp" />
     <ClCompile Include="src\system\ControlSystem.cpp" />
+    <ClCompile Include="src\system\DynamicMusicSystem.cpp" />
     <ClCompile Include="src\system\MotionSystem.cpp" />
     <ClCompile Include="src\system\RenderSystem.cpp" />
     <ClCompile Include="src\system\WorkerSystem.cpp" />
