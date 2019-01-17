@@ -46,6 +46,7 @@ namespace app::math
 		Vector2<T> & truncate(T max);
 		Vector2<T> & unit();
 		Vector2<T> unit() const;
+		float dot(Vector2<T> other) const;
 
 		operator std::string() const;
 		operator sf::Vector2<T>() const;

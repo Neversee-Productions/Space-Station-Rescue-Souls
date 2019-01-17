@@ -1,29 +1,36 @@
-﻿#ifndef _COMPONENT_WORKER_H
-#define _COMPONENT_WORKER_H
-
+﻿#ifndef _COMPONENT_SWEEPER_H
+#define _COMPONENT_SWEEPER_H
 
 namespace app::comp
 {
+
+	struct Sweeper
+	{
 	/// <summary>
-	/// @brief struct to define a worker component.
+	/// @brief an enum that represents current sweeper state.
+	/// 
 	/// 
 	/// </summary>
-	struct Worker
-	{
+	enum class State {
+		Wandering,
+		Intercepting
+	};
 	public: // Constructors/Destructor/Assignments
-		Worker() = default;
-		~Worker() = default;
+		Sweeper() = default;
+		Sweeper(Sweeper const &) = default;
+		Sweeper(Sweeper &&) = default;
 
-		Worker(Worker const &) = default;
-		Worker(Worker &&) = default;
+		~Sweeper() = default;
 
-		Worker & operator=(Worker const &) = default;
-		Worker & operator=(Worker &&) = default;
+		Sweeper & operator=(Sweeper const &) = default;
+		Sweeper & operator=(Sweeper &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
 	public: // Public Static Variables
 	public: // Public Member Variables
+
+
 		/// <summary>
 		/// @brief this is the centre of the circle from the centre of the AI.
 		/// 
@@ -32,18 +39,18 @@ namespace app::comp
 		math::Vector2f circleCenter;
 
 		/// <summary>
-		/// @brief distance the seeking circle is away from the worker.
+		/// @brief distance the seeking circle is away from the sweeper.
 		/// 
 		/// 
 		/// </summary>
-		float circleDistance = 100.0f;
+		float circleDistance = 150.0f;
 
 		/// <summary>
 		/// @brief radius of the displacement circle.
 		/// 
 		/// defualts to 10
 		/// </summary>
-		float circleRadius = 40.0f;
+		float circleRadius = 100.0f;
 
 		/// <summary>
 		/// @brief target position to seek.
@@ -56,7 +63,7 @@ namespace app::comp
 		/// 
 		/// 
 		/// </summary>
-		float maxVelocity = 1.5f;
+		float maxVelocity = 2.5f;
 
 		/// <summary>
 		/// @brief velocity from entity to target.
@@ -66,11 +73,11 @@ namespace app::comp
 		math::Vector2f desiredVel;
 
 		/// <summary>
-		/// @brief max amount of forces the worker can handle on steering.
+		/// @brief max amount of forces the sweeper can handle on steering.
 		/// 
 		/// 
 		/// </summary>
-		float maxForce = 0.08f;
+		float maxForce = 0.3f;
 
 		/// <summary>
 		/// @brief steering vector.
@@ -91,17 +98,17 @@ namespace app::comp
 		/// 
 		/// 
 		/// </summary>
-		float wanderAngle = 4.0f;
+		float wanderAngle = 5.0f;
 
 		/// <summary>
 		/// @brief angle to change the wandering force by each frame
 		/// 
 		/// 
 		/// </summary>
-		float angleChange = 8.0f;
+		float angleChange = 20.0f;
 
 		/// <summary>
-		/// @brief the look ahead vector of the worker.
+		/// @brief the look ahead vector of the sweeper.
 		/// 
 		/// 
 		/// </summary>
@@ -115,6 +122,40 @@ namespace app::comp
 		/// </summary>
 		float lookAhead = 100.0f;
 
+		/// <summary>
+		/// @brief amount of workers captured.
+		/// 
+		/// 
+		/// </summary>
+		int capturedWorkers = 0;
+
+		/// <summary>
+		/// @brief current state of the entity.
+		/// 
+		/// 
+		/// </summary>
+		State currentState = State::Wandering;
+
+		/// <summary>
+		/// @brief defines length of cone of vision.
+		/// 
+		/// 
+		/// </summary>
+		float coneOfVisionLen = 400.0f;
+
+		/// <summary>
+		/// @brief angle of cone of vision.
+		/// 
+		/// 
+		/// </summary>
+		float coneOfVisionAngle = 45.0f;
+
+		/// <summary>
+		/// @brief define the target for the sweeper to intercept.
+		/// 
+		/// 
+		/// </summary>
+		app::Entity targetEntity;
 
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
@@ -124,9 +165,7 @@ namespace app::comp
 	private: // Private Member Functions
 	private: // Private Static Variables
 	private: // Private Member Variables
-
-
 	};
 }
 
-#endif // !_COMPONENT_WORKER_H
+#endif // !_COMPONENT_SWEEPER_H

@@ -1,26 +1,26 @@
-﻿#ifndef _WORKER_SYSTEM_H
-#define _WORKER_SYSTEM_H
+﻿#ifndef _SWEEPER_SYSTEM_H
+#define _SWEEPER_SYSTEM_H
 
 #include "BaseSystem.h"
 
 namespace app::sys
 {
 	/// <summary>
-	/// @brief Worker system class, handles AI updates with worker component.
+	/// @brief Sweeper system class, handles AI updates with sweeper component.
 	/// @author Sebastian Kruzel
 	/// 
 	/// </summary>
-	class WorkerSystem : public BaseSystem
+	class SweeperSystem : public BaseSystem
 	{
 	public: // Constructors/Destructor/Assignments
-		WorkerSystem() = default;
-		~WorkerSystem() = default;
+		SweeperSystem() = default;
+		~SweeperSystem() = default;
 
-		WorkerSystem(WorkerSystem const &) = default;
-		WorkerSystem(WorkerSystem &&) = default;
+		SweeperSystem(SweeperSystem const &) = default;
+		SweeperSystem(SweeperSystem &&) = default;
 
-		WorkerSystem & operator=(WorkerSystem const &) = default;
-		WorkerSystem & operator=(WorkerSystem &&) = default;
+		SweeperSystem & operator=(SweeperSystem const &) = default;
+		SweeperSystem & operator=(SweeperSystem &&) = default;
 	public: // Public Static Functions
 	public: // Public Member Functions
 		virtual void update(app::time::seconds const & dt) override;
@@ -34,9 +34,20 @@ namespace app::sys
 	private: // Private Member Functions
 		void setAngle(math::Vector2f & vector, float angle);
 	private: // Private Static Variables
+		/// <summary>
+		/// @brief represent max time to pick new direction.
+		/// 
+		/// 
+		/// </summary>
+		static float maxTimeForChoice;
 	private: // Private Member Variables
-
+		/// <summary>
+		/// @brief represent time to pick new wander direction.
+		/// 
+		/// 
+		/// </summary>
+		float timeToPickDirection = 2.5f;
 	};
 }
 
-#endif // !_WORKER_SYSTEM_H
+#endif // !_SWEEPER_SYSTEM_H

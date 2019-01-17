@@ -38,6 +38,13 @@ namespace app::comp
 		/// </summary>
 		bool m_firedByPlayer = false;
 
+		/// <summary>
+		/// @brief represent projectile damage.
+		/// 
+		/// defaults to 1
+		/// </summary>
+		int damage = 1;
+
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables
