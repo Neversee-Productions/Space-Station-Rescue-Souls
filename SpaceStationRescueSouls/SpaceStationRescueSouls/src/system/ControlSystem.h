@@ -41,10 +41,19 @@ namespace app::sys
 		/// </summary>
 		const std::shared_ptr<sf::Texture> bulletTexture;
 
-
+		/// <summary>
+		/// @brief sound buffer for shots.
+		/// 
+		/// 
+		/// </summary>
 		sf::SoundBuffer buffer;
+
+		/// <summary>
+		/// @brief the shot sound.
+		/// 
+		/// 
+		/// </summary>
 		sf::Sound shot;
-		sf::Sound pickup_worker;
 	};
 }
 

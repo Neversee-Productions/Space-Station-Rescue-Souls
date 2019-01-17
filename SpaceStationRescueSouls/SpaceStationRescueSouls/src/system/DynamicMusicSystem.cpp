@@ -2,9 +2,14 @@
 #include "DynamicMusicSystem.h"
 #include "component/Motion.h"
 #include "component/Location.h"
-#include "component/Worker.h"
+#include "component/Sweeper.h"
 #include "component/Player.h"
 
+/// <summary>
+/// @breif default constructor.
+/// 
+/// 
+/// </summary>
 app::sys::DynamicMusicSystem::DynamicMusicSystem()
 {
 	if (!music_calm.openFromFile("./res/music_calm.wav"))
@@ -29,6 +34,11 @@ app::sys::DynamicMusicSystem::DynamicMusicSystem()
 	}
 }
 
+/// <summary>
+/// @brief this method fades out current song
+/// and plays a new one.
+/// </summary>
+/// <param name="newSong">new song to play</param>
 void app::sys::DynamicMusicSystem::fadeToSong(sf::Music & newSong)
 {
 	//check if new song is already playing
@@ -53,15 +63,21 @@ void app::sys::DynamicMusicSystem::fadeToSong(sf::Music & newSong)
 	}
 }
 
+/// <summary>
+/// @brief updates the dynamic music.
+/// 
+/// 
+/// </summary>
+/// <param name="dt">time between cycles</param>
 void app::sys::DynamicMusicSystem::update(app::time::seconds const & dt)
 {
 	m_registry.view<comp::Player, comp::Location>()
 		.each([&, this](app::Entity const playerEnt, comp::Player & player, comp::Location & playerLocation)
 	{
-		m_registry.view<comp::Motion, comp::Location, comp::Worker>()
-			.each([&, this](app::Entity const entity, app::comp::Motion & motion, app::comp::Location & location, app::comp::Worker & worker)
+		m_registry.view<comp::Motion, comp::Location, comp::Sweeper>()
+			.each([&, this](app::Entity const entity, app::comp::Motion & motion, app::comp::Location & location, app::comp::Sweeper & sweeper)
 		{
-			if ((playerLocation.position - location.position).magnitude() < 300)
+			if ((playerLocation.position - location.position).magnitude() < 700)
 			{
 				enemyCount++;
 			}
