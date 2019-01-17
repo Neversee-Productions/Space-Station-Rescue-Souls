@@ -25,6 +25,7 @@
 #include "component/Worker.h"
 #include "component/Player.h"
 #include "component/Collision.h"
+#include "component/CollisionWorld.h"
 
 /// 
 /// @brief default constructor.
@@ -424,5 +425,53 @@ app::Entity const app::Game::createWorld()
 			comp::RenderWorld::Section{ { 1000.0f, 2750.0f },	{ 1000.0f, 500.0f },	corridorRightFloorTexture }
 	};
 	m_registry.assign<decltype(renderWorld)>(entt::tag_t(), entity, std::move(renderWorld));
+
+	auto collisionWorld = comp::CollisionWorld();
+	collisionWorld.walls = decltype(collisionWorld.walls) {
+		// left outer region border
+		cute::c2AABB{ { -4500.0f, -4500.0f }, { -4000.0f, 4500.0f } },
+		// top outer region border
+		cute::c2AABB{ { -4500.0f, -4500.0f }, { 4500.0f, -4000.0f} },
+		// bottom outer region border
+		cute::c2AABB{ { -4500.0f, 4000.0f }, { 4500.0f, 4500.0f } },
+		// right outer region border
+		cute::c2AABB{ { 4000.0f, -4000.0f }, { 4500.0f, 4500.0f} },
+
+		// top-left inner region border
+		cute::c2AABB{ { -2000.0f, -4500.0f }, { -1000.0f, -3250.0f } },
+		// top-right inner region border
+		cute::c2AABB{ { 1000.0f, -4500.0f }, { 2000.0f, -3250.0f } },
+		// bottom-left inner region border
+		cute::c2AABB{ { -2000.0f, 3250.0f }, { -1000.0f, 4500.0f } },
+		// bottom-right inner region border
+		cute::c2AABB{ { 1000.0f, 3250.0f }, { 2000.0f, 4500.0f } },
+		// left-top inner region border
+		cute::c2AABB{ { -4500.0f, -2000.0f }, { -3250.0f, -1000.0f } },
+		// left-bottom inner region border
+		cute::c2AABB{ { -4500.0f, 1000.0f }, { -3250.0f, 2000.0f } },
+		// right-top inner region border
+		cute::c2AABB{ { 3250.0f, -2000.0f }, { 4500.0f, -1000.0f } },
+		// right-bottom inner region border
+		cute::c2AABB{ { 3250.0f, 1000.0f }, { 4500.0f, 2000.0f } },
+
+		// top-left region vertical border
+		cute::c2AABB{ { -2000.0f, -2750.0f }, { -1000.0f, -250.0f } },
+		// top-left region horizontal border
+		cute::c2AABB{ { -2750.0f, -2000.0f }, { -250.0f, -1000.0f } },
+		// top-right region vertical border
+		cute::c2AABB{ { 1000.0f, -2750.0f }, { 2000.0f, -250.0f } },
+		// top-right region horizontal border
+		cute::c2AABB{ { 250.0f, -2000.0f }, { 2750.0f, -1000.0f } },
+		// bottom-left region vertical border
+		cute::c2AABB{ { -2000.0f, 250.0f }, { -1000.0f, 2750.0f } },
+		// bottom-left region horizontal border
+		cute::c2AABB{ { -2750.0f, 1000.0f }, { -250.0f, 2000.0f } },
+		// bottom-right region vertical border
+		cute::c2AABB{ { 1000.0f, 250.0f }, { 2000.0f, 2750.0f } },
+		// bottom-right region horizontal border
+		cute::c2AABB{ { 250.0f, 1000.0f }, { 2750.0f, 2000.0f } }
+	};
+	m_registry.assign<decltype(collisionWorld)>(entt::tag_t(), entity, std::move(collisionWorld));
+
 	return entity;
 }
