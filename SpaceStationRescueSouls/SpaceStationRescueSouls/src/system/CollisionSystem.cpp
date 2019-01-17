@@ -5,16 +5,18 @@
 #include "component/Player.h"
 #include "component/Dimensions.h"
 #include "component/Location.h"
-#include "component/RenderWorld.h"
 #include "component/Motion.h"
 #include "component/Collision.h"
+#include "component/CollisionWorld.h"
 
 #include "visitor/CollisionBoundsBoolVisitor.h"
+#include "visitor/CollisionBoundsManiVisitor.h"
 
 app::sys::CollisionSystem::CollisionSystem()
 	: BaseSystem()
 {
 	m_registry.prepare<comp::Location, comp::Dimensions, comp::Collision, comp::Worker>();
+	m_registry.prepare<comp::Location, comp::Collision>();
 }
 
 /// <summary>
@@ -25,7 +27,8 @@ app::sys::CollisionSystem::CollisionSystem()
 /// <param name="dt">delta time between frames in seconds</param>
 void app::sys::CollisionSystem::update(app::time::seconds const & dt)
 {
-	playerWorkerCollision();
+	this->playerWorkerCollision();
+	this->wallCollision();
 }
 
 /// <summary>
@@ -49,4 +52,22 @@ void app::sys::CollisionSystem::playerWorkerCollision()
 				}
 			});
 	});
+}
+
+void app::sys::CollisionSystem::wallCollision()
+{
+	for (auto const & wall : m_registry.get<comp::CollisionWorld>().walls)
+	{
+		m_registry.view<comp::Location, comp::Collision>(entt::persistent_t())
+			.each([&, this](app::Entity const entity, comp::Location & location, comp::Collision & collision)
+		{
+			cute::c2Manifold manifold = vis::CollisionBoundsManiVisitor::collisionBetween(collision.bounds, wall);
+			if (manifold.count)
+			{
+				auto const & direction = math::Vector2f{ manifold.n.x, manifold.n.y };
+				auto const & penetration = manifold.depths[0];
+				location.position += direction * penetration;
+			}
+		});
+	}
 }

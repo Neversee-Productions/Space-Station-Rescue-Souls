@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="src\component\Camera.h" />
     <ClInclude Include="src\component\Collision.h" />
+    <ClInclude Include="src\component\CollisionWorld.h" />
     <ClInclude Include="src\component\Dimensions.h" />
     <ClInclude Include="src\component\Input.h" />
     <ClInclude Include="src\component\Location.h" />
@@ -53,9 +54,12 @@
     <ClInclude Include="src\utilities\cute_c2.h" />
     <ClInclude Include="src\utilities\Time.h" />
     <ClInclude Include="src\visitor\CollisionAabbBoolVisitor.h" />
+    <ClInclude Include="src\visitor\CollisionAabbManiVisitor.h" />
     <ClInclude Include="src\visitor\CollisionBoundsBoolVisitor.h" />
+    <ClInclude Include="src\visitor\CollisionBoundsManiVisitor.h" />
     <ClInclude Include="src\visitor\CollisionCapsuleBoolVisitor.h" />
     <ClInclude Include="src\visitor\CollisionCircleBoolVisitor.h" />
+    <ClInclude Include="src\visitor\CollisionCircleManiVisitor.h" />
     <ClInclude Include="src\visitor\CollisionRayBoolVisitor.h" />
     <ClInclude Include="src\visitor\CollisionTrackingVisitor.h" />
     <ClInclude Include="src\visitor\RenderFillVisitor.h" />
@@ -63,6 +67,7 @@
   <ItemGroup>
     <ClCompile Include="src\component\Camera.cpp" />
     <ClCompile Include="src\component\Collision.cpp" />
+    <ClCompile Include="src\component\CollisionWorld.cpp" />
     <ClCompile Include="src\component\Dimensions.cpp" />
     <ClCompile Include="src\component\Input.cpp" />
     <ClCompile Include="src\component\Location.cpp" />
@@ -101,9 +106,12 @@
     <ClCompile Include="src\utilities\cute_c2.cpp" />
     <ClCompile Include="src\utilities\Time.cpp" />
     <ClCompile Include="src\visitor\CollisionAabbBoolVisitor.cpp" />
+    <ClCompile Include="src\visitor\CollisionAabbManiVisitor.cpp" />
     <ClCompile Include="src\visitor\CollisionBoundsBoolVisitor.cpp" />
+    <ClCompile Include="src\visitor\CollisionBoundsManiVisitor.cpp" />
     <ClCompile Include="src\visitor\CollisionCapsuleBoolVisitor.cpp" />
     <ClCompile Include="src\visitor\CollisionCircleBoolVisitor.cpp" />
+    <ClCompile Include="src\visitor\CollisionCircleManiVisitor.cpp" />
     <ClCompile Include="src\visitor\CollisionRayBoolVisitor.cpp" />
     <ClCompile Include="src\visitor\CollisionTrackingVisitor.cpp" />
     <ClCompile Include="src\visitor\RenderFillVisitor.cpp" />

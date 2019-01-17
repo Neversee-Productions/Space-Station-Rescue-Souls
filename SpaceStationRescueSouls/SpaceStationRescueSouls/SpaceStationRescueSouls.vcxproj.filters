@@ -177,6 +177,18 @@
     <ClInclude Include="src\visitor\CollisionTrackingVisitor.h">
       <Filter>Header Files\visitor</Filter>
     </ClInclude>
+    <ClInclude Include="src\component\CollisionWorld.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\visitor\CollisionAabbManiVisitor.h">
+      <Filter>Header Files\visitor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\visitor\CollisionBoundsManiVisitor.h">
+      <Filter>Header Files\visitor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\visitor\CollisionCircleManiVisitor.h">
+      <Filter>Header Files\visitor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -300,6 +312,18 @@
       <Filter>Source Files\visitor</Filter>
     </ClCompile>
     <ClCompile Include="src\visitor\CollisionTrackingVisitor.cpp">
+      <Filter>Source Files\visitor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\CollisionWorld.cpp">
+      <Filter>Source Files\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\visitor\CollisionCircleManiVisitor.cpp">
+      <Filter>Source Files\visitor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\visitor\CollisionAabbManiVisitor.cpp">
+      <Filter>Source Files\visitor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\visitor\CollisionBoundsManiVisitor.cpp">
       <Filter>Source Files\visitor</Filter>
     </ClCompile>
   </ItemGroup>
