@@ -28,7 +28,7 @@ namespace app::comp
 	public: // Public Member Functions
 	public: // Public Static Variables
 	public: // Public Member Variables
-		std::vector<cute::c2AABB> walls;
+		std::array<cute::c2AABB, 20u> walls;
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables
