@@ -13,6 +13,7 @@
 #include "system/WorkerSystem.h"
 #include "system/CollisionTrackingSystem.h"
 #include "system/CollisionSystem.h"
+#include "system/DynamicMusicSystem.h"
 #include "system/SweeperSystem.h"
 
 // Components
@@ -48,6 +49,7 @@ app::Game::Game()
 {
 	m_running = this->initSystems()
 		&& this->initEntities();
+	
 }
 
 /// 
@@ -119,7 +121,8 @@ bool app::Game::initSystems()
 			std::make_unique<app::sys::WorkerSystem>(),
 			std::make_unique<app::sys::SweeperSystem>(),
 			std::make_unique<app::sys::CollisionTrackingSystem>(),
-			std::make_unique<app::sys::CollisionSystem>()
+			std::make_unique<app::sys::CollisionSystem>(),
+			std::make_unique<app::sys::DynamicMusicSystem>()
 
 
 		};
@@ -222,6 +225,7 @@ app::Entity const app::Game::createRadar(std::optional<app::Entity> followEntity
 /// <returns>The id of other player entity.</returns>
 app::Entity const app::Game::createPlayer()
 {
+	const auto playerTexture = app::gra::loadTexture("./res/player/ship_placeholder.png");
 	app::Entity const entity = m_registry.create();
 
 	auto location = comp::Location();
@@ -230,12 +234,12 @@ app::Entity const app::Game::createPlayer()
 	m_registry.assign<decltype(location)>(entity, std::move(location));
 
 	auto dimensions = comp::Dimensions();
-	dimensions.size = { 50.0f, 50.0f };
+	dimensions.size = { 120.0f, 100.0f };
 	dimensions.origin = dimensions.size / 2.0f;
 	m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
 
 	auto renderRect = comp::RenderRect();
-	renderRect.fill = sf::Color(255u, 0u, 0u, 255u);
+	renderRect.fill = playerTexture;
 	m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
 
 	auto motion = comp::Motion();
@@ -266,6 +270,7 @@ app::Entity const app::Game::createPlayer()
 /// </summary>
 void app::Game::createWorkers()
 {
+	const auto workerTexture = app::gra::loadTexture("./res/worker/worker_placeholder.png");
 	int currentRoom = 1;
 	for (int i = 0; i <= 50; i++)
 	{
@@ -283,7 +288,7 @@ void app::Game::createWorkers()
 		m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
 
 		auto renderRect = comp::RenderRect();
-		renderRect.fill = sf::Color(255u, 255u, 0u, 255u);
+		renderRect.fill = workerTexture;
 		m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
 
 		auto motion = comp::Motion();
@@ -314,6 +319,8 @@ void app::Game::createWorkers()
 /// </summary>
 void app::Game::createSweepers()
 {
+	const auto sweeperTexture = app::gra::loadTexture("./res/sweeper/sweeper_placeholder.png");
+
 	int currentRoom = 1;
 	for (int i = 0; i <= 18; i++)
 	{
@@ -331,7 +338,7 @@ void app::Game::createSweepers()
 		m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
 
 		auto renderRect = comp::RenderRect();
-		renderRect.fill = sf::Color(255u, 0u, 255u, 255u);
+		renderRect.fill = sweeperTexture;
 		m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
 
 		auto motion = comp::Motion();

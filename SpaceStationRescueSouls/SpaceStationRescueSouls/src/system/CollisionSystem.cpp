@@ -19,6 +19,12 @@ app::sys::CollisionSystem::CollisionSystem()
 	: BaseSystem()
 {
 	m_registry.prepare<comp::Location, comp::Dimensions, comp::Collision, comp::Worker>();
+
+	if (!pickupWorkerBuffer.loadFromFile("./res/worker_pickup.wav"))
+	{
+		Console::writeLine({ "Could not load worker_pickup.wav" });
+	}
+	pickupWorker.setBuffer(pickupWorkerBuffer);
 	m_registry.prepare<comp::Location, comp::Collision>();
 }
 
@@ -59,6 +65,7 @@ void app::sys::CollisionSystem::playerWorkerCollision()
 					//when collision happens delete the worker and increment saved worker count of player
 					if (vis::CollisionBoundsBoolVisitor::collisionBetween(playerCollision.bounds, workerCollision.bounds))
 					{
+						pickupWorker.play();
 						player.savedWorkers += 1;
 						m_registry.destroy(workerEnt);
 					}

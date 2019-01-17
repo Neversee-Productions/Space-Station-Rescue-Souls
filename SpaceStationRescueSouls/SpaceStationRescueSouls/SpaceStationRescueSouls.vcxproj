@@ -48,6 +48,7 @@
     <ClInclude Include="src\system\CollisionSystem.h" />
     <ClInclude Include="src\system\CollisionTrackingSystem.h" />
     <ClInclude Include="src\system\ControlSystem.h" />
+    <ClInclude Include="src\system\DynamicMusicSystem.h" />
     <ClInclude Include="src\system\MotionSystem.h" />
     <ClInclude Include="src\system\RenderSystem.h" />
     <ClInclude Include="src\system\SweeperSystem.h" />
@@ -103,6 +104,7 @@
     <ClCompile Include="src\system\CollisionSystem.cpp" />
     <ClCompile Include="src\system\CollisionTrackingSystem.cpp" />
     <ClCompile Include="src\system\ControlSystem.cpp" />
+    <ClCompile Include="src\system\DynamicMusicSystem.cpp" />
     <ClCompile Include="src\system\MotionSystem.cpp" />
     <ClCompile Include="src\system\RenderSystem.cpp" />
     <ClCompile Include="src\system\SweeperSystem.cpp" />
@@ -131,7 +133,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{85143994-7BC3-400C-8CEB-9B8C844E8270}</ProjectGuid>
     <RootNamespace>SpaceStationRescueSouls</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

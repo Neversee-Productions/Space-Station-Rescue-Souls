@@ -1,5 +1,7 @@
 #pragma once
 #include "BaseSystem.h"
+#include "graphics/Graphics.h"
+
 
 namespace app::sys 
 {
@@ -32,6 +34,26 @@ namespace app::sys
 		/// </summary>
 		const float m_rotate;
 
+		/// <summary>
+		/// @breif this is a shared ptr to bullet texture.
+		/// 
+		/// 
+		/// </summary>
+		const std::shared_ptr<sf::Texture> bulletTexture;
+
+		/// <summary>
+		/// @brief sound buffer for shots.
+		/// 
+		/// 
+		/// </summary>
+		sf::SoundBuffer buffer;
+
+		/// <summary>
+		/// @brief the shot sound.
+		/// 
+		/// 
+		/// </summary>
+		sf::Sound shot;
 	};
 }
 

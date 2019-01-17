@@ -35,6 +35,7 @@ namespace app::sys
 
 		sf::RectangleShape m_renderShape;
 		sf::View m_view;
+
 	};
 }
 

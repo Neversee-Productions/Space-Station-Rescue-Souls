@@ -32,6 +32,8 @@ namespace app::sys
 		void wallCollision();
 	private: // Private Static Variables
 	private: // Private Member Variables
+		sf::SoundBuffer pickupWorkerBuffer;
+		sf::Sound pickupWorker;
 		/// <summary>
 		/// @brief in order for higher efficiency check only
 		/// within 400 units SQUARED of entities.
