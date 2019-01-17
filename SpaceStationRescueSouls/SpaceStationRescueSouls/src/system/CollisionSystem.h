@@ -29,6 +29,7 @@ namespace app::sys
 		void playerWorkerCollision();
 		void seekerWorkerCollision();
 		void projectileVsEnemy();
+		void wallCollision();
 	private: // Private Static Variables
 	private: // Private Member Variables
 		/// <summary>
