@@ -18,7 +18,7 @@
 
 ### Stuff to divide
 
-## Player/Game world [10%] Complete
+## [Player](https://github.com/Neversee-Productions/Space-Station-Rescue-Souls/blob/master/SpaceStationRescueSouls/SpaceStationRescueSouls/src/system/ControlSystem.cpp) / [Game world](https://github.com/Neversee-Productions/Space-Station-Rescue-Souls/blob/master/SpaceStationRescueSouls/SpaceStationRescueSouls/src/system/RenderWorldSystem.cpp) [10%] Complete
 - Player movement:
   - LEFT/RIGHT rotate ship (does not change velocity)
   - UP applies a thrust in direction ship faces
@@ -31,13 +31,13 @@
   - Corridors can split into multiple directions
   - The screen should scroll with ship always on centre (with leeway on edges of the game)
   
-## Workers [10%] Complete
+## [Workers](https://github.com/Neversee-Productions/Space-Station-Rescue-Souls/blob/master/SpaceStationRescueSouls/SpaceStationRescueSouls/src/system/WorkerSystem.cpp) [10%] Complete
 - Use a wandering AI.
 - Placed as “we wish” in the world.
 - Should be lots of them spread around the world.
 - If touched by the ship they disappear and are considered rescued.
 
-## Nests [10%] Complete 
+## [Nests](https://github.com/Neversee-Productions/Space-Station-Rescue-Souls/blob/master/SpaceStationRescueSouls/SpaceStationRescueSouls/src/system/NestSystem.cpp) [10%] Complete 
 - A factory of predators.
 - Randomly positioned in the game (2-3 in the world)
 - Survive 4 hits from the player.
@@ -48,7 +48,7 @@
   - Can be shot down by the player
   - Take one hit to die
 
-## Sweeper Bots [10%] Complete
+## [Sweeper Bots](https://github.com/Neversee-Productions/Space-Station-Rescue-Souls/blob/master/SpaceStationRescueSouls/SpaceStationRescueSouls/src/system/SweeperSystem.cpp) [10%] Complete
 - Wander around the world looking for workers.
 - When in the line of sight of workers they “intercept” them.
   - Worker disappears
@@ -65,23 +65,23 @@
 - Attack plan upon reaching the player.
 - Limit amount in the game at a time.
 
-## Collision Detection [10%] Complete
+## [Collision Detection](https://github.com/Neversee-Productions/Space-Station-Rescue-Souls/blob/master/SpaceStationRescueSouls/SpaceStationRescueSouls/src/system/CollisionSystem.cpp) [10%] Complete
 - No entity to be able to pass through a wall.
 - Use tinyc2.h for detection.
 - Implement response.
 
-## Power-Ups [5%] Complete
+## [Power-Ups](https://github.com/Neversee-Productions/Space-Station-Rescue-Souls/blob/master/SpaceStationRescueSouls/SpaceStationRescueSouls/src/system/PlayerSystem.cpp) [5%] Complete
 - Shield power up (can absorb an extra hit)
 - Speed power up (only way to be faster than predators/missiles)
 - Increased fire rate.
 
-## Radar [10%] Complete
+## [Radar](https://github.com/Neversee-Productions/Space-Station-Rescue-Souls/blob/f7c563e8a7c1efa97fcf49514598bbc89db14af7/SpaceStationRescueSouls/SpaceStationRescueSouls/src/Game.cpp#L220) [10%] Complete
 - Minimap displaying the entire world and points of interest.
   - Show current position of predators
   - Display power-ups on mini-map
   - Show placement of workers
 
-## Extra [5%] Complete
+## [Extra](https://github.com/Neversee-Productions/Space-Station-Rescue-Souls/blob/master/SpaceStationRescueSouls/SpaceStationRescueSouls/src/system/DynamicMusicSystem.cpp) [5%] Complete
 - Dynamic music
   - Intense music when in combat
   - Chill music out of combat
@@ -96,7 +96,7 @@
 
 ### STUFF TO CONQUER
 
-## Doxygen [5%] Complete
+## [Doxygen](https://neversee-productions.github.io/Space-Station-Rescue-Souls/) [5%] Complete
 - Set up asap use throughout the project
 
 ## Code Quality [5%] Complete
