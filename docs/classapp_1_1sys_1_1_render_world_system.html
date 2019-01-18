@@ -94,6 +94,9 @@ $(document).ready(function(){initNavTree('classapp_1_1sys_1_1_render_world_syste
 </div><!--header-->
 <div class="contents">
 
+<p>this system will render entites that are the map  
+ <a href="classapp_1_1sys_1_1_render_world_system.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_render_world_system_8h_source.html">RenderWorldSystem.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for app::sys::RenderWorldSystem:</div>
@@ -141,6 +144,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ae2844648c2eff609982a5e539a11bf59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11528e13f4c085a95d82397f92c760c4"><td class="memItemLeft" align="right" valign="top">sf::RectangleShape&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapp_1_1sys_1_1_render_world_system.html#a11528e13f4c085a95d82397f92c760c4">m_renderShape</a></td></tr>
 <tr class="separator:a11528e13f4c085a95d82397f92c760c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67ea6753c908da538d69bc7c2dd12fc1"><td class="memItemLeft" align="right" valign="top">sf::View&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapp_1_1sys_1_1_render_world_system.html#a67ea6753c908da538d69bc7c2dd12fc1">m_view</a></td></tr>
+<tr class="separator:a67ea6753c908da538d69bc7c2dd12fc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cf1a2f0a301658e638f0cd454832588"><td class="memItemLeft" align="right" valign="top">sf::RectangleShape&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapp_1_1sys_1_1_render_world_system.html#a5cf1a2f0a301658e638f0cd454832588">m_fillBackground</a></td></tr>
+<tr class="separator:a5cf1a2f0a301658e638f0cd454832588"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -149,8 +156,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a2781499a761730e78a1ecb440fd94c55 inherit pro_attribs_classapp_1_1sys_1_1_base_system"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_render_world_system_8h_source.html#l00009">9</a> of file <a class="el" href="_render_world_system_8h_source.html">RenderWorldSystem.h</a>.</p>
+<div class="textblock"><p>this system will render entites that are the map </p>
+
+<p class="definition">Definition at line <a class="el" href="_render_world_system_8h_source.html#l00014">14</a> of file <a class="el" href="_render_world_system_8h_source.html">RenderWorldSystem.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a94d1678590962fa28253485e4eb3ddb0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a94d1678590962fa28253485e4eb3ddb0">&#9670;&nbsp;</a></span>RenderWorldSystem() <span class="overload">[1/3]</span></h2>
@@ -168,7 +176,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_render_world_system_8cpp_source.html#l00008">8</a> of file <a class="el" href="_render_world_system_8cpp_source.html">RenderWorldSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_render_world_system_8cpp_source.html#l00010">10</a> of file <a class="el" href="_render_world_system_8cpp_source.html">RenderWorldSystem.cpp</a>.</p>
 
 </div>
 </div>
@@ -328,11 +336,35 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classapp_1_1sys_1_1_base_system.html#a58d307434ce8549c0f6f10c6dcfaf9ee">app::sys::BaseSystem</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_render_world_system_8cpp_source.html#l00015">15</a> of file <a class="el" href="_render_world_system_8cpp_source.html">RenderWorldSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_render_world_system_8cpp_source.html#l00021">21</a> of file <a class="el" href="_render_world_system_8cpp_source.html">RenderWorldSystem.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a5cf1a2f0a301658e638f0cd454832588"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cf1a2f0a301658e638f0cd454832588">&#9670;&nbsp;</a></span>m_fillBackground</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::RectangleShape app::sys::RenderWorldSystem::m_fillBackground</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_render_world_system_8h_source.html#l00044">44</a> of file <a class="el" href="_render_world_system_8h_source.html">RenderWorldSystem.h</a>.</p>
+
+</div>
+</div>
 <a id="a11528e13f4c085a95d82397f92c760c4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a11528e13f4c085a95d82397f92c760c4">&#9670;&nbsp;</a></span>m_renderShape</h2>
 
@@ -353,7 +385,31 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_render_world_system_8h_source.html#l00036">36</a> of file <a class="el" href="_render_world_system_8h_source.html">RenderWorldSystem.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_render_world_system_8h_source.html#l00041">41</a> of file <a class="el" href="_render_world_system_8h_source.html">RenderWorldSystem.h</a>.</p>
+
+</div>
+</div>
+<a id="a67ea6753c908da538d69bc7c2dd12fc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67ea6753c908da538d69bc7c2dd12fc1">&#9670;&nbsp;</a></span>m_view</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::View app::sys::RenderWorldSystem::m_view</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_render_world_system_8h_source.html#l00042">42</a> of file <a class="el" href="_render_world_system_8h_source.html">RenderWorldSystem.h</a>.</p>
 
 </div>
 </div>
@@ -377,7 +433,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_render_world_system_8h_source.html#l00034">34</a> of file <a class="el" href="_render_world_system_8h_source.html">RenderWorldSystem.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_render_world_system_8h_source.html#l00039">39</a> of file <a class="el" href="_render_world_system_8h_source.html">RenderWorldSystem.h</a>.</p>
 
 </div>
 </div>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['loadtexture',['loadTexture',['../namespaceapp_1_1gra.html#a07e6c5c804a8c3d9301cbe7ce7a18b6a',1,'app::gra']]],
-  ['location',['Location',['../structapp_1_1comp_1_1_location.html#ac8f9f6be19b38160947e2071da6a9be9',1,'app::comp::Location::Location()=default'],['../structapp_1_1comp_1_1_location.html#a4e246ceafa375806e7b87e241a5cdb8e',1,'app::comp::Location::Location(Location const &amp;)=default'],['../structapp_1_1comp_1_1_location.html#a95fc4ce454f5749256632daec7944e66',1,'app::comp::Location::Location(Location &amp;&amp;)=default']]]
+  ['health',['Health',['../structapp_1_1comp_1_1_health.html#a28c62862a0db4ff605f57f137e0c81c3',1,'app::comp::Health::Health()=default'],['../structapp_1_1comp_1_1_health.html#a6251bb8df13898a5b76a0ff9388acd7a',1,'app::comp::Health::Health(Health const &amp;)=default'],['../structapp_1_1comp_1_1_health.html#a3204cede3b7b3191fadc8da65fa8f631',1,'app::comp::Health::Health(Health &amp;&amp;)=default']]]
 ];

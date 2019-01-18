@@ -104,12 +104,21 @@ Inheritance diagram for app::sys::BaseSystem:</div>
  <div class="center">
   <img src="classapp_1_1sys_1_1_base_system.png" usemap="#app::sys::BaseSystem_map" alt=""/>
   <map id="app::sys::BaseSystem_map" name="app::sys::BaseSystem_map">
-<area href="classapp_1_1sys_1_1_bullet_system.html" alt="app::sys::BulletSystem" shape="rect" coords="0,56,185,80"/>
-<area href="classapp_1_1sys_1_1_camera_follow_system.html" alt="app::sys::CameraFollowSystem" shape="rect" coords="195,56,380,80"/>
-<area href="classapp_1_1sys_1_1_control_system.html" title="Class that responds to input." alt="app::sys::ControlSystem" shape="rect" coords="390,56,575,80"/>
-<area href="classapp_1_1sys_1_1_motion_system.html" title="This system deals with motion physics." alt="app::sys::MotionSystem" shape="rect" coords="585,56,770,80"/>
-<area href="classapp_1_1sys_1_1_render_system.html" alt="app::sys::RenderSystem" shape="rect" coords="780,56,965,80"/>
-<area href="classapp_1_1sys_1_1_render_world_system.html" alt="app::sys::RenderWorldSystem" shape="rect" coords="975,56,1160,80"/>
+<area href="classapp_1_1sys_1_1_bullet_system.html" title="The system that fires and updates bullets." alt="app::sys::BulletSystem" shape="rect" coords="211,56,412,80"/>
+<area href="classapp_1_1sys_1_1_camera_follow_system.html" title="Represents a system that updates a cameras center to the entity it wants to track." alt="app::sys::CameraFollowSystem" shape="rect" coords="211,112,412,136"/>
+<area href="classapp_1_1sys_1_1_collision_system.html" title="Represents the resolution of collisions between collideable entities and collideable geometry." alt="app::sys::CollisionSystem" shape="rect" coords="211,168,412,192"/>
+<area href="classapp_1_1sys_1_1_collision_tracking_system.html" title="Sets the collision bounds to follow their respective entities location and dimensions." alt="app::sys::CollisionTrackingSystem" shape="rect" coords="211,224,412,248"/>
+<area href="classapp_1_1sys_1_1_control_system.html" title="Class that responds to input." alt="app::sys::ControlSystem" shape="rect" coords="211,280,412,304"/>
+<area href="classapp_1_1sys_1_1_dynamic_music_system.html" title="Adjusts music based on specific conditions." alt="app::sys::DynamicMusicSystem" shape="rect" coords="211,336,412,360"/>
+<area href="classapp_1_1sys_1_1_missile_system.html" title="Gets missile entities to follow their target and expire after their own specified time." alt="app::sys::MissileSystem" shape="rect" coords="211,392,412,416"/>
+<area href="classapp_1_1sys_1_1_motion_system.html" title="This system deals with motion physics." alt="app::sys::MotionSystem" shape="rect" coords="211,448,412,472"/>
+<area href="classapp_1_1sys_1_1_nest_system.html" title="system that controls the nest entities." alt="app::sys::NestSystem" shape="rect" coords="211,504,412,528"/>
+<area href="classapp_1_1sys_1_1_player_system.html" title="This system deals with player power ups." alt="app::sys::PlayerSystem" shape="rect" coords="211,560,412,584"/>
+<area href="classapp_1_1sys_1_1_render_system.html" title="this system will render entites with the render component" alt="app::sys::RenderSystem" shape="rect" coords="211,616,412,640"/>
+<area href="classapp_1_1sys_1_1_render_text_system.html" title="this class will render anything with a text component." alt="app::sys::RenderTextSystem" shape="rect" coords="211,672,412,696"/>
+<area href="classapp_1_1sys_1_1_render_world_system.html" title="this system will render entites that are the map" alt="app::sys::RenderWorldSystem" shape="rect" coords="211,728,412,752"/>
+<area href="classapp_1_1sys_1_1_sweeper_system.html" title="Sweeper system class, handles AI updates with sweeper component." alt="app::sys::SweeperSystem" shape="rect" coords="211,784,412,808"/>
+<area href="classapp_1_1sys_1_1_worker_system.html" title="Worker system class, handles AI updates with worker component." alt="app::sys::WorkerSystem" shape="rect" coords="211,840,412,864"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -315,7 +324,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classapp_1_1sys_1_1_bullet_system.html#acee933bb079a7e687bfa3712ac3fcac1">app::sys::BulletSystem</a>, <a class="el" href="classapp_1_1sys_1_1_camera_follow_system.html#afbb52e03151b0bc249c929162d211531">app::sys::CameraFollowSystem</a>, <a class="el" href="classapp_1_1sys_1_1_render_system.html#a15aecb9941ded02db51f81fb14c68dce">app::sys::RenderSystem</a>, <a class="el" href="classapp_1_1sys_1_1_render_world_system.html#a633dceca689198194fe4eb38e89f9508">app::sys::RenderWorldSystem</a>, <a class="el" href="classapp_1_1sys_1_1_motion_system.html#a79977e47afef75b0597a6abecded8cee">app::sys::MotionSystem</a>, and <a class="el" href="classapp_1_1sys_1_1_control_system.html#aeede3fc0aa471bffed933f29b650eaf2">app::sys::ControlSystem</a>.</p>
+<p>Implemented in <a class="el" href="classapp_1_1sys_1_1_bullet_system.html#acee933bb079a7e687bfa3712ac3fcac1">app::sys::BulletSystem</a>, <a class="el" href="classapp_1_1sys_1_1_dynamic_music_system.html#a201b40d087d9d4754b792e3383f147e2">app::sys::DynamicMusicSystem</a>, <a class="el" href="classapp_1_1sys_1_1_camera_follow_system.html#afbb52e03151b0bc249c929162d211531">app::sys::CameraFollowSystem</a>, <a class="el" href="classapp_1_1sys_1_1_nest_system.html#a28d29b8c2333c93c2010c07b64b341b8">app::sys::NestSystem</a>, <a class="el" href="classapp_1_1sys_1_1_collision_tracking_system.html#a00407559c344b423e8ed3fa6cb75ce18">app::sys::CollisionTrackingSystem</a>, <a class="el" href="classapp_1_1sys_1_1_missile_system.html#a056738f639a6f60781b597e42becf129">app::sys::MissileSystem</a>, <a class="el" href="classapp_1_1sys_1_1_render_system.html#a15aecb9941ded02db51f81fb14c68dce">app::sys::RenderSystem</a>, <a class="el" href="classapp_1_1sys_1_1_render_world_system.html#a633dceca689198194fe4eb38e89f9508">app::sys::RenderWorldSystem</a>, <a class="el" href="classapp_1_1sys_1_1_collision_system.html#ac1493e49ba4d9eb9c70c59e41c499744">app::sys::CollisionSystem</a>, <a class="el" href="classapp_1_1sys_1_1_render_text_system.html#adfc9e78ea43ffc01602d9a95d3751487">app::sys::RenderTextSystem</a>, <a class="el" href="classapp_1_1sys_1_1_player_system.html#ab34f9aad55077b136699d14b4d4ee5c3">app::sys::PlayerSystem</a>, <a class="el" href="classapp_1_1sys_1_1_sweeper_system.html#af6c9d1732a53a70ad67bb7ad886f5da4">app::sys::SweeperSystem</a>, <a class="el" href="classapp_1_1sys_1_1_worker_system.html#a58b2ba36305bde7671cf1492aeb6cc0b">app::sys::WorkerSystem</a>, <a class="el" href="classapp_1_1sys_1_1_control_system.html#aeede3fc0aa471bffed933f29b650eaf2">app::sys::ControlSystem</a>, and <a class="el" href="classapp_1_1sys_1_1_motion_system.html#a79977e47afef75b0597a6abecded8cee">app::sys::MotionSystem</a>.</p>
 
 </div>
 </div>

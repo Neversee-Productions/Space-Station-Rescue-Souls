@@ -87,7 +87,6 @@ $(document).ready(function(){initNavTree('stdafx_8h.html','');});
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">stdafx.h File Reference</div>  </div>
@@ -138,10 +137,17 @@ $(document).ready(function(){initNavTree('stdafx_8h.html','');});
 <code>#include &lt;SFML/Graphics.hpp&gt;</code><br />
 <code>#include &lt;SFML/Network.hpp&gt;</code><br />
 <code>#include &lt;SFML/Audio.hpp&gt;</code><br />
+<code>#include &lt;Thor/Animations.hpp&gt;</code><br />
+<code>#include &lt;Thor/Config.hpp&gt;</code><br />
+<code>#include &lt;Thor/Graphics.hpp&gt;</code><br />
+<code>#include &lt;Thor/Input.hpp&gt;</code><br />
+<code>#include &lt;Thor/Math.hpp&gt;</code><br />
+<code>#include &lt;Thor/Particles.hpp&gt;</code><br />
+<code>#include &lt;Thor/Resources.hpp&gt;</code><br />
 <code>#include &lt;Entt/entt.hpp&gt;</code><br />
-<code>#include &lt;Cute/cute_c2.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="_keyhandler_8h_source.html">input/Keyhandler.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_mousehandler_8h_source.html">input/MouseHandler.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_math_8h_source.html">math/Math.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_vector2_8h_source.html">math/Vector2.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_time_8h_source.html">utilities/Time.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_console_8h_source.html">utilities/Console.h</a>&quot;</code><br />
@@ -158,11 +164,6 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespaceapp_1_1inp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains any classes used to wrap any interfaces that the app supports. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:af09ded747d8574dde114e97c025ddc44"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stdafx_8h.html#af09ded747d8574dde114e97c025ddc44">CUTE_C2_IMPLEMENTATION</a></td></tr>
-<tr class="separator:af09ded747d8574dde114e97c025ddc44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a472a2b9c800692af0b60d87a59680b2e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapp_1_1inp.html#a472a2b9c800692af0b60d87a59680b2e">app::inp::KeyHandler</a> = Keyhandler&lt; sf::Keyboard::Key &gt;</td></tr>
@@ -170,24 +171,6 @@ Typedefs</h2></td></tr>
 <tr class="memitem:acf625ca81f3544183dea9582cee233fd"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapp_1_1inp.html#acf625ca81f3544183dea9582cee233fd">app::inp::MouseHandler</a> = Mousehandler&lt; sf::Mouse::Button &gt;</td></tr>
 <tr class="separator:acf625ca81f3544183dea9582cee233fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="af09ded747d8574dde114e97c025ddc44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af09ded747d8574dde114e97c025ddc44">&#9670;&nbsp;</a></span>CUTE_C2_IMPLEMENTATION</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CUTE_C2_IMPLEMENTATION</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>BEGIN Release Libraries END Release Libraries BEGIN Independant Libraries END Independant Libraries </p>
-
-<p class="definition">Definition at line <a class="el" href="stdafx_8h_source.html#l00115">115</a> of file <a class="el" href="stdafx_8h_source.html">stdafx.h</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

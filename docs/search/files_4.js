@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['input_2ecpp',['Input.cpp',['../_input_8cpp.html',1,'']]],
-  ['input_2eh',['Input.h',['../_input_8h.html',1,'']]]
+  ['health_2ecpp',['Health.cpp',['../_health_8cpp.html',1,'']]],
+  ['health_2eh',['Health.h',['../_health_8h.html',1,'']]]
 ];

@@ -87,7 +87,7 @@ $(document).ready(function(){initNavTree('classapp_1_1sys_1_1_control_system.htm
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classapp_1_1sys_1_1_control_system-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">app::sys::ControlSystem Class Reference</div>  </div>
@@ -114,8 +114,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab45ecf0bb487fce64de40007106d5e24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeede3fc0aa471bffed933f29b650eaf2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapp_1_1sys_1_1_control_system.html#aeede3fc0aa471bffed933f29b650eaf2">update</a> (<a class="el" href="namespaceapp_1_1time.html#afeb86c6f631e8466e0e6a753410c9e37">app::time::seconds</a> const &amp;dt) override</td></tr>
 <tr class="separator:aeede3fc0aa471bffed933f29b650eaf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1c967674b69b35378ad21ba5c166f08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapp_1_1sys_1_1_control_system.html#ad1c967674b69b35378ad21ba5c166f08">spawnBullet</a> (<a class="el" href="namespaceapp_1_1math.html#ae86223e55040cea8851d3b2848bec04a">math::Vector2f</a> position, float angle, bool firedByPlayer)</td></tr>
-<tr class="separator:ad1c967674b69b35378ad21ba5c166f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae6dc86cf2d258a83aa7421302f3e619"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapp_1_1sys_1_1_control_system.html#aae6dc86cf2d258a83aa7421302f3e619">spawnBullet</a> (<a class="el" href="namespaceapp_1_1math.html#ae86223e55040cea8851d3b2848bec04a">math::Vector2f</a> position, float angle, bool firedByPlayer=false)</td></tr>
+<tr class="separator:aae6dc86cf2d258a83aa7421302f3e619"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26bb89e530f6261b3db8aa90c0b3f79b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapp_1_1sys_1_1_control_system.html#a26bb89e530f6261b3db8aa90c0b3f79b">~ControlSystem</a> ()</td></tr>
 <tr class="separator:a26bb89e530f6261b3db8aa90c0b3f79b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classapp_1_1sys_1_1_base_system"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classapp_1_1sys_1_1_base_system')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classapp_1_1sys_1_1_base_system.html">app::sys::BaseSystem</a></td></tr>
@@ -132,12 +132,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a62a84defc1e14b090c3fb77386cedaa8 inherit pub_methods_classapp_1_1sys_1_1_base_system"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classapp_1_1sys_1_1_base_system.html">BaseSystem</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapp_1_1sys_1_1_base_system.html#a62a84defc1e14b090c3fb77386cedaa8">operator=</a> (<a class="el" href="classapp_1_1sys_1_1_base_system.html">BaseSystem</a> &amp;&amp;)=default</td></tr>
 <tr class="separator:a62a84defc1e14b090c3fb77386cedaa8 inherit pub_methods_classapp_1_1sys_1_1_base_system"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
 <tr class="memitem:a4faf06d7769df397d2b1828fb6c76edd"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceapp_1_1inp.html#a472a2b9c800692af0b60d87a59680b2e">app::inp::KeyHandler</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapp_1_1sys_1_1_control_system.html#a4faf06d7769df397d2b1828fb6c76edd">m_keyHandler</a></td></tr>
 <tr class="separator:a4faf06d7769df397d2b1828fb6c76edd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94fd8205bcf6b2ee0c28de6e52eeb02f"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapp_1_1sys_1_1_control_system.html#a94fd8205bcf6b2ee0c28de6e52eeb02f">m_rotate</a></td></tr>
 <tr class="separator:a94fd8205bcf6b2ee0c28de6e52eeb02f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6703823099bac7f1fb0e1fd0d1a4033"><td class="memItemLeft" align="right" valign="top">const std::shared_ptr&lt; sf::Texture &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapp_1_1sys_1_1_control_system.html#ad6703823099bac7f1fb0e1fd0d1a4033">bulletTexture</a></td></tr>
+<tr class="separator:ad6703823099bac7f1fb0e1fd0d1a4033"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf1238cf35913765bf2872eab4da8384"><td class="memItemLeft" align="right" valign="top">sf::SoundBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapp_1_1sys_1_1_control_system.html#acf1238cf35913765bf2872eab4da8384">buffer</a></td></tr>
+<tr class="separator:acf1238cf35913765bf2872eab4da8384"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5bca8f5bb8854d7606075de50411576"><td class="memItemLeft" align="right" valign="top">sf::Sound&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classapp_1_1sys_1_1_control_system.html#ac5bca8f5bb8854d7606075de50411576">shot</a></td></tr>
+<tr class="separator:ac5bca8f5bb8854d7606075de50411576"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -147,8 +153,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class that responds to input. </p>
+<dl class="section author"><dt>Author</dt><dd>Sebastian Kruzel</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_control_system_8h_source.html#l00009">9</a> of file <a class="el" href="_control_system_8h_source.html">ControlSystem.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_control_system_8h_source.html#l00014">14</a> of file <a class="el" href="_control_system_8h_source.html">ControlSystem.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab45ecf0bb487fce64de40007106d5e24"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab45ecf0bb487fce64de40007106d5e24">&#9670;&nbsp;</a></span>ControlSystem()</h2>
@@ -197,13 +204,13 @@ Additional Inherited Members</h2></td></tr>
 <p></p>
 <p>Destructor</p>
 
-<p class="definition">Definition at line <a class="el" href="_control_system_8cpp_source.html#l00071">71</a> of file <a class="el" href="_control_system_8cpp_source.html">ControlSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_control_system_8cpp_source.html#l00078">78</a> of file <a class="el" href="_control_system_8cpp_source.html">ControlSystem.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad1c967674b69b35378ad21ba5c166f08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1c967674b69b35378ad21ba5c166f08">&#9670;&nbsp;</a></span>spawnBullet()</h2>
+<a id="aae6dc86cf2d258a83aa7421302f3e619"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae6dc86cf2d258a83aa7421302f3e619">&#9670;&nbsp;</a></span>spawnBullet()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -224,7 +231,7 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>firedByPlayer</em>&#160;</td>
+          <td class="paramname"><em>firedByPlayer</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -234,7 +241,18 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_control_system_8cpp_source.html#l00075">75</a> of file <a class="el" href="_control_system_8cpp_source.html">ControlSystem.cpp</a>.</p>
+<p></p>
+<p>This function spawns a bullet entity.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>the position of the bullet</td></tr>
+    <tr><td class="paramname">angle</td><td>the angle at which the bullet is orientated</td></tr>
+    <tr><td class="paramname">firedByPlayer</td><td>boolean whether bullet was fired by player defaults to false</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_control_system_8cpp_source.html#l00090">90</a> of file <a class="el" href="_control_system_8cpp_source.html">ControlSystem.cpp</a>.</p>
 
 </div>
 </div>
@@ -274,27 +292,89 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classapp_1_1sys_1_1_base_system.html#a58d307434ce8549c0f6f10c6dcfaf9ee">app::sys::BaseSystem</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_control_system_8cpp_source.html#l00028">28</a> of file <a class="el" href="_control_system_8cpp_source.html">ControlSystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_control_system_8cpp_source.html#l00034">34</a> of file <a class="el" href="_control_system_8cpp_source.html">ControlSystem.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="acf1238cf35913765bf2872eab4da8384"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf1238cf35913765bf2872eab4da8384">&#9670;&nbsp;</a></span>buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::SoundBuffer app::sys::ControlSystem::buffer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p></p>
+<p>sound buffer for shots.</p>
+
+<p class="definition">Definition at line <a class="el" href="_control_system_8h_source.html#l00050">50</a> of file <a class="el" href="_control_system_8h_source.html">ControlSystem.h</a>.</p>
+
+</div>
+</div>
+<a id="ad6703823099bac7f1fb0e1fd0d1a4033"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6703823099bac7f1fb0e1fd0d1a4033">&#9670;&nbsp;</a></span>bulletTexture</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::shared_ptr&lt;sf::Texture&gt; app::sys::ControlSystem::bulletTexture</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p></p>
+<p>this is a shared ptr to bullet texture.</p>
+
+<p class="definition">Definition at line <a class="el" href="_control_system_8h_source.html#l00043">43</a> of file <a class="el" href="_control_system_8h_source.html">ControlSystem.h</a>.</p>
+
+</div>
+</div>
 <a id="a4faf06d7769df397d2b1828fb6c76edd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4faf06d7769df397d2b1828fb6c76edd">&#9670;&nbsp;</a></span>m_keyHandler</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">const <a class="el" href="namespaceapp_1_1inp.html#a472a2b9c800692af0b60d87a59680b2e">app::inp::KeyHandler</a>&amp; app::sys::ControlSystem::m_keyHandler</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p></p>
 <p>constant reference to a keyhandler of the game.</p>
 
-<p class="definition">Definition at line <a class="el" href="_control_system_8h_source.html#l00024">24</a> of file <a class="el" href="_control_system_8h_source.html">ControlSystem.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_control_system_8h_source.html#l00029">29</a> of file <a class="el" href="_control_system_8h_source.html">ControlSystem.h</a>.</p>
 
 </div>
 </div>
@@ -303,17 +383,52 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">const float app::sys::ControlSystem::m_rotate</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p></p>
 <p>the angle in degrees at which to rotate by.</p>
 
-<p class="definition">Definition at line <a class="el" href="_control_system_8h_source.html#l00031">31</a> of file <a class="el" href="_control_system_8h_source.html">ControlSystem.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_control_system_8h_source.html#l00036">36</a> of file <a class="el" href="_control_system_8h_source.html">ControlSystem.h</a>.</p>
+
+</div>
+</div>
+<a id="ac5bca8f5bb8854d7606075de50411576"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5bca8f5bb8854d7606075de50411576">&#9670;&nbsp;</a></span>shot</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Sound app::sys::ControlSystem::shot</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p></p>
+<p>the shot sound.</p>
+
+<p class="definition">Definition at line <a class="el" href="_control_system_8h_source.html#l00057">57</a> of file <a class="el" href="_control_system_8h_source.html">ControlSystem.h</a>.</p>
 
 </div>
 </div>

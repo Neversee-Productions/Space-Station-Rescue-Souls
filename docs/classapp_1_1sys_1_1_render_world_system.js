@@ -7,6 +7,8 @@ var classapp_1_1sys_1_1_render_world_system =
     [ "operator=", "classapp_1_1sys_1_1_render_world_system.html#a96db78ee29ce0f52c1060db36ada14c1", null ],
     [ "operator=", "classapp_1_1sys_1_1_render_world_system.html#ab5281338fa08d4256952c24b05139fb8", null ],
     [ "update", "classapp_1_1sys_1_1_render_world_system.html#a633dceca689198194fe4eb38e89f9508", null ],
+    [ "m_fillBackground", "classapp_1_1sys_1_1_render_world_system.html#a5cf1a2f0a301658e638f0cd454832588", null ],
     [ "m_renderShape", "classapp_1_1sys_1_1_render_world_system.html#a11528e13f4c085a95d82397f92c760c4", null ],
+    [ "m_view", "classapp_1_1sys_1_1_render_world_system.html#a67ea6753c908da538d69bc7c2dd12fc1", null ],
     [ "m_window", "classapp_1_1sys_1_1_render_world_system.html#ae2844648c2eff609982a5e539a11bf59", null ]
 ];

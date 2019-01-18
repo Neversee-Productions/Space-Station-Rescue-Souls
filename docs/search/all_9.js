@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['loadtexture',['loadTexture',['../namespaceapp_1_1gra.html#a07e6c5c804a8c3d9301cbe7ce7a18b6a',1,'app::gra']]],
-  ['location',['Location',['../structapp_1_1comp_1_1_location.html',1,'app::comp::Location'],['../structapp_1_1comp_1_1_location.html#ac8f9f6be19b38160947e2071da6a9be9',1,'app::comp::Location::Location()=default'],['../structapp_1_1comp_1_1_location.html#a4e246ceafa375806e7b87e241a5cdb8e',1,'app::comp::Location::Location(Location const &amp;)=default'],['../structapp_1_1comp_1_1_location.html#a95fc4ce454f5749256632daec7944e66',1,'app::comp::Location::Location(Location &amp;&amp;)=default']]],
-  ['location_2ecpp',['Location.cpp',['../_location_8cpp.html',1,'']]],
-  ['location_2eh',['Location.h',['../_location_8h.html',1,'']]]
+  ['keyhandler',['Keyhandler',['../classapp_1_1inp_1_1_keyhandler.html',1,'app::inp::Keyhandler&lt; KeyType &gt;'],['../classapp_1_1inp_1_1_keyhandler.html#ab9ba3f1ee1dbf8f54de88908a05dd9ae',1,'app::inp::Keyhandler::Keyhandler()=default'],['../classapp_1_1inp_1_1_keyhandler.html#a2e35747de6d5bc5669d682474790cc0d',1,'app::inp::Keyhandler::Keyhandler(Keyhandler const &amp;)=default'],['../classapp_1_1inp_1_1_keyhandler.html#a070195d177ca22c6d1ee2807598344aa',1,'app::inp::Keyhandler::Keyhandler(Keyhandler &amp;&amp;)=default'],['../namespaceapp_1_1inp.html#a472a2b9c800692af0b60d87a59680b2e',1,'app::inp::KeyHandler()']]],
+  ['keyhandler_2ecpp',['Keyhandler.cpp',['../_keyhandler_8cpp.html',1,'']]],
+  ['keyhandler_2eh',['Keyhandler.h',['../_keyhandler_8h.html',1,'']]]
 ];

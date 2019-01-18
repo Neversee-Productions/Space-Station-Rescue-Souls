@@ -6,6 +6,7 @@ var structapp_1_1comp_1_1_projectile =
     [ "~Projectile", "structapp_1_1comp_1_1_projectile.html#a7e4534a5edd18dc0490dfacc4f2dbc20", null ],
     [ "operator=", "structapp_1_1comp_1_1_projectile.html#ae66a17e101a33793c464c5087614bc81", null ],
     [ "operator=", "structapp_1_1comp_1_1_projectile.html#a09fa4ad23ae55b28d6988d2970445ae9", null ],
+    [ "damage", "structapp_1_1comp_1_1_projectile.html#a8500856116bdaa88c13d8a83a1872964", null ],
     [ "m_firedByPlayer", "structapp_1_1comp_1_1_projectile.html#a7dd954b83d48eacec17e7e213b3e302d", null ],
     [ "m_timeToLive", "structapp_1_1comp_1_1_projectile.html#af268e0abf1cd9904bdadedd28c86a357", null ]
 ];

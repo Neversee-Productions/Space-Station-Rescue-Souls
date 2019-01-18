@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['location_2ecpp',['Location.cpp',['../_location_8cpp.html',1,'']]],
-  ['location_2eh',['Location.h',['../_location_8h.html',1,'']]]
+  ['keyhandler_2ecpp',['Keyhandler.cpp',['../_keyhandler_8cpp.html',1,'']]],
+  ['keyhandler_2eh',['Keyhandler.h',['../_keyhandler_8h.html',1,'']]]
 ];

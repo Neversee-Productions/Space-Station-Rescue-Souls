@@ -1,8 +1,13 @@
 var searchData=
 [
-  ['window',['Window',['../classapp_1_1gra_1_1_window.html',1,'app::gra::Window'],['../classapp_1_1gra_1_1_window.html#a702092114c990d60961a6118ebc52b11',1,'app::gra::Window::Window(app::inp::KeyHandler &amp;keyHandler, app::inp::MouseHandler &amp;mouseHandler)'],['../classapp_1_1gra_1_1_window.html#a794d0b34baecc158e9c6ed677712eadf',1,'app::gra::Window::Window(Window const &amp;)=delete'],['../classapp_1_1gra_1_1_window.html#add5fdfd999b5fa07cfb47bc9e22f55ff',1,'app::gra::Window::Window(Window &amp;&amp;)=default']]],
-  ['window_2ecpp',['Window.cpp',['../_window_8cpp.html',1,'']]],
-  ['window_2eh',['Window.h',['../_window_8h.html',1,'']]],
-  ['write',['write',['../classapp_1_1_console.html#aaf585106c8fea3b155eb257e4b379844',1,'app::Console::write(std::string const &amp;text)'],['../classapp_1_1_console.html#a15c2f68bfe50cb136a62a743b5cfcb3e',1,'app::Console::write(std::initializer_list&lt; std::string &gt; const &amp;texts)']]],
-  ['writeline',['writeLine',['../classapp_1_1_console.html#a3eaf58449344272ca0b7b0c1314ba6dd',1,'app::Console::writeLine()'],['../classapp_1_1_console.html#ad8873e7e0585be21f4563122c40de40e',1,'app::Console::writeLine(std::string const &amp;text)'],['../classapp_1_1_console.html#a232d0f28e8c4075c9e081c4181777cea',1,'app::Console::writeLine(std::initializer_list&lt; std::string &gt; const &amp;texts)']]]
+  ['vector2',['Vector2',['../classapp_1_1math_1_1_vector2.html',1,'app::math::Vector2&lt; T &gt;'],['../classapp_1_1math_1_1_vector2.html#acb27857ef9d03c742716d521eb641495',1,'app::math::Vector2::Vector2()'],['../classapp_1_1math_1_1_vector2.html#aa807599df67602cd04983153040e3571',1,'app::math::Vector2::Vector2(T const &amp;_x, T const &amp;_y)'],['../classapp_1_1math_1_1_vector2.html#a4d25c3926a4615371286dc36b3858d83',1,'app::math::Vector2::Vector2(sf::Vector2&lt; T &gt; const &amp;v)'],['../classapp_1_1math_1_1_vector2.html#a696a01fc289372028cb18d7f80695160',1,'app::math::Vector2::Vector2(Vector2 const &amp;)=default'],['../classapp_1_1math_1_1_vector2.html#a28fb8771a971009cbdc8a6de367ac055',1,'app::math::Vector2::Vector2(Vector2 &amp;&amp;)=default']]],
+  ['vector2_2ecpp',['Vector2.cpp',['../_vector2_8cpp.html',1,'']]],
+  ['vector2_2eh',['Vector2.h',['../_vector2_8h.html',1,'']]],
+  ['vector2d',['Vector2d',['../namespaceapp_1_1math.html#a208d61f3daa64c6ce94388e8ac986c75',1,'app::math']]],
+  ['vector2f',['Vector2f',['../namespaceapp_1_1math.html#ae86223e55040cea8851d3b2848bec04a',1,'app::math']]],
+  ['vector2i',['Vector2i',['../namespaceapp_1_1math.html#a728f5585647c015e8957fe5e7bb8d43f',1,'app::math']]],
+  ['vector2u',['Vector2u',['../namespaceapp_1_1math.html#aa920f37c27ef7445c324af5b167e960a',1,'app::math']]],
+  ['velocity',['velocity',['../structapp_1_1comp_1_1_motion.html#a6111da08d800d1c8a7f5ef2b14322c74',1,'app::comp::Motion']]],
+  ['view',['view',['../classapp_1_1sys_1_1_render_text_system.html#aed1136a928683d630b4ba2be851d4582',1,'app::sys::RenderTextSystem']]],
+  ['viewport',['viewport',['../structapp_1_1comp_1_1_camera.html#a603fe389cbf68d401841adcbaa110568',1,'app::comp::Camera']]]
 ];

@@ -1,23 +1,12 @@
 var searchData=
 [
-  ['_7ebasesystem',['~BaseSystem',['../classapp_1_1sys_1_1_base_system.html#a28672f1f2f8c9d19de40c328189660a1',1,'app::sys::BaseSystem']]],
-  ['_7ebulletsystem',['~BulletSystem',['../classapp_1_1sys_1_1_bullet_system.html#ae35632138b4a4a93a7754ae1baca09ec',1,'app::sys::BulletSystem']]],
-  ['_7ecamera',['~Camera',['../structapp_1_1comp_1_1_camera.html#aa6703057222424305caff7360a646887',1,'app::comp::Camera']]],
-  ['_7ecamerafollowsystem',['~CameraFollowSystem',['../classapp_1_1sys_1_1_camera_follow_system.html#ac1b7a144163734a3000530013ee27d2a',1,'app::sys::CameraFollowSystem']]],
-  ['_7econtrolsystem',['~ControlSystem',['../classapp_1_1sys_1_1_control_system.html#a26bb89e530f6261b3db8aa90c0b3f79b',1,'app::sys::ControlSystem']]],
-  ['_7edimensions',['~Dimensions',['../structapp_1_1comp_1_1_dimensions.html#a0cdc70e47f0985b296dc22e50c7b1169',1,'app::comp::Dimensions']]],
-  ['_7egame',['~Game',['../classapp_1_1_game.html#aaf594791ead4211942b734fa8aa28892',1,'app::Game']]],
-  ['_7ekeyhandler',['~Keyhandler',['../classapp_1_1inp_1_1_keyhandler.html#a63f78a724d653497fd949009c505d4dd',1,'app::inp::Keyhandler']]],
-  ['_7elocation',['~Location',['../structapp_1_1comp_1_1_location.html#a0cafb9e192bef342a8bbb148aab84fb8',1,'app::comp::Location']]],
-  ['_7emotion',['~Motion',['../structapp_1_1comp_1_1_motion.html#a43598c1ef3b63025ae4921a2a8ada9fd',1,'app::comp::Motion']]],
-  ['_7emotionsystem',['~MotionSystem',['../classapp_1_1sys_1_1_motion_system.html#a5f4e3c4c2153adccec2467dc53543e2a',1,'app::sys::MotionSystem']]],
-  ['_7emousehandler',['~Mousehandler',['../classapp_1_1inp_1_1_mousehandler.html#a8f0c580ce868e4d29cd47c62133e5a03',1,'app::inp::Mousehandler']]],
-  ['_7eprojectile',['~Projectile',['../structapp_1_1comp_1_1_projectile.html#a7e4534a5edd18dc0490dfacc4f2dbc20',1,'app::comp::Projectile']]],
-  ['_7erenderfillvisitor',['~RenderFillVisitor',['../classapp_1_1vis_1_1_render_fill_visitor.html#a743fc2a2cf22711d28026f6a233f67cb',1,'app::vis::RenderFillVisitor']]],
-  ['_7erenderrect',['~RenderRect',['../structapp_1_1comp_1_1_render_rect.html#a683a75b7b5ee9110057ebf2a907f6f68',1,'app::comp::RenderRect']]],
-  ['_7erendersystem',['~RenderSystem',['../classapp_1_1sys_1_1_render_system.html#aa98af0a0ad9dadece0b6be0506a1c4b1',1,'app::sys::RenderSystem']]],
-  ['_7erenderworld',['~RenderWorld',['../structapp_1_1comp_1_1_render_world.html#a9fd7e04df6673d3aad36003b42c93997',1,'app::comp::RenderWorld']]],
-  ['_7erenderworldsystem',['~RenderWorldSystem',['../classapp_1_1sys_1_1_render_world_system.html#adaaae62c8d549b1b6dfa784e6909a8cc',1,'app::sys::RenderWorldSystem']]],
-  ['_7evector2',['~Vector2',['../classapp_1_1math_1_1_vector2.html#adea2a95d71c80eb4fa8de6b1895351d8',1,'app::math::Vector2']]],
-  ['_7ewindow',['~Window',['../classapp_1_1gra_1_1_window.html#a441275d09b90c902a773560e2a3b0012',1,'app::gra::Window']]]
+  ['text',['Text',['../structapp_1_1comp_1_1_text.html#a071468a4af587914b07fa7660baffa8d',1,'app::comp::Text::Text()=default'],['../structapp_1_1comp_1_1_text.html#a13100485ace2d8c2c95a1d33c50a48ee',1,'app::comp::Text::Text(Text const &amp;)=default'],['../structapp_1_1comp_1_1_text.html#a7a19e0d51b9a704982c408d27133cfd1',1,'app::comp::Text::Text(Text &amp;&amp;)=default']]],
+  ['toangle',['toAngle',['../classapp_1_1math_1_1_vector2.html#a6d3d3ce25e4baf3cb387cd6857a80bd2',1,'app::math::Vector2']]],
+  ['todegrees',['toDegrees',['../namespaceapp_1_1math.html#a24bf82141b26c8c7787be4ac81621f64',1,'app::math']]],
+  ['tomicros',['toMicros',['../namespaceapp_1_1time.html#abbc5297e574b8ae63a45153201018fa4',1,'app::time']]],
+  ['tomillis',['toMillis',['../namespaceapp_1_1time.html#a426ea85f53e9501355c93d6c8ba08728',1,'app::time']]],
+  ['tonanos',['toNanos',['../namespaceapp_1_1time.html#a6ce2200d0341716d8256d3e0d18d9339',1,'app::time']]],
+  ['toradians',['toRadians',['../namespaceapp_1_1math.html#a508199836b687f3866d98d23215f8c97',1,'app::math']]],
+  ['toseconds',['toSeconds',['../namespaceapp_1_1time.html#ae23b0d9e80b85ded1240c01fadbc5664',1,'app::time']]],
+  ['truncate',['truncate',['../classapp_1_1math_1_1_vector2.html#af2b1fd52327e08bf1975f80d42778956',1,'app::math::Vector2']]]
 ];
