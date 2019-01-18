@@ -2,6 +2,7 @@
 #include "NestSystem.h"
 
 #include "visitor/CollisionBoundsBoolVisitor.h"
+#include "graphics/Graphics.h"
 
 // components
 #include "component/Dimensions.h"
@@ -12,10 +13,12 @@
 #include "component/RenderRect.h"
 #include "component/Collision.h"
 #include "component/Player.h"
+#include "component/Projectile.h"
 
 app::sys::NestSystem::NestSystem()
 	: BaseSystem()
 	, m_missileSpawner()
+	, m_missileTexture(app::gra::loadTexture("./res/missile.png"))
 {
 	m_registry.prepare<comp::Location, comp::Collision, comp::Player>();
 	m_registry.destruction<comp::Missile>().connect<app::sys::NestSystem, &app::sys::NestSystem::onMissileDestruction>(this);
@@ -72,7 +75,7 @@ void app::sys::NestSystem::spawnMissile(app::Entity const & nest, app::Entity co
 	m_registry.assign<decltype(collision)>(entity, std::move(collision));
 
 	auto motion = comp::Motion();
-	motion.velocity = targetDirection * 3.0f;
+	motion.velocity = targetDirection * 5.75f;
 	motion.maxSpeed = 0.08f;
 	motion.speed = 0.0f;
 	motion.drag = 1.0f;
@@ -91,13 +94,15 @@ void app::sys::NestSystem::spawnMissile(app::Entity const & nest, app::Entity co
 	m_registry.assign<decltype(missile)>(entity, std::move(missile));
 
 	auto renderRect = comp::RenderRect();
-	renderRect.fill = sf::Color::Yellow;
+	if (m_missileTexture) { renderRect.fill = m_missileTexture; }
+	else { renderRect.fill = sf::Color::Yellow; }
 	m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
 }
 
 void app::sys::NestSystem::spawnPredator(comp::Location const & spawn)
 {
-	app::Entity entity = m_registry.create();
+	// Failed to get Predators done on time.
+	//app::Entity entity = m_registry.create();
 }
 
 void app::sys::NestSystem::onMissileDestruction(app::Registry & registry, app::Entity const entity)

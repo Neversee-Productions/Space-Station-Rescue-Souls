@@ -21,12 +21,12 @@ app::sys::MissileSystem::MissileSystem()
 
 void app::sys::MissileSystem::update(app::time::seconds const & dt)
 {
-	auto const & playerView = m_registry.view<comp::Location, comp::Motion, comp::Collision, comp::Health, comp::Player>();
+	auto playerView = m_registry.view<comp::Location, comp::Motion, comp::Collision, comp::Health, comp::Player>();
 	m_registry.view<comp::Location, comp::Motion, comp::Collision, comp::Missile>()
 		.each([&, this](app::Entity const entity, comp::Location & location, comp::Motion & motion, comp::Collision & collision, comp::Missile & missile)
 	{
 
-		if (missile.target.has_value())
+		if (missile.target.has_value() && m_registry.valid(missile.target.value()))
 		{
 			auto[playerLocation, playerMotion, playerCollision, playerHealth, player] = playerView.get<comp::Location, comp::Motion, comp::Collision, comp::Health, comp::Player>(missile.target.value());
 		
@@ -48,6 +48,11 @@ void app::sys::MissileSystem::update(app::time::seconds const & dt)
 			if (vis::CollisionBoundsBoolVisitor::collisionBetween(collision.bounds, playerCollision.bounds))
 			{
 				m_registry.destroy(entity);
+				playerHealth.amount -= 1;
+				if (playerHealth.amount <= 0)
+				{
+					m_registry.destroy(missile.target.value());
+				}
 			}
 		}
 		if (missile.timeToExpire.count() < 0.0f)

@@ -170,7 +170,7 @@ void app::sys::CollisionSystem::projectileVsEnemy()
 						health.amount -= projectile.damage;
 						if (health.amount <= 0)
 						{
-							//m_registry.destroy(attackableEnt);
+							m_registry.destroy(attackableEnt);
 							//GAME OVER
 						}
 					  projectilesToDelete.push_front(projectileEnt);

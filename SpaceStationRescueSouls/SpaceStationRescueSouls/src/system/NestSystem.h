@@ -36,6 +36,7 @@ namespace app::sys
 	private: // Private Static Variables
 	private: // Private Member Variables
 		std::forward_list<std::tuple<app::Entity const, app::Entity const, comp::Location const &, comp::Location const &>> m_missileSpawner;
+		std::shared_ptr<sf::Texture> m_missileTexture;
 	};
 }
 

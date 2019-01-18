@@ -329,7 +329,7 @@ void app::Game::createSweepers()
 	int currentRoom = 1;
 	for (int i = 1; i <= 9; i++)
 	{
-
+		if (i == 5) { currentRoom++; continue; }
 		app::Entity const entity = m_registry.create();
 
 		auto location = comp::Location();
@@ -371,7 +371,7 @@ void app::Game::createSweepers()
 
 void app::Game::createNests()
 {
-	constexpr std::size_t NUM_OF_NESTS = 1;
+	constexpr std::size_t NUM_OF_NESTS = 3;
 
 	auto dimensions = comp::Dimensions();
 	dimensions.size = { 250.0f, 250.0f };
@@ -381,7 +381,9 @@ void app::Game::createNests()
 	collision.bounds = cute::c2Circle();
 
 	auto renderRect = comp::RenderRect();
-	renderRect.fill = sf::Color::Magenta;
+	auto texture = app::gra::loadTexture("./res/nest.png");
+	if (texture) { renderRect.fill = texture; }
+	else { renderRect.fill = sf::Color::Magenta; }
 
 	auto health = comp::Health();
 	health.amount = 4;
@@ -392,7 +394,8 @@ void app::Game::createNests()
 		app::Entity const entity = m_registry.create();
 
 		auto location = comp::Location();
-		location.position = { 0.0f, 3000.0f };
+		location.position = i == 2 ? math::Vector2f{ 2600.0f, 2500.0f }
+			: this->generateRoomPos(i == 0 ? 1 : 3);
 		location.orientation = 0.0f;
 
 		auto nest = comp::Nest();

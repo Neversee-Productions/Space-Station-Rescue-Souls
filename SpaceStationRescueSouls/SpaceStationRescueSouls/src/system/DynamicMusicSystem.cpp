@@ -2,7 +2,7 @@
 #include "DynamicMusicSystem.h"
 #include "component/Motion.h"
 #include "component/Location.h"
-#include "component/Sweeper.h"
+#include "component/Missile.h"
 #include "component/Player.h"
 
 /// <summary>
@@ -75,18 +75,7 @@ void app::sys::DynamicMusicSystem::fadeToSong(sf::Music & newSong)
 /// <param name="dt">time between cycles</param>
 void app::sys::DynamicMusicSystem::update(app::time::seconds const & dt)
 {
-	m_registry.view<comp::Player, comp::Location>()
-		.each([&, this](app::Entity const playerEnt, comp::Player & player, comp::Location & playerLocation)
-	{
-		m_registry.view<comp::Motion, comp::Location, comp::Sweeper>()
-			.each([&, this](app::Entity const entity, app::comp::Motion & motion, app::comp::Location & location, app::comp::Sweeper & sweeper)
-		{
-			if ((playerLocation.position - location.position).magnitude() < 700)
-			{
-				m_enemyCount++;
-			}
-		});
-	});
+	m_enemyCount = m_registry.view<comp::Motion, comp::Location, comp::Missile>().size();
 	if (m_enemyCount > 0)
 	{
 		fadeToSong(m_musicIntense);
