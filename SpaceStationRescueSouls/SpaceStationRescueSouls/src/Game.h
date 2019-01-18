@@ -52,6 +52,7 @@ namespace app
 		void createText();
 		void createWorkers();
 		void createSweepers();
+		void createNests();
 		math::Vector2f generateRoomPos(int roomNr);
 		void spawnNextPowerUps();
 		void createPowerUp(int roomNr, app::comp::PowerUp::Type type);
@@ -96,7 +97,7 @@ namespace app
 		/// 
 		/// <summary>
 		/// </summary>
-		std::array<std::unique_ptr<app::sys::BaseSystem>, 10> m_updateSystems;
+		std::array<std::unique_ptr<app::sys::BaseSystem>, 12> m_updateSystems;
 
 		/// 
 		/// @brief container that holds pointers to the systems to run in the draw method.

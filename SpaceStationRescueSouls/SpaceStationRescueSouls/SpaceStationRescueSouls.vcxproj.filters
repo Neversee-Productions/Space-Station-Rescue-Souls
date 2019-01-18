@@ -216,6 +216,18 @@
     <ClInclude Include="src\component\Text.h">
       <Filter>Header Files\component</Filter>
     </ClInclude>
+    <ClInclude Include="src\system\NestSystem.h">
+      <Filter>Header Files\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\component\Nest.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\component\Missile.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\system\MissileSystem.h">
+      <Filter>Header Files\system</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -378,6 +390,18 @@
       <Filter>Source Files\system</Filter>
     </ClCompile>
     <ClCompile Include="src\component\Text.cpp">
+      <Filter>Source Files\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\Nest.cpp">
+      <Filter>Source Files\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\system\NestSystem.cpp">
+      <Filter>Source Files\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\system\MissileSystem.cpp">
+      <Filter>Source Files\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\Missile.cpp">
       <Filter>Source Files\component</Filter>
     </ClCompile>
   </ItemGroup>

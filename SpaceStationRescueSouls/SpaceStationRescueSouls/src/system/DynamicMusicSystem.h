@@ -37,29 +37,28 @@ namespace app::sys
 		/// 
 		/// 
 		/// </summary>
-		sf::Music music_calm;
+		sf::Music m_musicCalm;
 
 		/// <summary>
 		/// @brief intense music when in range of combat.
 		/// 
 		/// 
 		/// </summary>
-		sf::Music music_intense;
+		sf::Music m_musicIntense;
 
 		/// <summary>
 		/// @brief reference to music that is currently playing.
 		/// 
 		/// 
 		/// </summary>
-		sf::Music * current_music;
+		sf::Music * m_currentMusic;
 
 		/// <summary>
 		/// @brief keep count of entities nearby player.
 		/// if close enough do intense music.
 		/// 
 		/// </summary>
-		int enemyCount = 0;
-
+		int m_enemyCount = 0;
 	};
 }
 

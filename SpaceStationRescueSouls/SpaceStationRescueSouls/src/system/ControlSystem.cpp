@@ -97,7 +97,7 @@ void app::sys::ControlSystem::spawnBullet(math::Vector2f position, float angle, 
 	m_registry.assign<decltype(location)>(entity, std::move(location));
 
 	auto dimensions = comp::Dimensions();
-	dimensions.size = { 30.0f, 30.0f };
+	dimensions.size = { 50.0f, 50.0f };
 	dimensions.origin = dimensions.size / 2.0f;
 	m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
 

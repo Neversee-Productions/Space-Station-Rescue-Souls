@@ -17,6 +17,8 @@
 #include "system/SweeperSystem.h"
 #include "system/PlayerSystem.h"
 #include "system/RenderTextSystem.h"
+#include "system/NestSystem.h"
+#include "system/MissileSystem.h"
 
 // Components
 #include "component/Camera.h"
@@ -33,6 +35,7 @@
 #include "component/Collision.h"
 #include "component/CollisionWorld.h"
 #include "component/Text.h"
+#include "component/Nest.h"
 
 /// 
 /// @brief default constructor.
@@ -133,12 +136,12 @@ bool app::Game::initSystems()
 			std::make_unique<app::sys::BulletSystem>(),
 			std::make_unique<app::sys::WorkerSystem>(),
 			std::make_unique<app::sys::SweeperSystem>(),
+			std::make_unique<app::sys::NestSystem>(),
+			std::make_unique<app::sys::MissileSystem>(),
 			std::make_unique<app::sys::CollisionTrackingSystem>(),
 			std::make_unique<app::sys::CollisionSystem>(),
 			std::make_unique<app::sys::DynamicMusicSystem>(),
 			std::make_unique<app::sys::PlayerSystem>()
-
-
 		};
 
 		m_renderSystems = {
@@ -170,6 +173,7 @@ bool app::Game::initEntities()
 		auto const cameraFollowEntity = this->createPlayer();
 		this->createWorkers();
 		this->createSweepers();
+		this->createNests();
 
 		this->createRadar({});
 		this->createCamera(cameraFollowEntity);
@@ -273,6 +277,7 @@ app::Entity const app::Game::createPlayer()
 	auto health = comp::Health();
 	health.isPlayer = true;
 	m_registry.assign<decltype(health)>(entity, std::move(health));
+
 	auto collision = comp::Collision();
 	collision.bounds = cute::c2AABB();
 	m_registry.assign<decltype(collision)>(entity, std::move(collision));
@@ -357,9 +362,9 @@ void app::Game::createSweepers()
 	const auto sweeperTexture = app::gra::loadTexture("./res/sweeper/sweeper_placeholder.png");
 
 	int currentRoom = 1;
-	for (int i = 0; i <= 18; i++)
+	for (int i = 1; i <= 9; i++)
 	{
-
+		if (i == 5) { currentRoom++; continue; }
 		app::Entity const entity = m_registry.create();
 
 		auto location = comp::Location();
@@ -396,6 +401,49 @@ void app::Game::createSweepers()
 		{
 			currentRoom = 1;
 		}
+	}
+}
+
+void app::Game::createNests()
+{
+	constexpr std::size_t NUM_OF_NESTS = 3;
+
+	auto dimensions = comp::Dimensions();
+	dimensions.size = { 250.0f, 250.0f };
+	dimensions.origin = dimensions.size / 2.0f;
+
+	auto collision = comp::Collision();
+	collision.bounds = cute::c2Circle();
+
+	auto renderRect = comp::RenderRect();
+	auto texture = app::gra::loadTexture("./res/nest.png");
+	if (texture) { renderRect.fill = texture; }
+	else { renderRect.fill = sf::Color::Magenta; }
+
+	auto health = comp::Health();
+	health.amount = 4;
+	health.isPlayer = false;
+
+	for (std::size_t i = 0; i < NUM_OF_NESTS; ++i)
+	{
+		app::Entity const entity = m_registry.create();
+
+		auto location = comp::Location();
+		location.position = i == 2 ? math::Vector2f{ 2600.0f, 2500.0f }
+			: this->generateRoomPos(i == 0 ? 1 : 3);
+		location.orientation = 0.0f;
+
+		auto nest = comp::Nest();
+		nest.targetBounds = cute::c2Circle{ { location.position.x, location.position.y }, 800.0f };
+		nest.spawnsPredator = true;
+		nest.missileFired = false;
+
+		m_registry.assign<decltype(location)>(entity, std::move(location));
+		m_registry.assign<decltype(nest)>(entity, std::move(nest));
+		m_registry.assign<decltype(dimensions)>(entity, dimensions);
+		m_registry.assign<decltype(collision)>(entity, collision);
+		m_registry.assign<decltype(renderRect)>(entity, renderRect);
+		m_registry.assign<decltype(health)>(entity, health);
 	}
 }
 

@@ -27,6 +27,9 @@ namespace app::math
 
 	public: // Public Static Functions
 		static Vector2<T> const unit(Vector2<T> const & v);
+		static T dot(Vector2<T> const & left, Vector2<T> const & right);
+		static T det(Vector2<T> const & left, Vector2<T> const & right);
+		static T angleBetween(Vector2<T> const & left, Vector2<T> const & right);
 
 	public: // Public Member Functions
 		Vector2 & operator+=(Vector2 const & v);
@@ -46,7 +49,10 @@ namespace app::math
 		Vector2<T> & truncate(T max);
 		Vector2<T> & unit();
 		Vector2<T> unit() const;
-		float dot(Vector2<T> other) const;
+		T dot(Vector2<T> const & other) const;
+		T det(Vector2<T> const & other) const;
+		T toAngle() const;
+		T angleBetween(Vector2<T> const & other) const;
 
 		operator std::string() const;
 		operator sf::Vector2<T>() const;

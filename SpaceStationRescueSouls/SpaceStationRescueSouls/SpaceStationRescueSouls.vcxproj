@@ -26,7 +26,9 @@
     <ClInclude Include="src\component\Health.h" />
     <ClInclude Include="src\component\Input.h" />
     <ClInclude Include="src\component\Location.h" />
+    <ClInclude Include="src\component\Missile.h" />
     <ClInclude Include="src\component\Motion.h" />
+    <ClInclude Include="src\component\Nest.h" />
     <ClInclude Include="src\component\Player.h" />
     <ClInclude Include="src\component\PowerUp.h" />
     <ClInclude Include="src\component\Projectile.h" />
@@ -52,8 +54,10 @@
     <ClInclude Include="src\system\CollisionTrackingSystem.h" />
     <ClInclude Include="src\system\ControlSystem.h" />
     <ClInclude Include="src\system\DynamicMusicSystem.h" />
+    <ClInclude Include="src\system\MissileSystem.h" />
     <ClInclude Include="src\system\MotionSystem.h" />
     <ClInclude Include="src\system\PlayerSystem.h" />
+    <ClInclude Include="src\system\NestSystem.h" />
     <ClInclude Include="src\system\RenderSystem.h" />
     <ClInclude Include="src\system\RenderTextSystem.h" />
     <ClInclude Include="src\system\SweeperSystem.h" />
@@ -81,7 +85,9 @@
     <ClCompile Include="src\component\Health.cpp" />
     <ClCompile Include="src\component\Input.cpp" />
     <ClCompile Include="src\component\Location.cpp" />
+    <ClCompile Include="src\component\Missile.cpp" />
     <ClCompile Include="src\component\Motion.cpp" />
+    <ClCompile Include="src\component\Nest.cpp" />
     <ClCompile Include="src\component\Player.cpp" />
     <ClCompile Include="src\component\PowerUp.cpp" />
     <ClCompile Include="src\component\Projectile.cpp" />
@@ -113,8 +119,10 @@
     <ClCompile Include="src\system\CollisionTrackingSystem.cpp" />
     <ClCompile Include="src\system\ControlSystem.cpp" />
     <ClCompile Include="src\system\DynamicMusicSystem.cpp" />
+    <ClCompile Include="src\system\MissileSystem.cpp" />
     <ClCompile Include="src\system\MotionSystem.cpp" />
     <ClCompile Include="src\system\PlayerSystem.cpp" />
+    <ClCompile Include="src\system\NestSystem.cpp" />
     <ClCompile Include="src\system\RenderSystem.cpp" />
     <ClCompile Include="src\system\RenderTextSystem.cpp" />
     <ClCompile Include="src\system\SweeperSystem.cpp" />
