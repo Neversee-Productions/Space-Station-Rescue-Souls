@@ -5,10 +5,10 @@
 
 namespace app::sys
 {
-	/// <summary>
 	/// @brief Sweeper system class, handles AI updates with sweeper component.
 	/// @author Sebastian Kruzel
 	/// 
+	/// <summary>
 	/// </summary>
 	class SweeperSystem : public BaseSystem
 	{

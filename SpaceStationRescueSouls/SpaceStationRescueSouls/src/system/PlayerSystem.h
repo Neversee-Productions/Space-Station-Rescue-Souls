@@ -5,10 +5,9 @@
 
 namespace app::sys
 {
+	/// @brief This system deals with player power ups.
+	/// 
 	/// <summary>
-	/// @brief This system mostly deals with player power ups.
-	/// 
-	/// 
 	/// </summary>
 	class PlayerSystem : public BaseSystem
 	{

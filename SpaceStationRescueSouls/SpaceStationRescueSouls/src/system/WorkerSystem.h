@@ -5,10 +5,10 @@
 
 namespace app::sys
 {
-	/// <summary>
 	/// @brief Worker system class, handles AI updates with worker component.
 	/// @author Sebastian Kruzel
 	/// 
+	/// <summary>
 	/// </summary>
 	class WorkerSystem : public BaseSystem
 	{

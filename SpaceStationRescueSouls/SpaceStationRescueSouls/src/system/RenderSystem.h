@@ -6,6 +6,11 @@
 
 namespace app::sys
 {
+	/// 
+	/// @brief this system will render entites with the render component
+	/// 
+	/// <summary>
+	/// </summary>
 	class RenderSystem : public BaseSystem
 	{
 	public: // Constructors/Destructor/Assignments

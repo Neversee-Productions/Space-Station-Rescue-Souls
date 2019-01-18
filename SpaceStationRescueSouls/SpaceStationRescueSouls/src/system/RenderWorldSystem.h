@@ -6,6 +6,11 @@
 
 namespace app::sys
 {
+	/// 
+	/// @brief this system will render entites that are the map
+	/// 
+	/// <summary>
+	/// </summary>
 	class RenderWorldSystem : public BaseSystem
 	{
 	public: // Constructors/Destructor/Assignments

@@ -7,6 +7,11 @@
 
 namespace app::sys
 {
+	/// 
+	/// @brief system that controls the nest entities.
+	/// 
+	/// <summary>
+	/// </summary>
 	class NestSystem : public BaseSystem
 	{
 	public: // Constructors/Destructor/Assignments

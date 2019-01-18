@@ -6,10 +6,10 @@
 
 namespace app::sys
 {
-	/// <summary>
+	/// 
 	/// @brief this class will render anything with a text component.
 	/// 
-	/// 
+	/// <summary>
 	/// </summary>
 	class RenderTextSystem : public BaseSystem
 	{
