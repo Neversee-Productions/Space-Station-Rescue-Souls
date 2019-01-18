@@ -14,6 +14,8 @@
 app::sys::PlayerSystem::PlayerSystem()
 	: shieldTexture(gra::loadTexture("./res/player/shield.png"))
 {
+	font.loadFromFile("./res/space.ttf");
+	workersText.setFont(font);
 }
 
 /// <summary>

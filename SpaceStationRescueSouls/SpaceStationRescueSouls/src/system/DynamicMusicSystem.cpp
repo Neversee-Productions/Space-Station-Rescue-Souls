@@ -6,7 +6,7 @@
 #include "component/Player.h"
 
 /// <summary>
-/// @breif default constructor.
+/// @brief default constructor.
 /// 
 /// 
 /// </summary>

@@ -16,6 +16,7 @@
 #include "system/DynamicMusicSystem.h"
 #include "system/SweeperSystem.h"
 #include "system/PlayerSystem.h"
+#include "system/RenderTextSystem.h"
 
 // Components
 #include "component/Camera.h"
@@ -31,6 +32,7 @@
 #include "component/Health.h"
 #include "component/Collision.h"
 #include "component/CollisionWorld.h"
+#include "component/Text.h"
 
 /// 
 /// @brief default constructor.
@@ -141,7 +143,8 @@ bool app::Game::initSystems()
 
 		m_renderSystems = {
 			std::make_unique<sys::RenderWorldSystem>(m_window),
-			std::make_unique<sys::RenderSystem>(m_window)
+			std::make_unique<sys::RenderSystem>(m_window),
+			std::make_unique<sys::RenderTextSystem>(m_window)
 		};
 
 		return true;
@@ -171,6 +174,7 @@ bool app::Game::initEntities()
 		this->createRadar({});
 		this->createCamera(cameraFollowEntity);
 		this->createWorld();
+		this->createText();
 
 		return true;
 	}
@@ -193,6 +197,7 @@ bool app::Game::initEntities()
 /// <returns></returns>
 app::Entity const app::Game::createCamera(app::Entity const followEntity)
 {
+
 	assert(m_registry.valid(followEntity));
 	app::Entity const entity = m_registry.create();
 
@@ -273,6 +278,24 @@ app::Entity const app::Game::createPlayer()
 	m_registry.assign<decltype(collision)>(entity, std::move(collision));
 
 	return entity;
+}
+
+/// <summary>
+/// @brief create the text for UI
+/// 
+/// 
+/// </summary>
+void app::Game::createText()
+{
+	app::Entity const entity = m_registry.create();
+
+	auto location = comp::Location();
+	location.position = { 570.0f, -520.0f };
+	m_registry.assign<decltype(location)>(entity, std::move(location));
+
+	auto text = comp::Text();
+	text.textToDisplay = "Workers saved: ";
+	m_registry.assign<decltype(text)>(entity, std::move(text));
 }
 
 /// <summary>

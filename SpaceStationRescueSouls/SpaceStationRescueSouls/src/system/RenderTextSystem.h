@@ -1,30 +1,31 @@
-﻿#ifndef _PLAYER_SYSTEM_H
-#define _PLAYER_SYSTEM_H
-#include "BaseSystem.h"
+﻿#ifndef _RENDER_SYSTEM_H
+#define _RENDER_SYSTEM_H
 
+#include "graphics/Window.h"
+#include "BaseSystem.h"
 
 namespace app::sys
 {
 	/// <summary>
-	/// @brief This system mostly deals with player power ups.
+	/// @brief this class will render anything with a text component.
 	/// 
 	/// 
 	/// </summary>
-	class PlayerSystem : public BaseSystem
+	class RenderTextSystem : public BaseSystem
 	{
 	public: // Constructors/Destructor/Assignments
-		PlayerSystem();
-		PlayerSystem(PlayerSystem const &) = default;
-		PlayerSystem(PlayerSystem &&) = default;
+		RenderTextSystem(app::gra::Window & window);
+		~RenderTextSystem() = default;
 
-		~PlayerSystem() = default;
+		RenderTextSystem(RenderTextSystem const &) = default;
+		RenderTextSystem(RenderTextSystem &&) = default;
 
-		PlayerSystem & operator=(PlayerSystem const &) = default;
-		PlayerSystem & operator=(PlayerSystem &&) = default;
+		RenderTextSystem & operator=(RenderTextSystem const &) = default;
+		RenderTextSystem & operator=(RenderTextSystem &&) = default;
 
 	public: // Public Static Functions
-	public: // Public Member Functions
 		virtual void update(app::time::seconds const & dt) override;
+	public: // Public Member Functions
 	public: // Public Static Variables
 	public: // Public Member Variables
 	protected: // Protected Static Functions
@@ -33,31 +34,29 @@ namespace app::sys
 	protected: // Protected Member Variables
 	private: // Private Static Functions
 	private: // Private Member Functions
-		void createShield(sf::Vector2f pos);
 	private: // Private Static Variables
 	private: // Private Member Variables
 		/// <summary>
-		/// @brief Texture of the shield.
+		/// @brief reference to game window.
 		/// 
 		/// 
 		/// </summary>
-		std::shared_ptr<sf::Texture> shieldTexture;
-
+		app::gra::Window & m_window;
 
 		/// <summary>
-		/// @brief font used for the UI.
+		/// @brief font to use.
 		/// 
 		/// 
 		/// </summary>
 		sf::Font font;
 
 		/// <summary>
-		/// @brief Text showing workers the player saved.
+		/// @brief view to render text in.
 		/// 
 		/// 
 		/// </summary>
-		sf::Text workersText;
+		sf::View view;
 	};
 }
 
-#endif // !_PLAYER_SYSTEM_H
+#endif // !_RENDER_SYSTEM_H

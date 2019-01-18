@@ -33,6 +33,7 @@
     <ClInclude Include="src\component\RenderRect.h" />
     <ClInclude Include="src\component\Shield.h" />
     <ClInclude Include="src\component\Sweeper.h" />
+    <ClInclude Include="src\component\Text.h" />
     <ClInclude Include="src\component\Worker.h" />
     <ClInclude Include="src\component\RenderWorld.h" />
     <ClInclude Include="src\Game.h" />
@@ -54,6 +55,7 @@
     <ClInclude Include="src\system\MotionSystem.h" />
     <ClInclude Include="src\system\PlayerSystem.h" />
     <ClInclude Include="src\system\RenderSystem.h" />
+    <ClInclude Include="src\system\RenderTextSystem.h" />
     <ClInclude Include="src\system\SweeperSystem.h" />
     <ClInclude Include="src\system\WorkerSystem.h" />
     <ClInclude Include="src\system\RenderWorldSystem.h" />
@@ -86,6 +88,7 @@
     <ClCompile Include="src\component\RenderRect.cpp" />
     <ClCompile Include="src\component\Shield.cpp" />
     <ClCompile Include="src\component\Sweeper.cpp" />
+    <ClCompile Include="src\component\Text.cpp" />
     <ClCompile Include="src\component\Worker.cpp" />
     <ClCompile Include="src\component\RenderWorld.cpp" />
     <ClCompile Include="src\Game.cpp" />
@@ -113,6 +116,7 @@
     <ClCompile Include="src\system\MotionSystem.cpp" />
     <ClCompile Include="src\system\PlayerSystem.cpp" />
     <ClCompile Include="src\system\RenderSystem.cpp" />
+    <ClCompile Include="src\system\RenderTextSystem.cpp" />
     <ClCompile Include="src\system\SweeperSystem.cpp" />
     <ClCompile Include="src\system\WorkerSystem.cpp" />
     <ClCompile Include="src\system\RenderWorldSystem.cpp" />
@@ -139,7 +143,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{85143994-7BC3-400C-8CEB-9B8C844E8270}</ProjectGuid>
     <RootNamespace>SpaceStationRescueSouls</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

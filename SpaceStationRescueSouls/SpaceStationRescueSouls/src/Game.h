@@ -49,6 +49,7 @@ namespace app
 		app::Entity const createRadar(std::optional<app::Entity> followEntity);
 		app::Entity const createWorld();
 		app::Entity const createPlayer();
+		void createText();
 		void createWorkers();
 		void createSweepers();
 		math::Vector2f generateRoomPos(int roomNr);
@@ -102,7 +103,7 @@ namespace app
 		/// 
 		/// <summary>
 		/// </summary>
-		std::array<std::unique_ptr<app::sys::BaseSystem>, 2> m_renderSystems;
+		std::array<std::unique_ptr<app::sys::BaseSystem>, 3> m_renderSystems;
 
 		/// <summary>
 		/// @brief speed power up texture.

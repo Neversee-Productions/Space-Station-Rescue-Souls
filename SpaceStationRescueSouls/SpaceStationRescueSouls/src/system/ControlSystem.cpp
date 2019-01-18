@@ -80,7 +80,7 @@ app::sys::ControlSystem::~ControlSystem()
 }
 
 /// <summary>
-/// @breif This function spawns a bullet entity.
+/// @brief This function spawns a bullet entity.
 /// 
 /// 
 /// </summary>
