@@ -52,7 +52,6 @@ namespace app::sys
 		/// </summary>
 		sf::View m_view;
 
-		
 	};
 }
 

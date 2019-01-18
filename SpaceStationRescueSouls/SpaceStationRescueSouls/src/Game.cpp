@@ -227,6 +227,8 @@ app::Entity const app::Game::createRadar(std::optional<app::Entity> followEntity
 	camera.offset = { 0.0f, 0.0f };
 	camera.size = math::Vector2f{ 1900.0f, 1080.0f } * 8.0f;
 	camera.viewport = { -0.04f, 0.01f, 0.21f, 0.21f };
+	camera.fillBackground = true;
+	camera.isRadar = true;
 	m_registry.assign<decltype(camera)>(entity, std::move(camera));
 
 	return entity;
