@@ -5,6 +5,12 @@
 
 namespace app::sys
 {
+	/// 
+	/// @brief Adjusts music based on specific conditions.
+	/// @author Sebastian Kruzel
+	/// 
+	/// <summary>
+	/// </summary>
 	class DynamicMusicSystem :
 		public BaseSystem
 	{

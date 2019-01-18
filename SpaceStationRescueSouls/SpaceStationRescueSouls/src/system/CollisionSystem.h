@@ -3,6 +3,13 @@
 
 namespace app::sys
 {
+	/// 
+	/// @brief Represents the resolution of collisions between collideable entities and collideable geometry.
+	/// @author Rafael Plugge
+	/// @author Sebastian Kruzel
+	/// 
+	/// <summary>
+	/// </summary>
 	class CollisionSystem : public BaseSystem
 	{
 	public: // Constructors/Destructor/Assignments

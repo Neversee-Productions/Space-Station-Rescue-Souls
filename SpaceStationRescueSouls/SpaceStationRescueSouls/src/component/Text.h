@@ -3,6 +3,12 @@
 
 namespace app::comp
 {
+	/// 
+	/// @brief Represents a rectangle that displays text.
+	/// @author Sebastian Kruzel
+	/// 
+	/// <summary>
+	/// </summary>
 	struct Text
 	{
 	public: // Constructors/Destructor/Assignments

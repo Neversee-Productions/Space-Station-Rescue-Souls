@@ -3,6 +3,11 @@
 
 namespace app::comp
 {
+	/// 
+	/// @brief Represents a missile entity that follows a target and expires after some time.
+	/// 
+	/// <summary>
+	/// </summary>
 	struct Missile
 	{
 	public: // Constructors/Destructor/Assignments

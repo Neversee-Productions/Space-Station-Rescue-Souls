@@ -5,6 +5,12 @@
 
 namespace app::sys
 {
+	/// 
+	/// @brief Gets missile entities to follow their target and expire after their own specified time.
+	/// @author Rafael Plugge
+	/// 
+	/// <summary>
+	/// </summary>
 	class MissileSystem : public BaseSystem
 	{
 	public: // Constructors/Destructor/Assignments

@@ -158,6 +158,7 @@
 
 int main(int argc, char** argv)
 {
+	srand(time(NULL));
 	using clock = std::chrono::high_resolution_clock;
 	constexpr app::time::nanoseconds updateStep =
 		app::time::toNanos(std::chrono::duration<double, std::milli>(1 / 60.0 * 1000.0));

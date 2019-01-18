@@ -5,10 +5,10 @@
 
 namespace app::comp
 {
-	/// <summary>
+	/// 
 	/// @brief Component that defines dimensional data on the entity.
 	/// 
-	/// 
+	/// <summary>
 	/// </summary>
 	struct Dimensions
 	{

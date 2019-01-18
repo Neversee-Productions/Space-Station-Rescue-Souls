@@ -4,10 +4,11 @@
 
 namespace app::comp
 {
-	/// <summary>
+	/// 
 	/// @brief empty containter used as a handle to entities with input.
+	/// @author Sebastian Kruzel
 	/// 
-	/// 
+	/// <summary>
 	/// </summary>
 	struct Input
 	{

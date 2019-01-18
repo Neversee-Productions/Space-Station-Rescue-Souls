@@ -3,9 +3,11 @@
 
 namespace app::comp
 {
-	/// <summary>
-	/// @brie component to define a player
+	/// 
+	/// @brief component to define a player
 	/// this component holds health, saved workers, power ups etc
+	/// 
+	/// <summary>
 	/// </summary>
 	struct Player
 	{

@@ -3,10 +3,10 @@
 
 namespace app::comp
 {
-	/// <summary>
+	/// 
 	/// @brief Component defining a projectile.
 	/// 
-	/// 
+	/// <summary>
 	/// </summary>
 	struct Projectile
 	{

@@ -4,9 +4,11 @@
 
 namespace app::comp
 {
-	/// <summary>
-	/// @brief struct to define a worker component.
 	/// 
+	/// @brief Ai entity that wanders aimlessly.
+	/// @author Sebastian Kruzel
+	/// 
+	/// <summary>
 	/// </summary>
 	struct Worker
 	{

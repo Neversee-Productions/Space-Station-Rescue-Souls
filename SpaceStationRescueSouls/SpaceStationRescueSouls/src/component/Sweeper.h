@@ -3,7 +3,12 @@
 
 namespace app::comp
 {
-
+	/// 
+	/// @brief Ai entity that captures worker entities.
+	/// @author Sebastian Kruzel
+	/// 
+	/// <summary>
+	/// </summary>
 	struct Sweeper
 	{
 	/// <summary>

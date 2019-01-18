@@ -3,6 +3,12 @@
 
 namespace app::comp
 {
+	/// 
+	/// @brief Represents a entity that a player can pickup granting him a shield.
+	/// @author Sebastian Kruzel
+	/// 
+	/// <summary>
+	/// </summary>
 	struct Shield
 	{
 	public: // Constructors/Destructor/Assignments

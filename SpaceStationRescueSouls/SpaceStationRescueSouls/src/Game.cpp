@@ -431,8 +431,11 @@ void app::Game::createNests()
 		app::Entity const entity = m_registry.create();
 
 		auto location = comp::Location();
-		location.position = i == 2 ? math::Vector2f{ 2600.0f, 2500.0f }
-			: this->generateRoomPos(i == 0 ? 1 : 3);
+		location.position = i == 0 
+			? math::Vector2f{ -3001.0f, -2832.0f }
+			: (i == 1
+				? math::Vector2f{ 2434.0f, -3119.0f }
+				: math::Vector2f{ 2600.0f, 2500.0f });
 		location.orientation = 0.0f;
 
 		auto nest = comp::Nest();

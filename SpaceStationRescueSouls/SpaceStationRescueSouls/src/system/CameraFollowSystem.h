@@ -6,6 +6,12 @@
 
 namespace app::sys
 {
+	/// 
+	/// @brief Represents a system that updates a cameras center to the entity it wants to track.
+	/// @author Rafael Plugge
+	/// 
+	/// <summary>
+	/// </summary>
 	class CameraFollowSystem : public BaseSystem
 	{
 	public: // Constructors/Destructor/Assignments

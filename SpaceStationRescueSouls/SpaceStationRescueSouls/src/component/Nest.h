@@ -5,6 +5,11 @@
 
 namespace app::comp
 {
+	/// 
+	/// @brief Represents a entity that spawns missiles.
+	/// 
+	/// <summary>
+	/// </summary>
 	struct Nest
 	{
 	public: // Constructors/Destructor/Assignments

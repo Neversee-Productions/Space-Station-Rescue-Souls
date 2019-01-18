@@ -3,6 +3,11 @@
 
 namespace app::comp
 {
+	/// 
+	/// @brief Represents a drawable rectangle.
+	/// 
+	/// <summary>
+	/// </summary>
 	struct RenderRect
 	{
 	public: // Constructors/Destructor/Assignments

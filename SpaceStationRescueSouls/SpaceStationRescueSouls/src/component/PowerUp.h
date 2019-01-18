@@ -3,12 +3,18 @@
 
 namespace app::comp
 {
+	/// 
+	/// @brief Entity that classifies as a power-up that can be picked up by a player.
+	/// @author Sebastian Kruzel
+	/// 
+	/// <summary>
+	/// </summary>
 	struct PowerUp
 	{
+		/// 
+		/// @brief Type of power up.
+		/// 
 		/// <summary>
-		/// @brief type of power up.
-		/// 
-		/// 
 		/// </summary>
 		enum class Type {
 			SPEED_UP,

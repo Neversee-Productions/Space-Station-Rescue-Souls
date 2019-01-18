@@ -3,6 +3,12 @@
 
 namespace app::comp
 {
+	/// 
+	/// @brief Represents the static geometry of the game world.
+	/// @author Rafael Plugge
+	/// 
+	/// <summary>
+	/// </summary>
 	struct RenderWorld
 	{
 	public: // Public struct

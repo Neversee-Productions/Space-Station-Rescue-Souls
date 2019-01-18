@@ -5,6 +5,12 @@
 
 namespace app::comp
 {
+	/// 
+	/// @brief Holds collision bounds that can be either a circle or rectangle.
+	/// @author Rafael Plugge
+	/// 
+	/// <summary>
+	/// </summary>
 	struct Collision
 	{
 	public: // Constructors/Destructor/Assignments

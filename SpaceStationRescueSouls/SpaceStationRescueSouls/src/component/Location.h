@@ -4,6 +4,11 @@
 
 namespace app::comp
 {
+	/// 
+	/// @brief Indicates the absolute position of the entity in the game world.
+	/// 
+	/// <summary>
+	/// </summary>
 	struct Location
 	{
 	public: // Constructors/Destructor/Assignments

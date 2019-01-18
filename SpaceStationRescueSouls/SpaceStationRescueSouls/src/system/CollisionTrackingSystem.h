@@ -5,6 +5,12 @@
 
 namespace app::sys
 {
+	/// 
+	/// @brief Sets the collision bounds to follow their respective entities location and dimensions.
+	/// @author Rafael Plugge
+	/// 
+	/// <summary>
+	/// </summary>
 	class CollisionTrackingSystem : public BaseSystem
 	{
 	public: // Constructors/Destructor/Assignments

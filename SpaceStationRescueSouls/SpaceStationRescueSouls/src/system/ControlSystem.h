@@ -5,10 +5,11 @@
 
 namespace app::sys 
 {
-	/// <summary>
+	/// 
 	/// @brief Class that responds to input.
 	/// @author Sebastian Kruzel
 	/// 
+	/// <summary>
 	/// </summary>
 	class ControlSystem :
 		public BaseSystem

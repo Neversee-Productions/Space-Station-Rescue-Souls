@@ -3,10 +3,11 @@
 
 namespace app::comp
 {
-	/// <summary>
-	/// @brief component that defines if the entity
+	/// 
+	/// @brief component that defines if the entity 
 	/// has health and therefore can get hit by ingame projectiles.
 	/// 
+	/// <summary>
 	/// </summary>
 	struct Health
 	{
