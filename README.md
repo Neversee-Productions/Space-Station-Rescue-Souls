@@ -3,9 +3,9 @@
 4th year project for Artificial Intelligence in Games.
 
 ## Authors
-
-- Rafael Plugge
-- Sebastian Kruzel
+# SPLIT
+- Rafael Plugge 50%
+- Sebastian Kruzel 50%
 
 ## Third Party Libraries
 
