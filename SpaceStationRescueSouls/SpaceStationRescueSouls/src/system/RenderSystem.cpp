@@ -32,8 +32,8 @@ void app::sys::RenderSystem::update(app::time::seconds const & dt)
 		{
 			m_renderShape.setPosition(location.position);
 			m_renderShape.setRotation(location.orientation);
-			m_renderShape.setSize(dimensions.size);
-			m_renderShape.setOrigin(dimensions.origin);
+			m_renderShape.setSize(camera.isRadar ? (dimensions.size * 4.0f) : dimensions.size);
+			m_renderShape.setOrigin(camera.isRadar ? (dimensions.origin * 4.0f) : dimensions.origin);
 			std::visit(vis::RenderFillVisitor(m_renderShape), renderRect.fill);
 			m_window.draw(m_renderShape);
 		});

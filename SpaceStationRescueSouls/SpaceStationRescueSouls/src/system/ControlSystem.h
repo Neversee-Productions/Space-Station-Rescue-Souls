@@ -35,7 +35,7 @@ namespace app::sys
 		const float m_rotate;
 
 		/// <summary>
-		/// @breif this is a shared ptr to bullet texture.
+		/// @brief this is a shared ptr to bullet texture.
 		/// 
 		/// 
 		/// </summary>

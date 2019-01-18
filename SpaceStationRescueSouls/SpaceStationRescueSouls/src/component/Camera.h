@@ -62,6 +62,20 @@ namespace app::comp
 				, w = 0.0f
 				, h = 0.0f;
 		}viewport;
+
+		/// 
+		/// @brief Whether to fill in the background.
+		/// 
+		/// <summary>
+		/// </summary>
+		bool fillBackground = false;
+
+		/// 
+		/// @brief Specifies whether its a radar.
+		/// 
+		/// <summary>
+		/// </summary>
+		bool isRadar = false;
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables

@@ -201,6 +201,21 @@
     <ClInclude Include="src\visitor\CollisionCircleManiVisitor.h">
       <Filter>Header Files\visitor</Filter>
     </ClInclude>
+    <ClInclude Include="src\component\PowerUp.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\system\PlayerSystem.h">
+      <Filter>Header Files\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\component\Shield.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\system\RenderTextSystem.h">
+      <Filter>Header Files\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\component\Text.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
     <ClInclude Include="src\system\NestSystem.h">
       <Filter>Header Files\system</Filter>
     </ClInclude>
@@ -361,6 +376,21 @@
     </ClCompile>
     <ClCompile Include="src\visitor\CollisionBoundsManiVisitor.cpp">
       <Filter>Source Files\visitor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\PowerUp.cpp">
+      <Filter>Source Files\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\system\PlayerSystem.cpp">
+      <Filter>Source Files\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\Shield.cpp">
+      <Filter>Source Files\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\system\RenderTextSystem.cpp">
+      <Filter>Source Files\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\Text.cpp">
+      <Filter>Source Files\component</Filter>
     </ClCompile>
     <ClCompile Include="src\component\Nest.cpp">
       <Filter>Source Files\component</Filter>

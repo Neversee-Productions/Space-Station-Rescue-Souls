@@ -11,6 +11,7 @@
 #include "component/Health.h"
 #include "component/Collision.h"
 #include "component/CollisionWorld.h"
+#include "component/PowerUp.h"
 
 #include "visitor/CollisionBoundsBoolVisitor.h"
 #include "visitor/CollisionBoundsManiVisitor.h"
@@ -39,6 +40,7 @@ void app::sys::CollisionSystem::update(app::time::seconds const & dt)
 	playerWorkerCollision();
 	seekerWorkerCollision();
 	projectileVsEnemy();
+	playerPowerUpCollision();
 	this->wallCollision();
 }
 
@@ -182,7 +184,6 @@ void app::sys::CollisionSystem::projectileVsEnemy()
 					//check for collision
 					if (cute::c2AABBtoAABB(projectileSquare, attackableSquare))
 					{
-						std::cout << "projectile hit enemy!" << std::endl;
 						health.amount -= projectile.damage;
 						if (health.amount <= 0)
 						{
@@ -236,4 +237,36 @@ void app::sys::CollisionSystem::wallCollision()
 			}
 		});
 	}
+}
+
+void app::sys::CollisionSystem::playerPowerUpCollision()
+{
+	m_registry.view<comp::Player, comp::Collision, comp::Location>()
+		.each([&, this](app::Entity const playerEnt, comp::Player & player, comp::Collision & playerCollision, comp::Location & playerLocation)
+	{
+		m_registry.view<comp::Location, comp::Collision, comp::PowerUp>(entt::persistent_t())
+			.each([&, this](app::Entity const powerUpEnt, comp::Location & powerUpLocation, comp::Collision & powerUpCollision, comp::PowerUp & powerUp)
+		{
+			
+			if (vis::CollisionBoundsBoolVisitor::collisionBetween(playerCollision.bounds, powerUpCollision.bounds))
+			{
+				pickupWorker.play();
+				switch (powerUp.powerUpType)
+				{
+				case comp::PowerUp::Type::FIRE_RATE_UP:
+					player.increasedFireRatePowerTime = 15.0f;
+					break;
+				case comp::PowerUp::Type::SHIELD:
+					player.shieldPowerTime = 15.0f;
+					break;
+				case comp::PowerUp::Type::SPEED_UP:
+					player.increasedSpeedPowerTime = 15.0f;
+					break;
+				default:
+					break;
+				}
+				m_registry.destroy(powerUpEnt);
+			}
+		});
+	});
 }

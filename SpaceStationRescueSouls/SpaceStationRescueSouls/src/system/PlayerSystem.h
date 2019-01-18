@@ -1,22 +1,26 @@
-﻿#ifndef _APP_SYSTEM_RENDER_SYSTEM_H
-#define _APP_SYSTEM_RENDER_SYSTEM_H
-
+﻿#ifndef _PLAYER_SYSTEM_H
+#define _PLAYER_SYSTEM_H
 #include "BaseSystem.h"
-#include "graphics/Window.h"
+
 
 namespace app::sys
 {
-	class RenderSystem : public BaseSystem
+	/// <summary>
+	/// @brief This system mostly deals with player power ups.
+	/// 
+	/// 
+	/// </summary>
+	class PlayerSystem : public BaseSystem
 	{
 	public: // Constructors/Destructor/Assignments
-		RenderSystem(app::gra::Window & window);
-		virtual ~RenderSystem() = default;
+		PlayerSystem();
+		PlayerSystem(PlayerSystem const &) = default;
+		PlayerSystem(PlayerSystem &&) = default;
 
-		RenderSystem(RenderSystem const &) = default;
-		RenderSystem(RenderSystem &&) = default;
+		~PlayerSystem() = default;
 
-		RenderSystem & operator=(RenderSystem const &) = default;
-		RenderSystem & operator=(RenderSystem &&) = default;
+		PlayerSystem & operator=(PlayerSystem const &) = default;
+		PlayerSystem & operator=(PlayerSystem &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
@@ -29,30 +33,31 @@ namespace app::sys
 	protected: // Protected Member Variables
 	private: // Private Static Functions
 	private: // Private Member Functions
+		void createShield(sf::Vector2f pos);
 	private: // Private Static Variables
 	private: // Private Member Variables
 		/// <summary>
-		/// @brief reference to game window.
+		/// @brief Texture of the shield.
 		/// 
 		/// 
 		/// </summary>
-		app::gra::Window & m_window;
+		std::shared_ptr<sf::Texture> shieldTexture;
+
 
 		/// <summary>
-		/// @brief shape to be rendered on screen.
+		/// @brief font used for the UI.
 		/// 
 		/// 
 		/// </summary>
-		sf::RectangleShape m_renderShape;
+		sf::Font font;
 
 		/// <summary>
-		/// @brief view to render the shape in.
+		/// @brief Text showing workers the player saved.
 		/// 
 		/// 
 		/// </summary>
-		sf::View m_view;
-
+		sf::Text workersText;
 	};
 }
 
-#endif // !_APP_SYSTEM_RENDER_SYSTEM_H
+#endif // !_PLAYER_SYSTEM_H

@@ -15,6 +15,8 @@
 #include "system/CollisionSystem.h"
 #include "system/DynamicMusicSystem.h"
 #include "system/SweeperSystem.h"
+#include "system/PlayerSystem.h"
+#include "system/RenderTextSystem.h"
 #include "system/NestSystem.h"
 #include "system/MissileSystem.h"
 
@@ -32,6 +34,7 @@
 #include "component/Health.h"
 #include "component/Collision.h"
 #include "component/CollisionWorld.h"
+#include "component/Text.h"
 #include "component/Nest.h"
 
 /// 
@@ -49,10 +52,13 @@ app::Game::Game()
 	, m_window(m_keyHandler, m_mouseHandler)
 	, m_updateSystems()
 	, m_renderSystems()
+	, speedPower(app::gra::loadTexture("./res/power_ups/speed.png"))
+	, fireRatePower(app::gra::loadTexture("./res/power_ups/fire_rate.png"))
+	, shieldPower(app::gra::loadTexture("./res/power_ups/shield.png"))
 {
 	m_running = this->initSystems()
 		&& this->initEntities();
-	
+	spawnNextPowerUps();
 }
 
 /// 
@@ -82,6 +88,13 @@ void app::Game::update(app::time::seconds const & dt)
 
 	m_keyHandler.update();
 	m_mouseHandler.update();
+
+	timeForNextPowerUp -= dt.count();
+	if (timeForNextPowerUp <= 0)
+	{
+		spawnNextPowerUps();
+		timeForNextPowerUp = 15.0f;
+	}
 }
 
 /// 
@@ -127,12 +140,14 @@ bool app::Game::initSystems()
 			std::make_unique<app::sys::MissileSystem>(),
 			std::make_unique<app::sys::CollisionTrackingSystem>(),
 			std::make_unique<app::sys::CollisionSystem>(),
-			std::make_unique<app::sys::DynamicMusicSystem>()
+			std::make_unique<app::sys::DynamicMusicSystem>(),
+			std::make_unique<app::sys::PlayerSystem>()
 		};
 
 		m_renderSystems = {
 			std::make_unique<sys::RenderWorldSystem>(m_window),
-			std::make_unique<sys::RenderSystem>(m_window)
+			std::make_unique<sys::RenderSystem>(m_window),
+			std::make_unique<sys::RenderTextSystem>(m_window)
 		};
 
 		return true;
@@ -163,6 +178,7 @@ bool app::Game::initEntities()
 		this->createRadar({});
 		this->createCamera(cameraFollowEntity);
 		this->createWorld();
+		this->createText();
 
 		return true;
 	}
@@ -185,6 +201,7 @@ bool app::Game::initEntities()
 /// <returns></returns>
 app::Entity const app::Game::createCamera(app::Entity const followEntity)
 {
+
 	assert(m_registry.valid(followEntity));
 	app::Entity const entity = m_registry.create();
 
@@ -210,6 +227,8 @@ app::Entity const app::Game::createRadar(std::optional<app::Entity> followEntity
 	camera.offset = { 0.0f, 0.0f };
 	camera.size = math::Vector2f{ 1900.0f, 1080.0f } * 8.0f;
 	camera.viewport = { -0.04f, 0.01f, 0.21f, 0.21f };
+	camera.fillBackground = true;
+	camera.isRadar = true;
 	m_registry.assign<decltype(camera)>(entity, std::move(camera));
 
 	return entity;
@@ -266,6 +285,24 @@ app::Entity const app::Game::createPlayer()
 	m_registry.assign<decltype(collision)>(entity, std::move(collision));
 
 	return entity;
+}
+
+/// <summary>
+/// @brief create the text for UI
+/// 
+/// 
+/// </summary>
+void app::Game::createText()
+{
+	app::Entity const entity = m_registry.create();
+
+	auto location = comp::Location();
+	location.position = { 570.0f, -520.0f };
+	m_registry.assign<decltype(location)>(entity, std::move(location));
+
+	auto text = comp::Text();
+	text.textToDisplay = "Workers saved: ";
+	m_registry.assign<decltype(text)>(entity, std::move(text));
 }
 
 /// <summary>
@@ -468,6 +505,72 @@ app::math::Vector2f app::Game::generateRoomPos(int roomNr)
 		break;
 	}
 	return position;
+}
+
+/// <summary>
+/// @brief this method will spawn 2 power ups
+/// randomly within the game.
+/// 
+/// 
+/// </summary>
+void app::Game::spawnNextPowerUps()
+{
+	int roomNr1 = rand() % 9 + 1;
+	int roomNr2 = rand() % 9 + 1;
+
+	int powerUpType1 = rand() % 3;
+	int powerUpType2 = rand() % 3;
+
+	createPowerUp(roomNr1, static_cast<app::comp::PowerUp::Type>(powerUpType1));
+	createPowerUp(roomNr2, static_cast<app::comp::PowerUp::Type>(powerUpType2));
+}
+
+/// <summary>
+/// @brief create a power up entity.
+/// 
+/// 
+/// </summary>
+/// <param name="position">position in the world</param>
+/// <param name="type">type of powerup</param>
+void app::Game::createPowerUp(int roomNr, comp::PowerUp::Type type)
+{
+	app::Entity const entity = m_registry.create();
+
+	auto location = comp::Location();
+	location.position = generateRoomPos(roomNr);
+	location.orientation = 0;
+	m_registry.assign<decltype(location)>(entity, std::move(location));
+
+	auto dimensions = comp::Dimensions();
+	dimensions.size = { 100.0f, 100.0f };
+	dimensions.origin = dimensions.size / 2.0f;
+	m_registry.assign<decltype(dimensions)>(entity, std::move(dimensions));
+
+	auto renderRect = comp::RenderRect();
+	switch (type)
+	{
+	case app::comp::PowerUp::Type::SPEED_UP:
+		renderRect.fill = speedPower;
+		break;
+	case app::comp::PowerUp::Type::FIRE_RATE_UP:
+		renderRect.fill = fireRatePower;
+		break;
+	case app::comp::PowerUp::Type::SHIELD:
+		renderRect.fill = shieldPower;
+		break;
+	default:
+		break;
+	}
+	m_registry.assign<decltype(renderRect)>(entity, std::move(renderRect));
+
+	auto collision = comp::Collision();
+	collision.bounds = cute::c2AABB();
+	m_registry.assign<decltype(collision)>(entity, std::move(collision));
+
+	auto powerUp = comp::PowerUp();
+	powerUp.powerUpType = type;
+	m_registry.assign<decltype(powerUp)>(entity, std::move(powerUp));
+
 }
 
 /// 

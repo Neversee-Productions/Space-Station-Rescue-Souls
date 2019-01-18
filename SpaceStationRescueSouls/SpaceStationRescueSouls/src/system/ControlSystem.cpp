@@ -48,7 +48,7 @@ void app::sys::ControlSystem::update(app::time::seconds const & dt)
 		{
 			//we only change the motion angle when thrusters are on otherwise it stays the same.
 			motion.angle = location.orientation;
-			motion.speed += 0.01f * dt.count();
+			motion.speed += motion.acceleration * dt.count();
 		}
 		else
 		{
@@ -80,7 +80,7 @@ app::sys::ControlSystem::~ControlSystem()
 }
 
 /// <summary>
-/// @breif This function spawns a bullet entity.
+/// @brief This function spawns a bullet entity.
 /// 
 /// 
 /// </summary>

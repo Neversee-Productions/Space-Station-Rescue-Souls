@@ -1,26 +1,31 @@
-﻿#ifndef _APP_SYSTEM_RENDER_SYSTEM_H
-#define _APP_SYSTEM_RENDER_SYSTEM_H
+﻿#ifndef _RENDER_SYSTEM_H
+#define _RENDER_SYSTEM_H
 
-#include "BaseSystem.h"
 #include "graphics/Window.h"
+#include "BaseSystem.h"
 
 namespace app::sys
 {
-	class RenderSystem : public BaseSystem
+	/// <summary>
+	/// @brief this class will render anything with a text component.
+	/// 
+	/// 
+	/// </summary>
+	class RenderTextSystem : public BaseSystem
 	{
 	public: // Constructors/Destructor/Assignments
-		RenderSystem(app::gra::Window & window);
-		virtual ~RenderSystem() = default;
+		RenderTextSystem(app::gra::Window & window);
+		~RenderTextSystem() = default;
 
-		RenderSystem(RenderSystem const &) = default;
-		RenderSystem(RenderSystem &&) = default;
+		RenderTextSystem(RenderTextSystem const &) = default;
+		RenderTextSystem(RenderTextSystem &&) = default;
 
-		RenderSystem & operator=(RenderSystem const &) = default;
-		RenderSystem & operator=(RenderSystem &&) = default;
+		RenderTextSystem & operator=(RenderTextSystem const &) = default;
+		RenderTextSystem & operator=(RenderTextSystem &&) = default;
 
 	public: // Public Static Functions
-	public: // Public Member Functions
 		virtual void update(app::time::seconds const & dt) override;
+	public: // Public Member Functions
 	public: // Public Static Variables
 	public: // Public Member Variables
 	protected: // Protected Static Functions
@@ -39,20 +44,19 @@ namespace app::sys
 		app::gra::Window & m_window;
 
 		/// <summary>
-		/// @brief shape to be rendered on screen.
+		/// @brief font to use.
 		/// 
 		/// 
 		/// </summary>
-		sf::RectangleShape m_renderShape;
+		sf::Font font;
 
 		/// <summary>
-		/// @brief view to render the shape in.
+		/// @brief view to render text in.
 		/// 
 		/// 
 		/// </summary>
-		sf::View m_view;
-
+		sf::View view;
 	};
 }
 
-#endif // !_APP_SYSTEM_RENDER_SYSTEM_H
+#endif // !_RENDER_SYSTEM_H

@@ -58,6 +58,13 @@ namespace app::comp
 		/// 
 		/// </summary>
 		float maxSpeed = 1.0f;
+
+		/// <summary>
+		/// @brief acceleration
+		/// 
+		/// 
+		/// </summary>
+		float acceleration = 0.01f;
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables
