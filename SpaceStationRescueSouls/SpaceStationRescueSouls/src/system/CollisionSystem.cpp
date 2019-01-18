@@ -215,7 +215,7 @@ void app::sys::CollisionSystem::projectileVsEnemy()
 	});
 	for (app::Entity const & entity : projectilesToDelete)
 	{
-		m_registry.destroy(entity);
+		if (m_registry.valid(entity)) m_registry.destroy(entity);
 	}
 	projectilesToDelete.clear();
 }

@@ -50,6 +50,7 @@ namespace app
 		app::Entity const createPlayer();
 		void createWorkers();
 		void createSweepers();
+		void createNests();
 		math::Vector2f generateRoomPos(int roomNr);
 	private: // Private Static Variables
 		/// 
@@ -92,7 +93,7 @@ namespace app
 		/// 
 		/// <summary>
 		/// </summary>
-		std::array<std::unique_ptr<app::sys::BaseSystem>, 9> m_updateSystems;
+		std::array<std::unique_ptr<app::sys::BaseSystem>, 11> m_updateSystems;
 
 		/// 
 		/// @brief container that holds pointers to the systems to run in the draw method.

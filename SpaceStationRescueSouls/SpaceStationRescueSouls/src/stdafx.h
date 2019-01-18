@@ -129,6 +129,7 @@
 #include "input/Keyhandler.h"
 #include "input/MouseHandler.h"
 
+#include "math/Math.h"
 #include "math/Vector2.h"
 
 #include "utilities/Time.h"

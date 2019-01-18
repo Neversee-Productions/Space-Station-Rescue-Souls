@@ -11,26 +11,30 @@
 /// 
 /// </summary>
 app::sys::DynamicMusicSystem::DynamicMusicSystem()
+	: BaseSystem()
+	, m_musicCalm()
+	, m_musicIntense()
+	, m_currentMusic(nullptr)
 {
-	if (!music_calm.openFromFile("./res/music_calm.wav"))
+	if (!m_musicCalm.openFromFile("./res/music_calm.wav"))
 	{
 		Console::writeLine("Could not load music_calm.wav");
 	}
 	else
 	{
-		music_calm.setVolume(30.0f);
-		music_calm.setLoop(true);
-		music_calm.play();
-		current_music = &music_calm;
+		m_musicCalm.setVolume(30.0f);
+		m_musicCalm.setLoop(true);
+		m_musicCalm.play();
+		m_currentMusic = &m_musicCalm;
 	}
-	if (!music_intense.openFromFile("./res/music_intense.wav"))
+	if (!m_musicIntense.openFromFile("./res/music_intense.wav"))
 	{
 		Console::writeLine("Could not load music_intense.wav");
 	}
 	else
 	{
-		music_intense.setVolume(30.0f);
-		music_intense.setLoop(true);
+		m_musicIntense.setVolume(30.0f);
+		m_musicIntense.setLoop(true);
 	}
 }
 
@@ -47,18 +51,18 @@ void app::sys::DynamicMusicSystem::fadeToSong(sf::Music & newSong)
 
 		//if volume of old song is low enough play new song
 		//and set current music to new song
-		if (current_music->getVolume() < 5.0f)
+		if (m_currentMusic->getVolume() < 5.0f)
 		{
-			current_music->stop();
-			current_music->setVolume(30.0f);
+			m_currentMusic->stop();
+			m_currentMusic->setVolume(30.0f);
 			newSong.play();
-			current_music = &newSong;
+			m_currentMusic = &newSong;
 
 		}
 		else
 		{
 			//otherwise lower volume of current song
-			current_music->setVolume(current_music->getVolume() - 0.5f);
+			m_currentMusic->setVolume(m_currentMusic->getVolume() - 0.5f);
 		}
 	}
 }
@@ -79,17 +83,17 @@ void app::sys::DynamicMusicSystem::update(app::time::seconds const & dt)
 		{
 			if ((playerLocation.position - location.position).magnitude() < 700)
 			{
-				enemyCount++;
+				m_enemyCount++;
 			}
 		});
 	});
-	if (enemyCount > 0)
+	if (m_enemyCount > 0)
 	{
-		fadeToSong(music_intense);
+		fadeToSong(m_musicIntense);
 	}
 	else
 	{
-		fadeToSong(music_calm);
+		fadeToSong(m_musicCalm);
 	}
-	enemyCount = 0;
+	m_enemyCount = 0;
 }

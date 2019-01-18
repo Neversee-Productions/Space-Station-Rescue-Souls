@@ -35,6 +35,24 @@ app::math::Vector2<T> const app::math::Vector2<T>::unit(Vector2<T> const & v)
 }
 
 template<typename T>
+T app::math::Vector2<T>::dot(Vector2<T> const & left, Vector2<T> const & right)
+{
+	return (left.x * right.x) + (left.y * right.y);
+}
+
+template<typename T>
+T app::math::Vector2<T>::det(Vector2<T> const & left, Vector2<T> const & right)
+{
+	return (left.x * right.y) - (left.y * right.x);
+}
+
+template<typename T>
+T app::math::Vector2<T>::angleBetween(Vector2<T> const & left, Vector2<T> const & right)
+{
+	return static_cast<T>(math::toDegrees(std::atan2(Vector2<T>::det(left, right), Vector2<T>::dot(left, right))));
+}
+
+template<typename T>
 app::math::Vector2<T> & app::math::Vector2<T>::operator+=(Vector2 const & v)
 {
 	this->x += v.x;
@@ -141,9 +159,27 @@ app::math::Vector2<T> app::math::Vector2<T>::unit() const
 }
 
 template<typename T>
-float app::math::Vector2<T>::dot(app::math::Vector2<T> other) const
+T app::math::Vector2<T>::dot(app::math::Vector2<T> const & other) const
 {
-	return (this->x * other.x) + (this->y * other.y);
+	return app::math::Vector2<T>::dot(*this, other);
+}
+
+template<typename T>
+T app::math::Vector2<T>::det(Vector2<T> const & other) const
+{
+	return app::math::Vector2<T>::det(*this, other);
+}
+
+template<typename T>
+T app::math::Vector2<T>::toAngle() const
+{
+	return static_cast<T>(math::toDegrees(std::atan2(this->x, this->y)));
+}
+
+template<typename T>
+T app::math::Vector2<T>::angleBetween(Vector2<T> const & other) const
+{
+	return app::math::Vector2<T>::angleBetween(*this, other);
 }
 
 template<typename T>
