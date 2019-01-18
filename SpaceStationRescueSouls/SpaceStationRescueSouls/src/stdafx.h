@@ -17,6 +17,7 @@
 #pragma comment(lib,"sfml-system-d.lib")
 #pragma comment(lib,"sfml-window-d.lib")
 #pragma comment(lib,"sfml-network-d.lib")
+#pragma comment(lib,"thor-d.lib")
 
 /*********************************/
 /**     END Debug Libraries     **/
@@ -33,6 +34,7 @@
 #pragma comment(lib,"sfml-system.lib")
 #pragma comment(lib,"sfml-window.lib")
 #pragma comment(lib,"sfml-network.lib")
+#pragma comment(lib,"thor.lib")
 
 /*********************************/
 /**    END Release Libraries    **/
@@ -108,6 +110,15 @@
 #include <SFML/Network.hpp>
 #include <SFML/Audio.hpp>
 
+// Thor Library
+#include <Thor/Animations.hpp>
+#include <Thor/Config.hpp>
+#include <Thor/Graphics.hpp>
+#include <Thor/Input.hpp>
+#include <Thor/Math.hpp>
+#include <Thor/Particles.hpp>
+#include <Thor/Resources.hpp>
+
 // Entt Library
 #include <Entt/entt.hpp>
 
@@ -118,6 +129,7 @@
 #include "input/Keyhandler.h"
 #include "input/MouseHandler.h"
 
+#include "math/Math.h"
 #include "math/Vector2.h"
 
 #include "utilities/Time.h"
